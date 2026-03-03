@@ -26,6 +26,9 @@ access: 3rd-Party
 created: '2025-06-06'
 modified: '2025-09-02'
 position: Consumer
+segments:
+  - Embedded_iPaaS
+  - Workflows
 description: >-
   Build with the precision of code or the speed of drag-n-drop. Host with
   on-prem control or in-the-cloud convenience. n8n gives you more freedom to
