@@ -1,15 +1,29 @@
 aid: n8n
+name: n8n
+description: >-
+  Build with the precision of code or the speed of drag-n-drop. Host with
+  on-prem control or in-the-cloud convenience. n8n gives you more freedom to
+  implement multi-step AI agents and integrate apps than any other tool.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/apis.yml
+created: '2025-06-06'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+tags:
+  - Artificial Intelligence
+  - Integrations
+  - Agents
 apis:
   - aid: n8n:n8n
     name: n8n
     tags:
       - Artificial Intelligence
-      - INtegrations
+      - Integrations
       - Agents
-    humanURL: ' https://n8n.io/'
+    humanURL: https://n8n.io/
     properties:
-      - url: ' https://n8n.io/'
+      - url: https://n8n.io/
         type: Documentation
     description: >-
       Build with the precision of code or the speed of drag-n-drop. Host with
@@ -28,36 +42,20 @@ apis:
       - url: https://docs.n8n.io/api/
         type: Documentation
       - url: https://docs.n8n.io/api/api-reference/
-        type: API Reference
+        type: Reference
       - url: https://docs.n8n.io/api/authentication/
         type: Authentication
     description: >-
       The n8n public REST API provides programmatic access to n8n instance
       resources including workflows, executions, credentials, users, tags, and
-      variables. The API follows REST principles and requires API key
-      authentication via the X-N8N-API-KEY header. All endpoints use the
-      /api/v1 base path and return JSON responses.
+      variables.
 common:
   - url: https://n8n.io/
     type: Portal
   - url: https://docs.n8n.io/
     type: Documentation
-  - url: https://docs.n8n.io/api/
-    type: API Documentation
-  - url: https://docs.n8n.io/api/api-reference/
-    type: API Reference
-  - url: https://docs.n8n.io/api/authentication/
-    type: Authentication
   - url: https://docs.n8n.io/try-it-out/quickstart/
     type: Getting Started
-  - url: https://n8n.io/integrations/
-    type: Integrations
-  - url: https://docs.n8n.io/integrations/
-    type: Integrations
-  - url: https://docs.n8n.io/code/
-    type: Documentation
-  - url: https://docs.n8n.io/advanced-ai/
-    type: Documentation
   - url: https://app.n8n.cloud/login
     type: Login
   - url: https://app.n8n.cloud/magic-link
@@ -69,52 +67,15 @@ common:
   - url: https://docs.n8n.io/release-notes/
     type: Change Log
   - url: https://community.n8n.io/
-    type: Forums
-  - url: https://github.com/n8n-io/n8n
-    type: GitHub Repository
+    type: Community
   - url: https://github.com/n8n-io
     type: GitHub Organization
-  - url: https://github.com/n8n-io/n8n-docs
-    type: GitHub Repository
   - url: https://n8n.io/legal/privacy/
     type: Privacy Policy
-  - url: https://n8n.io/legal/security/
-    type: Security
   - url: https://n8n.io/legal/
     type: Terms of Service
-  - url: https://n8n.io/legal/self-serve-terms/
-    type: Terms of Service
-  - url: https://docs.n8n.io/privacy-security/
-    type: Privacy Policy
-  - url: https://n8n.io/features/
-    type: Features
-  - url: https://n8n.io/workflows/
-    type: Workflows
-  - url: https://docs.n8n.io/integrations/custom-operations/
-    type: Documentation
-  - url: https://docs.n8n.io/hosting/configuration/environment-variables/endpoints/
-    type: Documentation
-  - url: https://n8n.io/press/
-    type: Press
-name: n8n
-tags:
-  - Artificial Intelligence
-  - INtegrations
-  - Agents
-type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-access: 3rd-Party
-created: '2025-06-06'
-modified: '2026-03-03'
-position: Consumer
-segments:
-  - Embedded_iPaaS
-  - Workflows
-description: >-
-  Build with the precision of code or the speed of drag-n-drop. Host with
-  on-prem control or in-the-cloud convenience. n8n gives you more freedom to
-  implement multi-step AI agents and integrate apps than any other tool.
+  - url: https://n8n.io/legal/security/
+    type: Security
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-specificationVersion: '0.19'
