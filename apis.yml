@@ -11,16 +11,16 @@ created: '2025-06-06'
 modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
+  - Agents
   - Artificial Intelligence
   - Integrations
-  - Agents
 apis:
   - aid: n8n:n8n
     name: N8n
     tags:
+      - Agents
       - Artificial Intelligence
       - Integrations
-      - Agents
     humanURL: https://n8n.io/
     properties:
       - url: https://n8n.io/
@@ -33,9 +33,9 @@ apis:
     name: N8n REST API
     tags:
       - Automation
-      - Workflows
-      - Executions
       - Credentials
+      - Executions
+      - Workflows
     humanURL: https://docs.n8n.io/api/
     baseURL: https://app.n8n.cloud/api/v1
     properties:
