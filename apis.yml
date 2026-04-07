@@ -1,5 +1,5 @@
 aid: n8n
-name: n8n
+name: N8n
 description: >-
   Build with the precision of code or the speed of drag-n-drop. Host with
   on-prem control or in-the-cloud convenience. n8n gives you more freedom to
@@ -16,7 +16,7 @@ tags:
   - Agents
 apis:
   - aid: n8n:n8n
-    name: n8n
+    name: N8n
     tags:
       - Artificial Intelligence
       - Integrations
@@ -30,7 +30,7 @@ apis:
       on-prem control or in-the-cloud convenience. n8n gives you more freedom to
       implement multi-step AI agents and integrate apps than any other tool.
   - aid: n8n:n8n-rest-api
-    name: n8n REST API
+    name: N8n REST API
     tags:
       - Automation
       - Workflows
