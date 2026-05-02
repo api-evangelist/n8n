@@ -16,7 +16,7 @@ Build with the precision of code or the speed of drag-n-drop. Host with on-prem 
 ## Timestamps
 
 - **Created:** 2025-06-06 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
@@ -49,6 +49,7 @@ The n8n public REST API provides programmatic access to n8n instance resources i
 - [Documentation](https://docs.n8n.io/api/)
 - [Reference](https://docs.n8n.io/api/api-reference/)
 - [Authentication](https://docs.n8n.io/api/authentication/)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/openapi/n8n-openapi.yml)
 
 ## Common Properties
 

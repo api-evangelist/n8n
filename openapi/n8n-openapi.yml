@@ -1,0 +1,1169 @@
+openapi: 3.0.0
+info:
+  title: n8n Public API
+  description: >-
+    The n8n public REST API provides programmatic access to n8n instance
+    resources including workflows, executions, credentials, users, tags,
+    variables, projects, source control, audit, data tables, community
+    packages, folders, and insights.
+  termsOfService: https://n8n.io/legal/#terms
+  contact:
+    name: n8n
+    url: https://n8n.io/
+    email: hello@n8n.io
+  license:
+    name: Sustainable Use License
+    url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+  version: 1.1.1
+externalDocs:
+  description: n8n API documentation
+  url: https://docs.n8n.io/api/
+servers:
+  - url: https://app.n8n.cloud/api/v1
+    description: n8n Cloud
+  - url: '{baseUrl}/api/v1'
+    description: Self-hosted n8n
+    variables:
+      baseUrl:
+        default: http://localhost:5678
+tags:
+  - name: Audit
+    description: Operations about security audit
+  - name: Credential
+    description: Operations about credentials
+  - name: Execution
+    description: Operations about executions
+  - name: Workflow
+    description: Operations about workflows
+  - name: Tags
+    description: Operations about tags
+  - name: User
+    description: Operations about users
+  - name: SourceControl
+    description: Operations about source control
+  - name: Variables
+    description: Operations about variables
+  - name: DataTable
+    description: Operations about data tables and their rows
+  - name: Projects
+    description: Operations about projects
+  - name: CommunityPackage
+    description: Operations about community packages
+  - name: Discover
+    description: API capability discovery
+  - name: Insights
+    description: Operations about insights
+  - name: Folders
+    description: Operations about folders
+paths:
+  /audit:
+    post:
+      tags:
+        - Audit
+      summary: Generate an audit
+      operationId: generateAudit
+      description: Generate a security audit for your n8n instance.
+      responses:
+        '200':
+          description: Operation successful.
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /credentials:
+    post:
+      tags:
+        - Credential
+      summary: Create a credential
+      operationId: createCredential
+      description: Creates a credential that can be used by nodes of the specified type.
+      responses:
+        '200':
+          description: Operation successful.
+        '401':
+          description: Unauthorized
+        '415':
+          description: Unsupported media type
+  /credentials/{id}:
+    delete:
+      tags:
+        - Credential
+      summary: Delete credential by ID
+      operationId: deleteCredential
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The credential ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /credentials/{id}/test:
+    post:
+      tags:
+        - Credential
+      summary: Test a credential
+      operationId: testCredential
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /credentials/schema/{credentialTypeName}:
+    get:
+      tags:
+        - Credential
+      summary: Show credential data schema
+      operationId: getCredentialSchema
+      parameters:
+        - name: credentialTypeName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /credentials/{id}/transfer:
+    put:
+      tags:
+        - Credential
+      summary: Transfer a credential to another project
+      operationId: transferCredential
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /executions:
+    get:
+      tags:
+        - Execution
+      summary: Retrieve all executions
+      operationId: getExecutions
+      description: Retrieve all executions from your instance.
+      parameters:
+        - name: includeData
+          in: query
+          schema:
+            type: boolean
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [error, success, waiting]
+        - name: workflowId
+          in: query
+          schema:
+            type: string
+        - name: projectId
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: number
+            default: 100
+        - name: cursor
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /executions/{id}:
+    get:
+      tags:
+        - Execution
+      summary: Retrieve an execution
+      operationId: getExecution
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+        - name: includeData
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+        - Execution
+      summary: Delete an execution
+      operationId: deleteExecution
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful.
+  /executions/{id}/retry:
+    post:
+      tags:
+        - Execution
+      summary: Retry an execution
+      operationId: retryExecution
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful.
+  /executions/{id}/stop:
+    post:
+      tags:
+        - Execution
+      summary: Stop an execution
+      operationId: stopExecution
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful.
+  /executions/stop:
+    post:
+      tags:
+        - Execution
+      summary: Stop multiple executions
+      operationId: stopExecutions
+      responses:
+        '200':
+          description: Operation successful.
+  /executions/{id}/tags:
+    put:
+      tags:
+        - Execution
+      summary: Update tags on an execution
+      operationId: updateExecutionTags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful.
+  /tags:
+    post:
+      tags:
+        - Tags
+      summary: Create a tag
+      operationId: createTag
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - Tags
+      summary: Retrieve all tags
+      operationId: getTags
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: number
+        - name: cursor
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /tags/{id}:
+    get:
+      tags:
+        - Tags
+      summary: Retrieves a tag
+      operationId: getTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+        - Tags
+      summary: Delete a tag
+      operationId: deleteTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    put:
+      tags:
+        - Tags
+      summary: Update a tag
+      operationId: updateTag
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows:
+    post:
+      tags:
+        - Workflow
+      summary: Create a workflow
+      operationId: createWorkflow
+      responses:
+        '200':
+          description: Operation successful.
+    get:
+      tags:
+        - Workflow
+      summary: Retrieve all workflows
+      operationId: getWorkflows
+      parameters:
+        - name: active
+          in: query
+          schema:
+            type: boolean
+        - name: tags
+          in: query
+          schema:
+            type: string
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: projectId
+          in: query
+          schema:
+            type: string
+        - name: excludePinnedData
+          in: query
+          schema:
+            type: boolean
+        - name: limit
+          in: query
+          schema:
+            type: number
+            default: 100
+        - name: cursor
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}:
+    get:
+      tags:
+        - Workflow
+      summary: Retrieves a workflow
+      operationId: getWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: excludePinnedData
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+        - Workflow
+      summary: Delete a workflow
+      operationId: deleteWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    put:
+      tags:
+        - Workflow
+      summary: Update a workflow
+      operationId: updateWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/{versionId}:
+    get:
+      tags:
+        - Workflow
+      summary: Retrieves a specific version of a workflow
+      operationId: getWorkflowVersion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: versionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/activate:
+    post:
+      tags:
+        - Workflow
+      summary: Activate a workflow
+      operationId: activateWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/deactivate:
+    post:
+      tags:
+        - Workflow
+      summary: Deactivate a workflow
+      operationId: deactivateWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/archive:
+    post:
+      tags:
+        - Workflow
+      summary: Archive a workflow
+      operationId: archiveWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/unarchive:
+    post:
+      tags:
+        - Workflow
+      summary: Unarchive a workflow
+      operationId: unarchiveWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/transfer:
+    put:
+      tags:
+        - Workflow
+      summary: Transfer a workflow to another project
+      operationId: transferWorkflow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/tags:
+    get:
+      tags:
+        - Workflow
+      summary: Get workflow tags
+      operationId: getWorkflowTags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    put:
+      tags:
+        - Workflow
+      summary: Update tags of a workflow
+      operationId: updateWorkflowTags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /users:
+    get:
+      tags:
+        - User
+      summary: Retrieve all users
+      operationId: getUsers
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: number
+        - name: cursor
+          in: query
+          schema:
+            type: string
+        - name: includeRole
+          in: query
+          schema:
+            type: boolean
+        - name: projectId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - User
+      summary: Create multiple users
+      operationId: createUsers
+      responses:
+        '200':
+          description: Operation successful.
+  /users/{id}:
+    get:
+      tags:
+        - User
+      summary: Get user by ID/Email
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: includeRole
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+        - User
+      summary: Delete a user
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: User deleted
+  /users/{id}/role:
+    patch:
+      tags:
+        - User
+      summary: Change a user's global role
+      operationId: changeUserRole
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /source-control/pull:
+    post:
+      tags:
+        - SourceControl
+      summary: Pull changes from the remote repository
+      operationId: sourceControlPull
+      responses:
+        '200':
+          description: Operation successful.
+  /variables:
+    post:
+      tags:
+        - Variables
+      summary: Create a variable
+      operationId: createVariable
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - Variables
+      summary: Retrieve variables
+      operationId: getVariables
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: number
+        - name: cursor
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /variables/{id}:
+    delete:
+      tags:
+        - Variables
+      summary: Delete a variable
+      operationId: deleteVariable
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Variable deleted
+    put:
+      tags:
+        - Variables
+      summary: Update a variable
+      operationId: updateVariable
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables:
+    get:
+      tags:
+        - DataTable
+      summary: List all data tables
+      operationId: listDataTables
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - DataTable
+      summary: Create a data table
+      operationId: createDataTable
+      responses:
+        '201':
+          description: Created
+  /data-tables/{dataTableId}:
+    get:
+      tags:
+        - DataTable
+      summary: Get a data table
+      operationId: getDataTable
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+        - DataTable
+      summary: Delete a data table
+      operationId: deleteDataTable
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+    patch:
+      tags:
+        - DataTable
+      summary: Update a data table
+      operationId: updateDataTable
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/rows:
+    get:
+      tags:
+        - DataTable
+      summary: List rows in a data table
+      operationId: listDataTableRows
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - DataTable
+      summary: Insert rows into a data table
+      operationId: insertDataTableRows
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Created
+  /data-tables/{dataTableId}/rows/update:
+    post:
+      tags:
+        - DataTable
+      summary: Update rows in a data table
+      operationId: updateDataTableRows
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/rows/upsert:
+    post:
+      tags:
+        - DataTable
+      summary: Upsert rows in a data table
+      operationId: upsertDataTableRows
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/rows/delete:
+    post:
+      tags:
+        - DataTable
+      summary: Delete rows in a data table
+      operationId: deleteDataTableRows
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/columns:
+    get:
+      tags:
+        - DataTable
+      summary: List columns in a data table
+      operationId: listDataTableColumns
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - DataTable
+      summary: Add a column to a data table
+      operationId: addDataTableColumn
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Created
+  /data-tables/{dataTableId}/columns/{columnId}:
+    delete:
+      tags:
+        - DataTable
+      summary: Delete a column from a data table
+      operationId: deleteDataTableColumn
+      parameters:
+        - name: dataTableId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: columnId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+  /projects:
+    post:
+      tags:
+        - Projects
+      summary: Create a project
+      operationId: createProject
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - Projects
+      summary: Retrieve projects
+      operationId: getProjects
+      responses:
+        '200':
+          description: Operation successful.
+  /projects/{projectId}:
+    delete:
+      tags:
+        - Projects
+      summary: Delete a project
+      operationId: deleteProject
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+    put:
+      tags:
+        - Projects
+      summary: Update a project
+      operationId: updateProject
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /projects/{projectId}/users:
+    get:
+      tags:
+        - Projects
+      summary: Get project users
+      operationId: getProjectUsers
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - Projects
+      summary: Add users to a project
+      operationId: addProjectUsers
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /projects/{projectId}/users/{userId}:
+    delete:
+      tags:
+        - Projects
+      summary: Remove a user from a project
+      operationId: removeProjectUser
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Removed
+    patch:
+      tags:
+        - Projects
+      summary: Change a user's role within a project
+      operationId: changeProjectUserRole
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /community-packages:
+    get:
+      tags:
+        - CommunityPackage
+      summary: List installed community packages
+      operationId: listCommunityPackages
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - CommunityPackage
+      summary: Install a community package
+      operationId: installCommunityPackage
+      responses:
+        '201':
+          description: Installed
+  /community-packages/{name}:
+    delete:
+      tags:
+        - CommunityPackage
+      summary: Uninstall a community package
+      operationId: uninstallCommunityPackage
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Uninstalled
+    patch:
+      tags:
+        - CommunityPackage
+      summary: Update a community package
+      operationId: updateCommunityPackage
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /discover:
+    get:
+      tags:
+        - Discover
+      summary: Discover API capabilities
+      operationId: discoverApi
+      responses:
+        '200':
+          description: Operation successful.
+  /insights/summary:
+    get:
+      tags:
+        - Insights
+      summary: Get insights summary
+      operationId: getInsightsSummary
+      responses:
+        '200':
+          description: Operation successful.
+  /projects/{projectId}/folders:
+    get:
+      tags:
+        - Folders
+      summary: List folders in a project
+      operationId: listFolders
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+        - Folders
+      summary: Create a folder in a project
+      operationId: createFolder
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Created
+  /projects/{projectId}/folders/{folderId}:
+    get:
+      tags:
+        - Folders
+      summary: Get a folder
+      operationId: getFolder
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: folderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+        - Folders
+      summary: Delete a folder
+      operationId: deleteFolder
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: folderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+    patch:
+      tags:
+        - Folders
+      summary: Update a folder
+      operationId: updateFolder
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: folderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-N8N-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - ApiKeyAuth: []
+  - BearerAuth: []
