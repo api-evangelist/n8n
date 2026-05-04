@@ -1,0 +1,33 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: n8n
+providerId: n8n
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Workflow
+description: n8n Cloud REST API and webhook rate limits per workspace.
+sources:
+  - https://n8n.io/pricing/
+  - https://docs.n8n.io/api/api-reference/
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+  - name: REST API
+    scope: workspace
+    metric: requests_per_minute
+    limit: 60
+    timeFrame: minute
+  - name: Webhook trigger
+    scope: workflow
+    metric: requests_per_second
+    limit: tier-based
+  - name: Concurrent executions
+    scope: workspace
+    metric: concurrent
+    limit: tier-based (5-200+)

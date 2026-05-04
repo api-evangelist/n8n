@@ -1,0 +1,136 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: n8n
+providerId: n8n
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Workflow
+  - Automation
+  - iPaaS
+description: 'n8n Cloud tiers: Starter / Pro / Business / Enterprise (annual EUR pricing).'
+sources:
+  - https://n8n.io/pricing/
+plans:
+  - id: n8n-starter
+    name: Starter
+    type: paid
+    description: €20/month annual; 2,500 workflow executions.
+    entries:
+      - label: Monthly (annual)
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: EU
+        unit: 1
+        price: 20.00 EUR
+        userMultiplied: false
+      - label: Workflow executions
+        name: executions
+        type: quota
+        metric: execution
+        limit: 2500
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 1 shared project
+      - name: 5 concurrent executions
+      - name: Unlimited users
+      - name: 50 AI Workflow Builder credits
+      - name: Forum support
+  - id: n8n-pro
+    name: Pro
+    type: paid
+    description: €50/month annual; 10,000 executions.
+    entries:
+      - label: Monthly (annual)
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: EU
+        unit: 1
+        price: 50.00 EUR
+        userMultiplied: false
+      - label: Workflow executions
+        name: executions
+        type: quota
+        metric: execution
+        limit: 10000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 3 shared projects
+      - name: 20 concurrent executions
+      - name: 7 days of insights
+      - name: 150 AI credits
+      - name: Admin roles
+      - name: Global variables
+      - name: Workflow history
+      - name: Execution search
+  - id: n8n-business
+    name: Business
+    type: paid
+    description: €667/month annual; 40,000 executions.
+    entries:
+      - label: Monthly (annual)
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: EU
+        unit: 1
+        price: 667.00 EUR
+        userMultiplied: false
+      - label: Workflow executions
+        name: executions
+        type: quota
+        metric: execution
+        limit: 40000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 6 shared projects
+      - name: SSO/SAML/LDAP
+      - name: 30 days of insights
+      - name: Multiple environments
+      - name: Git version control
+      - name: Self-hosted option
+  - id: n8n-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom pricing.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Unlimited shared projects
+      - name: 200+ concurrent executions
+      - name: 365 days of insights
+      - name: 1,000 AI credits
+      - name: External secret store
+      - name: Log streaming
+      - name: Dedicated SLA support
