@@ -1,0 +1,13 @@
+{
+  "repo": "n8n",
+  "feeds": [
+    {
+      "source": "https://blog.n8n.io/",
+      "feed_url": "https://blog.n8n.io/rss/",
+      "saved": 10,
+      "title": "n8n Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:32:25Z"
+}
