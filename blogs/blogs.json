@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://blog.n8n.io/",
-      "feed_url": "https://blog.n8n.io/rss/",
-      "saved": 10,
-      "title": "n8n Blog"
+      "feed_url": "https://blog.n8n.io/feed/",
+      "title": "n8n Blog",
+      "saved": 4
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-03T23:32:25Z"
+  "post_count": 14,
+  "fetched": "2026-05-09T20:17:51Z"
 }
