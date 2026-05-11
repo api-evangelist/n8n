@@ -95,6 +95,23 @@ common:
     sources:
       - https://n8n.io/pricing/
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://n8n.io/integrations
+integrations:
+  - name: AI Agent
+  - name: HTTP Request
+  - name: Send Email
+  - name: Spreadsheet File
+  - name: Google Sheets
+  - name: Telegram
+  - name: MySQL
+  - name: Slack
+  - name: Discord
+  - name: Postgres
+  - name: Notion
+  - name: Gmail
+  - name: Airtable
+  - name: Google Drive
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
