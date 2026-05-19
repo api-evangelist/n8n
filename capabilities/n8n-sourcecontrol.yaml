@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: n8n Public API — SourceControl
+  description: 'n8n Public API — SourceControl. 1 operations. Lead operation: Pull changes from the remote repository. Self-contained
+    Naftiko capability covering one N8n business surface.'
+  tags:
+  - N8n
+  - SourceControl
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    N8N_API_KEY: N8N_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: n8n-sourcecontrol
+    baseUri: https://app.n8n.cloud/api/v1
+    description: n8n Public API — SourceControl business capability. Self-contained, no shared references.
+    resources:
+    - name: source-control-pull
+      path: /source-control/pull
+      operations:
+      - name: sourcecontrolpull
+        method: POST
+        description: Pull changes from the remote repository
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.N8N_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: n8n-sourcecontrol-rest
+    port: 8080
+    description: REST adapter for n8n Public API — SourceControl. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/source-control/pull
+      name: source-control-pull
+      description: REST surface for source-control-pull.
+      operations:
+      - method: POST
+        name: sourcecontrolpull
+        description: Pull changes from the remote repository
+        call: n8n-sourcecontrol.sourcecontrolpull
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: n8n-sourcecontrol-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for n8n Public API — SourceControl. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: pull-changes-remote-repository
+      description: Pull changes from the remote repository
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: n8n-sourcecontrol.sourcecontrolpull
+      outputParameters:
+      - type: object
+        mapping: $.

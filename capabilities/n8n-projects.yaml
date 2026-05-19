@@ -1,0 +1,332 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: n8n Public API — Projects
+  description: 'n8n Public API — Projects. 8 operations. Lead operation: Create a project. Self-contained Naftiko capability
+    covering one N8n business surface.'
+  tags:
+  - N8n
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    N8N_API_KEY: N8N_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: n8n-projects
+    baseUri: https://app.n8n.cloud/api/v1
+    description: n8n Public API — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: projects
+      path: /projects
+      operations:
+      - name: createproject
+        method: POST
+        description: Create a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getprojects
+        method: GET
+        description: Retrieve projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectId
+      path: /projects/{projectId}
+      operations:
+      - name: deleteproject
+        method: DELETE
+        description: Delete a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+      - name: updateproject
+        method: PUT
+        description: Update a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+    - name: projects-projectId-users
+      path: /projects/{projectId}/users
+      operations:
+      - name: getprojectusers
+        method: GET
+        description: Get project users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+      - name: addprojectusers
+        method: POST
+        description: Add users to a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+    - name: projects-projectId-users-userId
+      path: /projects/{projectId}/users/{userId}
+      operations:
+      - name: removeprojectuser
+        method: DELETE
+        description: Remove a user from a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: userId
+          in: path
+          type: string
+          required: true
+      - name: changeprojectuserrole
+        method: PATCH
+        description: Change a user's role within a project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: userId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.N8N_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: n8n-projects-rest
+    port: 8080
+    description: REST adapter for n8n Public API — Projects. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects
+      name: projects
+      description: REST surface for projects.
+      operations:
+      - method: POST
+        name: createproject
+        description: Create a project
+        call: n8n-projects.createproject
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getprojects
+        description: Retrieve projects
+        call: n8n-projects.getprojects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}
+      name: projects-projectid
+      description: REST surface for projects-projectId.
+      operations:
+      - method: DELETE
+        name: deleteproject
+        description: Delete a project
+        call: n8n-projects.deleteproject
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateproject
+        description: Update a project
+        call: n8n-projects.updateproject
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/users
+      name: projects-projectid-users
+      description: REST surface for projects-projectId-users.
+      operations:
+      - method: GET
+        name: getprojectusers
+        description: Get project users
+        call: n8n-projects.getprojectusers
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addprojectusers
+        description: Add users to a project
+        call: n8n-projects.addprojectusers
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/users/{userid}
+      name: projects-projectid-users-userid
+      description: REST surface for projects-projectId-users-userId.
+      operations:
+      - method: DELETE
+        name: removeprojectuser
+        description: Remove a user from a project
+        call: n8n-projects.removeprojectuser
+        with:
+          projectId: rest.projectId
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: changeprojectuserrole
+        description: Change a user's role within a project
+        call: n8n-projects.changeprojectuserrole
+        with:
+          projectId: rest.projectId
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: n8n-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for n8n Public API — Projects. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-project
+      description: Create a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: n8n-projects.createproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-projects
+      description: Retrieve projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: n8n-projects.getprojects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-project
+      description: Delete a project
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: n8n-projects.deleteproject
+      with:
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-project
+      description: Update a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: n8n-projects.updateproject
+      with:
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-project-users
+      description: Get project users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: n8n-projects.getprojectusers
+      with:
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-users-project
+      description: Add users to a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: n8n-projects.addprojectusers
+      with:
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-user-project
+      description: Remove a user from a project
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: n8n-projects.removeprojectuser
+      with:
+        projectId: tools.projectId
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: change-user-s-role-within-project
+      description: Change a user's role within a project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: n8n-projects.changeprojectuserrole
+      with:
+        projectId: tools.projectId
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.

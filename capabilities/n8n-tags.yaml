@@ -1,0 +1,217 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: n8n Public API — Tags
+  description: 'n8n Public API — Tags. 5 operations. Lead operation: Create a tag. Self-contained Naftiko capability covering
+    one N8n business surface.'
+  tags:
+  - N8n
+  - Tags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    N8N_API_KEY: N8N_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: n8n-tags
+    baseUri: https://app.n8n.cloud/api/v1
+    description: n8n Public API — Tags business capability. Self-contained, no shared references.
+    resources:
+    - name: tags
+      path: /tags
+      operations:
+      - name: createtag
+        method: POST
+        description: Create a tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: gettags
+        method: GET
+        description: Retrieve all tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: number
+        - name: cursor
+          in: query
+          type: string
+    - name: tags-id
+      path: /tags/{id}
+      operations:
+      - name: gettag
+        method: GET
+        description: Retrieves a tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: deletetag
+        method: DELETE
+        description: Delete a tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updatetag
+        method: PUT
+        description: Update a tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.N8N_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: n8n-tags-rest
+    port: 8080
+    description: REST adapter for n8n Public API — Tags. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/tags
+      name: tags
+      description: REST surface for tags.
+      operations:
+      - method: POST
+        name: createtag
+        description: Create a tag
+        call: n8n-tags.createtag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: gettags
+        description: Retrieve all tags
+        call: n8n-tags.gettags
+        with:
+          limit: rest.limit
+          cursor: rest.cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/{id}
+      name: tags-id
+      description: REST surface for tags-id.
+      operations:
+      - method: GET
+        name: gettag
+        description: Retrieves a tag
+        call: n8n-tags.gettag
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetag
+        description: Delete a tag
+        call: n8n-tags.deletetag
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatetag
+        description: Update a tag
+        call: n8n-tags.updatetag
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: n8n-tags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for n8n Public API — Tags. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-tag
+      description: Create a tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: n8n-tags.createtag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-all-tags
+      description: Retrieve all tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: n8n-tags.gettags
+      with:
+        limit: tools.limit
+        cursor: tools.cursor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-tag
+      description: Retrieves a tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: n8n-tags.gettag
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-tag
+      description: Delete a tag
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: n8n-tags.deletetag
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-tag
+      description: Update a tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: n8n-tags.updatetag
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

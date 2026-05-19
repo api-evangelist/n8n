@@ -1,0 +1,183 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: n8n Public API — Variables
+  description: 'n8n Public API — Variables. 4 operations. Lead operation: Create a variable. Self-contained Naftiko capability
+    covering one N8n business surface.'
+  tags:
+  - N8n
+  - Variables
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    N8N_API_KEY: N8N_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: n8n-variables
+    baseUri: https://app.n8n.cloud/api/v1
+    description: n8n Public API — Variables business capability. Self-contained, no shared references.
+    resources:
+    - name: variables
+      path: /variables
+      operations:
+      - name: createvariable
+        method: POST
+        description: Create a variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getvariables
+        method: GET
+        description: Retrieve variables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: number
+        - name: cursor
+          in: query
+          type: string
+    - name: variables-id
+      path: /variables/{id}
+      operations:
+      - name: deletevariable
+        method: DELETE
+        description: Delete a variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updatevariable
+        method: PUT
+        description: Update a variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.N8N_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: n8n-variables-rest
+    port: 8080
+    description: REST adapter for n8n Public API — Variables. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/variables
+      name: variables
+      description: REST surface for variables.
+      operations:
+      - method: POST
+        name: createvariable
+        description: Create a variable
+        call: n8n-variables.createvariable
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getvariables
+        description: Retrieve variables
+        call: n8n-variables.getvariables
+        with:
+          limit: rest.limit
+          cursor: rest.cursor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/variables/{id}
+      name: variables-id
+      description: REST surface for variables-id.
+      operations:
+      - method: DELETE
+        name: deletevariable
+        description: Delete a variable
+        call: n8n-variables.deletevariable
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatevariable
+        description: Update a variable
+        call: n8n-variables.updatevariable
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: n8n-variables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for n8n Public API — Variables. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-variable
+      description: Create a variable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: n8n-variables.createvariable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-variables
+      description: Retrieve variables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: n8n-variables.getvariables
+      with:
+        limit: tools.limit
+        cursor: tools.cursor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-variable
+      description: Delete a variable
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: n8n-variables.deletevariable
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-variable
+      description: Update a variable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: n8n-variables.updatevariable
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

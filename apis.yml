@@ -1,6 +1,7 @@
 aid: n8n
 name: N8n
-description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
+description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience.
+  n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/apis.yml
@@ -8,108 +9,140 @@ created: '2025-06-06'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
+- Agents
+- Artificial Intelligence
+- Integrations
+apis:
+- aid: n8n:n8n
+  name: N8n
+  tags:
   - Agents
   - Artificial Intelligence
   - Integrations
-apis:
-  - aid: n8n:n8n
-    name: N8n
-    tags:
-      - Agents
-      - Artificial Intelligence
-      - Integrations
-    humanURL: https://n8n.io/
-    properties:
-      - url: https://n8n.io/
-        type: Documentation
-    description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
-  - aid: n8n:n8n-rest-api
-    name: N8n REST API
-    tags:
-      - Automation
-      - Credentials
-      - Executions
-      - Workflows
-    humanURL: https://docs.n8n.io/api/
-    baseURL: https://app.n8n.cloud/api/v1
-    properties:
-      - url: https://docs.n8n.io/api/
-        type: Documentation
-      - url: https://docs.n8n.io/api/api-reference/
-        type: Reference
-      - url: https://docs.n8n.io/api/authentication/
-        type: Authentication
-      - url: https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/openapi/n8n-openapi.yml
-        type: OpenAPI
-    description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, and variables.
-common:
+  humanURL: https://n8n.io/
+  properties:
   - url: https://n8n.io/
-    type: Portal
-  - url: https://docs.n8n.io/
     type: Documentation
-  - url: https://docs.n8n.io/try-it-out/quickstart/
-    type: GettingStarted
-  - url: https://app.n8n.cloud/login
-    type: Login
-  - url: https://app.n8n.cloud/magic-link
-    type: SignUp
-  - url: https://n8n.io/pricing/
-    type: Pricing
-  - url: https://blog.n8n.io/
-    type: Blog
-  - url: https://docs.n8n.io/release-notes/
-    type: ChangeLog
-  - url: https://community.n8n.io/
-    type: Community
-  - url: https://github.com/n8n-io
-    type: GitHubOrganization
-  - url: https://n8n.io/legal/privacy/
-    type: PrivacyPolicy
-  - url: https://n8n.io/legal/
-    type: TermsOfService
-  - url: https://n8n.io/legal/security/
-    type: Security
-  - type: Features
-    data:
-      - 'Starter €20/mo: 2,500 executions, unlimited users, 1 project'
-      - 'Pro €50/mo: 10K executions, 3 projects, admin roles, 7-day insights'
-      - 'Business €667/mo: 40K executions, SSO/SAML/LDAP, git, self-hosted'
-      - 'Enterprise custom: unlimited projects, 200+ concurrent, 365-day insights'
-      - 'REST API: 60 req/min/workspace'
-      - Webhook trigger and concurrent execution scale with tier
-      - 1,200+ pre-built integrations
-      - Visual node-based workflow editor
-      - Code nodes (JavaScript, Python via Pyodide)
-      - AI Workflow Builder for natural-language workflow creation
-      - AI Agent nodes (LangChain integration)
-      - Self-hosted Community Edition (free)
-      - Self-hosted Enterprise Edition (paid Business+)
-      - Webhooks (in/out), schedule triggers, manual triggers
-      - Multi-environment (dev/stage/prod) on Business+
-      - Git-based version control on Business+
-    sources:
-      - https://n8n.io/pricing/
-    updated: '2026-05-04'
-  - type: Integrations
-    url: https://n8n.io/integrations
-  - name: MCP Server
-    url: https://blog.n8n.io/n8n-mcp-server/
-    type: MCPServer
+  description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience.
+    n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
+- aid: n8n:n8n-rest-api
+  name: N8n REST API
+  tags:
+  - Automation
+  - Credentials
+  - Executions
+  - Workflows
+  humanURL: https://docs.n8n.io/api/
+  baseURL: https://app.n8n.cloud/api/v1
+  properties:
+  - url: https://docs.n8n.io/api/
+    type: Documentation
+  - url: https://docs.n8n.io/api/api-reference/
+    type: Reference
+  - url: https://docs.n8n.io/api/authentication/
+    type: Authentication
+  - url: https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/openapi/n8n-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/n8n-audit.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-communitypackage.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-credential.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-datatable.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-discover.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-execution.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-folders.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-insights.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-projects.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-sourcecontrol.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-tags.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-user.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-variables.yaml
+  - type: NaftikoCapability
+    url: capabilities/n8n-workflow.yaml
+  description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions,
+    credentials, users, tags, and variables.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/n8n
+- url: https://n8n.io/
+  type: Portal
+- url: https://docs.n8n.io/
+  type: Documentation
+- url: https://docs.n8n.io/try-it-out/quickstart/
+  type: GettingStarted
+- url: https://app.n8n.cloud/login
+  type: Login
+- url: https://app.n8n.cloud/magic-link
+  type: SignUp
+- url: https://n8n.io/pricing/
+  type: Pricing
+- url: https://blog.n8n.io/
+  type: Blog
+- url: https://docs.n8n.io/release-notes/
+  type: ChangeLog
+- url: https://community.n8n.io/
+  type: Community
+- url: https://github.com/n8n-io
+  type: GitHubOrganization
+- url: https://n8n.io/legal/privacy/
+  type: PrivacyPolicy
+- url: https://n8n.io/legal/
+  type: TermsOfService
+- url: https://n8n.io/legal/security/
+  type: Security
+- type: Features
+  data:
+  - 'Starter €20/mo: 2,500 executions, unlimited users, 1 project'
+  - 'Pro €50/mo: 10K executions, 3 projects, admin roles, 7-day insights'
+  - 'Business €667/mo: 40K executions, SSO/SAML/LDAP, git, self-hosted'
+  - 'Enterprise custom: unlimited projects, 200+ concurrent, 365-day insights'
+  - 'REST API: 60 req/min/workspace'
+  - Webhook trigger and concurrent execution scale with tier
+  - 1,200+ pre-built integrations
+  - Visual node-based workflow editor
+  - Code nodes (JavaScript, Python via Pyodide)
+  - AI Workflow Builder for natural-language workflow creation
+  - AI Agent nodes (LangChain integration)
+  - Self-hosted Community Edition (free)
+  - Self-hosted Enterprise Edition (paid Business+)
+  - Webhooks (in/out), schedule triggers, manual triggers
+  - Multi-environment (dev/stage/prod) on Business+
+  - Git-based version control on Business+
+  sources:
+  - https://n8n.io/pricing/
+  updated: '2026-05-04'
+- type: Integrations
+  url: https://n8n.io/integrations
+- name: MCP Server
+  url: https://blog.n8n.io/n8n-mcp-server/
+  type: MCPServer
 integrations:
-  - name: AI Agent
-  - name: HTTP Request
-  - name: Send Email
-  - name: Spreadsheet File
-  - name: Google Sheets
-  - name: Telegram
-  - name: MySQL
-  - name: Slack
-  - name: Discord
-  - name: Postgres
-  - name: Notion
-  - name: Gmail
-  - name: Airtable
-  - name: Google Drive
+- name: AI Agent
+- name: HTTP Request
+- name: Send Email
+- name: Spreadsheet File
+- name: Google Sheets
+- name: Telegram
+- name: MySQL
+- name: Slack
+- name: Discord
+- name: Postgres
+- name: Notion
+- name: Gmail
+- name: Airtable
+- name: Google Drive
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
