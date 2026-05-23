@@ -1,0 +1,33 @@
+name: N8n Domain Vocabulary
+provider: N8n
+providerId: n8n
+description: Tag-derived vocabulary for the N8n API surface; sourced from openapi/ tags.
+terms:
+- term: Audit
+  description: Operations about security audit
+- term: Credential
+  description: Operations about credentials
+- term: Execution
+  description: Operations about executions
+- term: Workflow
+  description: Operations about workflows
+- term: Tags
+  description: Operations about tags
+- term: User
+  description: Operations about users
+- term: SourceControl
+  description: Operations about source control
+- term: Variables
+  description: Operations about variables
+- term: DataTable
+  description: Operations about data tables and their rows
+- term: Projects
+  description: Operations about projects
+- term: CommunityPackage
+  description: Operations about community packages
+- term: Discover
+  description: API capability discovery
+- term: Insights
+  description: Operations about insights
+- term: Folders
+  description: Operations about folders

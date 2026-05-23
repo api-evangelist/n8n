@@ -1,0 +1,668 @@
+{
+  "provider": "N8n",
+  "providerId": "n8n",
+  "kind": "json-structure",
+  "description": "Structural overview of the N8n API surface; extracted from openapi/.",
+  "schemaCount": 0,
+  "operationCount": 73,
+  "schemas": [],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/audit",
+      "operationId": "generateAudit",
+      "summary": "Generate an audit",
+      "tags": [
+        "Audit"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/credentials",
+      "operationId": "createCredential",
+      "summary": "Create a credential",
+      "tags": [
+        "Credential"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/credentials/{id}",
+      "operationId": "deleteCredential",
+      "summary": "Delete credential by ID",
+      "tags": [
+        "Credential"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/credentials/{id}/test",
+      "operationId": "testCredential",
+      "summary": "Test a credential",
+      "tags": [
+        "Credential"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/credentials/schema/{credentialTypeName}",
+      "operationId": "getCredentialSchema",
+      "summary": "Show credential data schema",
+      "tags": [
+        "Credential"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/credentials/{id}/transfer",
+      "operationId": "transferCredential",
+      "summary": "Transfer a credential to another project",
+      "tags": [
+        "Credential"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/executions",
+      "operationId": "getExecutions",
+      "summary": "Retrieve all executions",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/executions/{id}",
+      "operationId": "getExecution",
+      "summary": "Retrieve an execution",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/executions/{id}",
+      "operationId": "deleteExecution",
+      "summary": "Delete an execution",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/executions/{id}/retry",
+      "operationId": "retryExecution",
+      "summary": "Retry an execution",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/executions/{id}/stop",
+      "operationId": "stopExecution",
+      "summary": "Stop an execution",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/executions/stop",
+      "operationId": "stopExecutions",
+      "summary": "Stop multiple executions",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/executions/{id}/tags",
+      "operationId": "updateExecutionTags",
+      "summary": "Update tags on an execution",
+      "tags": [
+        "Execution"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tags",
+      "operationId": "getTags",
+      "summary": "Retrieve all tags",
+      "tags": [
+        "Tags"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/tags",
+      "operationId": "createTag",
+      "summary": "Create a tag",
+      "tags": [
+        "Tags"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tags/{id}",
+      "operationId": "getTag",
+      "summary": "Retrieves a tag",
+      "tags": [
+        "Tags"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/tags/{id}",
+      "operationId": "updateTag",
+      "summary": "Update a tag",
+      "tags": [
+        "Tags"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/tags/{id}",
+      "operationId": "deleteTag",
+      "summary": "Delete a tag",
+      "tags": [
+        "Tags"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workflows",
+      "operationId": "getWorkflows",
+      "summary": "Retrieve all workflows",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workflows",
+      "operationId": "createWorkflow",
+      "summary": "Create a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/{id}",
+      "operationId": "getWorkflow",
+      "summary": "Retrieves a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workflows/{id}",
+      "operationId": "updateWorkflow",
+      "summary": "Update a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/workflows/{id}",
+      "operationId": "deleteWorkflow",
+      "summary": "Delete a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/{id}/{versionId}",
+      "operationId": "getWorkflowVersion",
+      "summary": "Retrieves a specific version of a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{id}/activate",
+      "operationId": "activateWorkflow",
+      "summary": "Activate a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{id}/deactivate",
+      "operationId": "deactivateWorkflow",
+      "summary": "Deactivate a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{id}/archive",
+      "operationId": "archiveWorkflow",
+      "summary": "Archive a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workflows/{id}/unarchive",
+      "operationId": "unarchiveWorkflow",
+      "summary": "Unarchive a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workflows/{id}/transfer",
+      "operationId": "transferWorkflow",
+      "summary": "Transfer a workflow to another project",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/{id}/tags",
+      "operationId": "getWorkflowTags",
+      "summary": "Get workflow tags",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workflows/{id}/tags",
+      "operationId": "updateWorkflowTags",
+      "summary": "Update tags of a workflow",
+      "tags": [
+        "Workflow"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users",
+      "operationId": "getUsers",
+      "summary": "Retrieve all users",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "operationId": "createUsers",
+      "summary": "Create multiple users",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "operationId": "getUser",
+      "summary": "Get user by ID/Email",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/{id}",
+      "operationId": "deleteUser",
+      "summary": "Delete a user",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/users/{id}/role",
+      "operationId": "changeUserRole",
+      "summary": "Change a user's global role",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/source-control/pull",
+      "operationId": "sourceControlPull",
+      "summary": "Pull changes from the remote repository",
+      "tags": [
+        "SourceControl"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/variables",
+      "operationId": "getVariables",
+      "summary": "Retrieve variables",
+      "tags": [
+        "Variables"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/variables",
+      "operationId": "createVariable",
+      "summary": "Create a variable",
+      "tags": [
+        "Variables"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/variables/{id}",
+      "operationId": "updateVariable",
+      "summary": "Update a variable",
+      "tags": [
+        "Variables"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/variables/{id}",
+      "operationId": "deleteVariable",
+      "summary": "Delete a variable",
+      "tags": [
+        "Variables"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data-tables",
+      "operationId": "listDataTables",
+      "summary": "List all data tables",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data-tables",
+      "operationId": "createDataTable",
+      "summary": "Create a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data-tables/{dataTableId}",
+      "operationId": "getDataTable",
+      "summary": "Get a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/data-tables/{dataTableId}",
+      "operationId": "deleteDataTable",
+      "summary": "Delete a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/data-tables/{dataTableId}",
+      "operationId": "updateDataTable",
+      "summary": "Update a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data-tables/{dataTableId}/rows",
+      "operationId": "listDataTableRows",
+      "summary": "List rows in a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data-tables/{dataTableId}/rows",
+      "operationId": "insertDataTableRows",
+      "summary": "Insert rows into a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data-tables/{dataTableId}/rows/update",
+      "operationId": "updateDataTableRows",
+      "summary": "Update rows in a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data-tables/{dataTableId}/rows/upsert",
+      "operationId": "upsertDataTableRows",
+      "summary": "Upsert rows in a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data-tables/{dataTableId}/rows/delete",
+      "operationId": "deleteDataTableRows",
+      "summary": "Delete rows in a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data-tables/{dataTableId}/columns",
+      "operationId": "listDataTableColumns",
+      "summary": "List columns in a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data-tables/{dataTableId}/columns",
+      "operationId": "addDataTableColumn",
+      "summary": "Add a column to a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/data-tables/{dataTableId}/columns/{columnId}",
+      "operationId": "deleteDataTableColumn",
+      "summary": "Delete a column from a data table",
+      "tags": [
+        "DataTable"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects",
+      "operationId": "getProjects",
+      "summary": "Retrieve projects",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects",
+      "operationId": "createProject",
+      "summary": "Create a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/projects/{projectId}",
+      "operationId": "updateProject",
+      "summary": "Update a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}",
+      "operationId": "deleteProject",
+      "summary": "Delete a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/users",
+      "operationId": "getProjectUsers",
+      "summary": "Get project users",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/users",
+      "operationId": "addProjectUsers",
+      "summary": "Add users to a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/users/{userId}",
+      "operationId": "removeProjectUser",
+      "summary": "Remove a user from a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/projects/{projectId}/users/{userId}",
+      "operationId": "changeProjectUserRole",
+      "summary": "Change a user's role within a project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/community-packages",
+      "operationId": "listCommunityPackages",
+      "summary": "List installed community packages",
+      "tags": [
+        "CommunityPackage"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/community-packages",
+      "operationId": "installCommunityPackage",
+      "summary": "Install a community package",
+      "tags": [
+        "CommunityPackage"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/community-packages/{name}",
+      "operationId": "uninstallCommunityPackage",
+      "summary": "Uninstall a community package",
+      "tags": [
+        "CommunityPackage"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/community-packages/{name}",
+      "operationId": "updateCommunityPackage",
+      "summary": "Update a community package",
+      "tags": [
+        "CommunityPackage"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/discover",
+      "operationId": "discoverApi",
+      "summary": "Discover API capabilities",
+      "tags": [
+        "Discover"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/insights/summary",
+      "operationId": "getInsightsSummary",
+      "summary": "Get insights summary",
+      "tags": [
+        "Insights"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/folders",
+      "operationId": "listFolders",
+      "summary": "List folders in a project",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/folders",
+      "operationId": "createFolder",
+      "summary": "Create a folder in a project",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/folders/{folderId}",
+      "operationId": "getFolder",
+      "summary": "Get a folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/folders/{folderId}",
+      "operationId": "deleteFolder",
+      "summary": "Delete a folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/projects/{projectId}/folders/{folderId}",
+      "operationId": "updateFolder",
+      "summary": "Update a folder",
+      "tags": [
+        "Folders"
+      ]
+    }
+  ]
+}
