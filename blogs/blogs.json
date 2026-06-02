@@ -2,12 +2,20 @@
   "repo": "n8n",
   "feeds": [
     {
-      "source": "https://blog.n8n.io/",
+      "source": "https://blog.n8n.io/feed/",
       "feed_url": "https://blog.n8n.io/feed/",
-      "title": "n8n Blog",
-      "saved": 8
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://blog.n8n.io/",
+      "feed_url": "https://blog.n8n.io/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "post_count": 22,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 26,
+  "fetched": "2026-06-01T23:35:02Z"
 }
