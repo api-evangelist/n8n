@@ -1,7 +1,8 @@
 aid: n8n
 name: N8n
-description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience.
-  n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
+description: Build with the precision of code or the speed of drag-n-drop. Host with
+  on-prem control or in-the-cloud convenience. n8n gives you more freedom to implement
+  multi-step AI agents and integrate apps than any other tool.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/apis.yml
@@ -23,8 +24,11 @@ apis:
   properties:
   - url: https://n8n.io/
     type: Documentation
-  description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience.
-    n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
+  - url: graphql/n8n-graphql.md
+    type: GraphQL
+  description: Build with the precision of code or the speed of drag-n-drop. Host
+    with on-prem control or in-the-cloud convenience. n8n gives you more freedom to
+    implement multi-step AI agents and integrate apps than any other tool.
 - aid: n8n:n8n-rest-api
   name: N8n REST API
   tags:
@@ -43,36 +47,8 @@ apis:
     type: Authentication
   - url: https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/openapi/n8n-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/n8n-audit.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-communitypackage.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-credential.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-datatable.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-discover.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-execution.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-folders.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-insights.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-projects.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-sourcecontrol.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-tags.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-user.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-variables.yaml
-  - type: NaftikoCapability
-    url: capabilities/n8n-workflow.yaml
-  description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions,
-    credentials, users, tags, and variables.
+  description: The n8n public REST API provides programmatic access to n8n instance
+    resources including workflows, executions, credentials, users, tags, and variables.
 common:
 - type: LinkedIn
   url: https://www.linkedin.com/company/n8n

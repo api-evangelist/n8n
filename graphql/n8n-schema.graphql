@@ -1,0 +1,1190 @@
+"""
+n8n Conceptual GraphQL Schema
+Derived from the n8n REST API (https://docs.n8n.io/api/api-reference/),
+database entities (packages/cli/src/databases/entities/),
+and workflow interfaces (packages/workflow/src/interfaces.ts).
+
+n8n does not currently expose a public GraphQL endpoint.
+This schema is a community-derived representation of the n8n data model.
+"""
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+scalar DateTime
+scalar JSON
+scalar UUID
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+enum ExecutionStatus {
+  WAITING
+  RUNNING
+  SUCCESS
+  ERROR
+  CANCELED
+  CRASHED
+  NEW
+  UNKNOWN
+}
+
+enum ExecutionMode {
+  MANUAL
+  TRIGGER
+  WEBHOOK
+  RETRY
+  INTEGRATED
+  CLI
+  INTERNAL
+  ERROR
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+enum WorkflowSortField {
+  NAME
+  CREATED_AT
+  UPDATED_AT
+}
+
+enum ExecutionSortField {
+  STARTED_AT
+  STOPPED_AT
+  STATUS
+}
+
+enum UserRole {
+  OWNER
+  ADMIN
+  MEMBER
+  DEFAULT
+}
+
+enum ProjectRole {
+  PROJECT_OWNER
+  PROJECT_ADMIN
+  PROJECT_EDITOR
+  PROJECT_VIEWER
+}
+
+enum CredentialSharingRole {
+  OWNER
+  USER
+}
+
+enum WorkflowSharingRole {
+  OWNER
+  USER
+}
+
+enum WorkerStatus {
+  ACTIVE
+  IDLE
+  SHUTTING_DOWN
+  UNKNOWN
+}
+
+enum ExternalSecretsProviderStatus {
+  CONNECTED
+  ERROR
+  PENDING
+}
+
+enum BinaryDataMode {
+  DEFAULT
+  FILESYSTEM
+  S3
+}
+
+enum InsightsPeriod {
+  HOUR
+  DAY
+  WEEK
+  MONTH
+}
+
+# ---------------------------------------------------------------------------
+# Pagination
+# ---------------------------------------------------------------------------
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  startCursor: String
+  hasPreviousPage: Boolean!
+}
+
+type Pagination {
+  total: Int!
+  page: Int!
+  pageSize: Int!
+  pageCount: Int!
+}
+
+input PaginationInput {
+  first: Int
+  after: String
+  last: Int
+  before: String
+}
+
+# ---------------------------------------------------------------------------
+# Core Domain Types
+# ---------------------------------------------------------------------------
+
+"""
+A saved automation workflow definition.
+"""
+type Workflow {
+  id: String!
+  name: String!
+  active: Boolean!
+  nodes: [WorkflowNode!]!
+  connections: JSON!
+  settings: WorkflowSettings
+  staticData: JSON
+  pinData: JSON
+  versionId: String
+  tags: [Tag!]!
+  sharedWith: [SharedWorkflow!]!
+  executions(
+    status: ExecutionStatus
+    pagination: PaginationInput
+    sort: WorkflowExecutionSort
+  ): ExecutionConnection!
+  webhooks: [WorkflowWebhook!]!
+  statistics: WorkflowStatistics
+  activation: WorkflowActivation
+  nodeCount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A single node within a workflow graph.
+"""
+type WorkflowNode {
+  id: String!
+  name: String!
+  type: String!
+  typeVersion: Float!
+  position: [Float!]!
+  disabled: Boolean
+  notes: String
+  notesInFlow: Boolean
+  retryOnFail: Boolean
+  maxTries: Int
+  waitBetweenTries: Int
+  alwaysOutputData: Boolean
+  executeOnce: Boolean
+  continueOnFail: Boolean
+  parameters: JSON!
+  credentials: [NodeCredential!]
+  webhookId: String
+  onError: String
+}
+
+"""
+Settings applied to a workflow.
+"""
+type WorkflowSettings {
+  executionOrder: String
+  saveManualExecutions: Boolean
+  saveExecutionProgress: Boolean
+  saveDataSuccessExecution: String
+  saveDataErrorExecution: String
+  executionTimeout: Int
+  timezone: String
+  callerPolicy: String
+  callerIds: String
+  errorWorkflow: String
+}
+
+"""
+An edge connecting two workflow nodes.
+"""
+type Connection {
+  sourceNode: String!
+  sourceOutput: String!
+  destinationNode: String!
+  destinationInput: String!
+}
+
+"""
+A registered node type descriptor.
+"""
+type NodeType {
+  name: String!
+  displayName: String!
+  description: String!
+  version: Float!
+  group: [String!]!
+  icon: String
+  iconUrl: String
+  defaults: JSON
+  inputs: [String!]!
+  outputs: [String!]!
+  properties: [NodeParameter!]!
+  credentials: [NodeCredential!]
+  subtitle: String
+  documentationUrl: String
+  triggerPanel: JSON
+  polling: Boolean
+  supportsCORS: Boolean
+  requestDefaults: JSON
+  codex: NodeTypeData
+}
+
+"""
+Extended metadata for a node type (codex entry).
+"""
+type NodeTypeData {
+  categories: [String!]
+  resources: JSON
+  alias: [String!]
+  subcategories: JSON
+}
+
+"""
+A parameter definition within a node type.
+"""
+type NodeParameter {
+  name: String!
+  displayName: String!
+  type: String!
+  default: JSON
+  description: String
+  required: Boolean
+  options: [JSON]
+  displayOptions: JSON
+  typeOptions: JSON
+  placeholder: String
+  hint: String
+  noDataExpression: Boolean
+}
+
+"""
+A credential reference within a node configuration.
+"""
+type NodeCredential {
+  name: String!
+  required: Boolean!
+  displayOptions: JSON
+  testedBy: String
+}
+
+# ---------------------------------------------------------------------------
+# Execution Types
+# ---------------------------------------------------------------------------
+
+"""
+A single run of a workflow.
+"""
+type Execution {
+  id: String!
+  workflow: Workflow!
+  workflowId: String!
+  workflowData: JSON
+  status: ExecutionStatus!
+  mode: ExecutionMode!
+  startedAt: DateTime
+  stoppedAt: DateTime
+  waitTill: DateTime
+  finished: Boolean!
+  retryOf: String
+  retrySuccessId: String
+  data: ExecutionData
+  annotation: Annotation
+  customData: JSON
+}
+
+"""
+The full input/output data payload for an execution.
+"""
+type ExecutionData {
+  startData: JSON
+  resultData: JSON
+  executionData: JSON
+  error: WorkflowError
+  nodeExecutionStack: [JSON]
+  waitingExecution: JSON
+  waitingExecutionSource: JSON
+}
+
+"""
+A lightweight execution record for list views.
+"""
+type ExecutionSummary {
+  id: String!
+  workflowId: String!
+  workflowName: String
+  status: ExecutionStatus!
+  mode: ExecutionMode!
+  startedAt: DateTime
+  stoppedAt: DateTime
+  waitTill: DateTime
+  finished: Boolean!
+  retryOf: String
+  retrySuccessId: String
+  nodeExecutionStatus: JSON
+}
+
+type ExecutionConnection {
+  nodes: [ExecutionSummary!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+"""
+A summary of a single workflow run result (for display).
+"""
+type WorkflowRun {
+  executionId: String!
+  workflowId: String!
+  status: ExecutionStatus!
+  startedAt: DateTime!
+  stoppedAt: DateTime
+  runData: JSON
+  error: WorkflowError
+}
+
+"""
+A top-level error emitted during workflow execution.
+"""
+type WorkflowError {
+  message: String!
+  name: String
+  stack: String
+  node: WorkflowNode
+  timestamp: DateTime
+  extra: JSON
+}
+
+"""
+An error emitted by a specific node during execution.
+"""
+type NodeError {
+  message: String!
+  name: String
+  stack: String
+  nodeName: String!
+  nodeType: String
+  timestamp: DateTime
+  extra: JSON
+  context: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Credential Types
+# ---------------------------------------------------------------------------
+
+"""
+A stored credential entry.
+"""
+type Credential {
+  id: String!
+  name: String!
+  type: String!
+  nodesAccess: [JSON!]!
+  sharedWith: [SharedCredential!]!
+  homeProject: Project
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+The schema descriptor for a credential type.
+"""
+type CredentialType {
+  name: String!
+  displayName: String!
+  documentationUrl: String
+  description: String
+  properties: [CredentialTypeProperty!]!
+  authenticate: JSON
+  test: JSON
+  extends: [String!]
+  supportedNodes: [String!]
+  icon: String
+  genericAuth: Boolean
+}
+
+"""
+A property descriptor for a credential type field.
+"""
+type CredentialTypeProperty {
+  name: String!
+  displayName: String!
+  type: String!
+  default: JSON
+  description: String
+  required: Boolean
+  options: [JSON]
+  typeOptions: JSON
+  placeholder: String
+}
+
+# ---------------------------------------------------------------------------
+# Webhook Types
+# ---------------------------------------------------------------------------
+
+"""
+A webhook endpoint registration.
+"""
+type Webhook {
+  id: String!
+  path: String!
+  method: String!
+  webhookId: String
+  workflowId: String!
+  node: String!
+  isFullPath: Boolean!
+  restartWebhook: Boolean
+}
+
+"""
+A webhook configuration bound to a specific workflow node.
+"""
+type WorkflowWebhook {
+  workflowId: String!
+  nodeId: String!
+  node: WorkflowNode!
+  path: String!
+  method: String!
+  isFullPath: Boolean!
+  webhookId: String
+  testUrl: String
+  productionUrl: String
+}
+
+# ---------------------------------------------------------------------------
+# Tag Types
+# ---------------------------------------------------------------------------
+
+"""
+A label for organizing workflows.
+"""
+type Tag {
+  id: String!
+  name: String!
+  workflows: WorkflowConnection
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+An association between a workflow and a tag.
+"""
+type WorkflowTag {
+  workflowId: String!
+  tagId: String!
+  workflow: Workflow!
+  tag: Tag!
+}
+
+# ---------------------------------------------------------------------------
+# Sharing Types
+# ---------------------------------------------------------------------------
+
+"""
+A workflow shared with a user or project.
+"""
+type SharedWorkflow {
+  workflowId: String!
+  userId: String
+  projectId: String
+  role: WorkflowSharingRole!
+  workflow: Workflow!
+  user: User
+  project: Project
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A credential shared with a user or project.
+"""
+type SharedCredential {
+  credentialId: String!
+  userId: String
+  projectId: String
+  role: CredentialSharingRole!
+  credential: Credential!
+  user: User
+  project: Project
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# User & Auth Types
+# ---------------------------------------------------------------------------
+
+"""
+An n8n user account.
+"""
+type User {
+  id: UUID!
+  email: String!
+  firstName: String
+  lastName: String
+  role: UserRole!
+  isPending: Boolean!
+  hasRecoveryCodesLeft: Boolean
+  mfaEnabled: Boolean!
+  apiKeys: [APIKey!]!
+  projects: [ProjectRelation!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A role assignment context for a user.
+"""
+type Role {
+  id: String!
+  name: String!
+  scope: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+Multi-factor authentication configuration for a user.
+"""
+type MFAConfig {
+  userId: UUID!
+  enabled: Boolean!
+  totpEnabled: Boolean!
+  recoveryCodesCount: Int!
+}
+
+"""
+An API key for authenticating against the n8n API.
+"""
+type APIKey {
+  id: String!
+  label: String!
+  apiKey: String
+  userId: UUID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  expiresAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Project Types
+# ---------------------------------------------------------------------------
+
+"""
+A logical namespace grouping workflows and credentials.
+"""
+type Project {
+  id: String!
+  name: String!
+  type: String!
+  icon: JSON
+  members: [ProjectRelation!]!
+  workflows: WorkflowConnection
+  credentials: [Credential!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A user's membership and role within a project.
+"""
+type ProjectRelation {
+  userId: UUID!
+  projectId: String!
+  role: ProjectRole!
+  user: User!
+  project: Project!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+An alias type for project-based collaboration group.
+"""
+type Team {
+  project: Project!
+  memberCount: Int!
+}
+
+# ---------------------------------------------------------------------------
+# Instance Configuration Types
+# ---------------------------------------------------------------------------
+
+"""
+An instance-level configuration key/value pair.
+"""
+type Setting {
+  key: String!
+  value: JSON!
+  loadOnStartup: Boolean!
+}
+
+"""
+A community node package installed on the instance.
+"""
+type InstalledPackage {
+  packageName: String!
+  installedVersion: String!
+  authorName: String
+  authorEmail: String
+  installedNodes: [InstalledNode!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A node registered by a community package.
+"""
+type InstalledNode {
+  name: String!
+  type: String!
+  latestVersion: Float!
+  package: InstalledPackage!
+}
+
+"""
+License data for the n8n instance.
+"""
+type License {
+  planName: String
+  consumerId: String
+  features: JSON
+  quotas: JSON
+  isLicensed: Boolean!
+  licenseKey: String
+  expiresAt: DateTime
+}
+
+"""
+An instance-level variable (key/value).
+"""
+type Variable {
+  id: String!
+  key: String!
+  value: String
+  type: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# External Secrets Types
+# ---------------------------------------------------------------------------
+
+"""
+A configured external secrets backend (e.g., HashiCorp Vault).
+"""
+type ExternalSecretsProvider {
+  id: String!
+  name: String!
+  displayName: String!
+  status: ExternalSecretsProviderStatus!
+  connected: Boolean!
+  connectedAt: DateTime
+  settings: JSON
+  icon: String
+  secrets: [ExternalSecret!]!
+}
+
+"""
+A secret retrieved from an external secrets provider.
+"""
+type ExternalSecret {
+  key: String!
+  providerId: String!
+  provider: ExternalSecretsProvider!
+}
+
+# ---------------------------------------------------------------------------
+# Queue & Worker Types
+# ---------------------------------------------------------------------------
+
+"""
+The execution queue for concurrent workflow runs.
+"""
+type Queue {
+  depth: Int!
+  waiting: Int!
+  active: Int!
+  delayed: Int!
+  workers: [Worker!]!
+  items: [QueueItem!]!
+}
+
+"""
+A single item waiting in the execution queue.
+"""
+type QueueItem {
+  id: String!
+  workflowId: String!
+  executionId: String
+  status: ExecutionStatus!
+  queuedAt: DateTime!
+}
+
+"""
+A worker process handling executions.
+"""
+type Worker {
+  id: String!
+  hostname: String!
+  pid: Int
+  status: WorkerStatus!
+  runningJobs: Int!
+  maxConcurrency: Int!
+  lastHeartbeat: DateTime
+  version: String
+}
+
+# ---------------------------------------------------------------------------
+# Annotation & Logging Types
+# ---------------------------------------------------------------------------
+
+"""
+A note or comment attached to a workflow execution.
+"""
+type Annotation {
+  id: Int!
+  executionId: String!
+  vote: String
+  tags: [Tag!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A structured log entry from workflow or system execution.
+"""
+type Log {
+  level: String!
+  message: String!
+  timestamp: DateTime!
+  callerInfo: String
+  extra: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Binary Data
+# ---------------------------------------------------------------------------
+
+"""
+Binary (file) data attached to an execution item.
+"""
+type BinaryData {
+  id: String!
+  data: String
+  mimeType: String!
+  fileName: String
+  fileSize: Int
+  fileExtension: String
+  directory: String
+  mode: BinaryDataMode!
+}
+
+# ---------------------------------------------------------------------------
+# Resource Locator
+# ---------------------------------------------------------------------------
+
+"""
+A resource identifier for a dynamic node option (e.g., select a sheet from Drive).
+"""
+type ResourceLocator {
+  mode: String!
+  value: JSON
+  cachedResultName: String
+  cachedResultUrl: String
+}
+
+# ---------------------------------------------------------------------------
+# Statistics & Insights Types
+# ---------------------------------------------------------------------------
+
+"""
+Aggregate execution counts for a workflow.
+"""
+type WorkflowStatistics {
+  workflowId: String!
+  name: String!
+  count: Int!
+  latestEvent: DateTime
+}
+
+"""
+Summary of execution health for a workflow or instance.
+"""
+type InsightsSummary {
+  total: Int!
+  succeeded: Int!
+  failed: Int!
+  failureRate: Float!
+  averageRunTime: Float
+  longestRunTime: Float
+  period: InsightsPeriod!
+  from: DateTime!
+  to: DateTime!
+}
+
+"""
+Date range filter for insights queries.
+"""
+type InsightsDateRange {
+  from: DateTime!
+  to: DateTime!
+  period: InsightsPeriod!
+}
+
+"""
+A usage measurement for billing or quota tracking.
+"""
+type UsageMetric {
+  name: String!
+  value: Int!
+  limit: Int
+  isOverLimit: Boolean!
+  period: String
+}
+
+"""
+Real-time push event sent to connected clients.
+"""
+type PushMessage {
+  type: String!
+  data: JSON!
+  sessionId: String
+}
+
+"""
+Result of importing a workflow from JSON.
+"""
+type ImportWorkflowResult {
+  workflow: Workflow!
+  warnings: [String!]!
+}
+
+"""
+Result of exporting a workflow to JSON.
+"""
+type ExportWorkflowResult {
+  data: JSON!
+  fileName: String!
+}
+
+"""
+Record of when a workflow was activated or deactivated.
+"""
+type WorkflowActivation {
+  workflowId: String!
+  activatedAt: DateTime
+  deactivatedAt: DateTime
+  activatedBy: User
+}
+
+# ---------------------------------------------------------------------------
+# Connection Types
+# ---------------------------------------------------------------------------
+
+type WorkflowConnection {
+  nodes: [Workflow!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+type UserConnection {
+  nodes: [User!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+type TagConnection {
+  nodes: [Tag!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+type CredentialConnection {
+  nodes: [Credential!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+type ProjectConnection {
+  nodes: [Project!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+type InstalledPackageConnection {
+  nodes: [InstalledPackage!]!
+  pageInfo: PageInfo!
+  total: Int!
+}
+
+# ---------------------------------------------------------------------------
+# Input Types
+# ---------------------------------------------------------------------------
+
+input WorkflowFilterInput {
+  active: Boolean
+  name: String
+  tags: [String!]
+  projectId: String
+}
+
+input WorkflowSortInput {
+  field: WorkflowSortField!
+  direction: SortOrder!
+}
+
+input WorkflowExecutionSort {
+  field: ExecutionSortField!
+  direction: SortOrder!
+}
+
+input ExecutionFilterInput {
+  workflowId: String
+  status: ExecutionStatus
+  mode: ExecutionMode
+  startedAfter: DateTime
+  startedBefore: DateTime
+  stoppedAfter: DateTime
+  stoppedBefore: DateTime
+  finished: Boolean
+  retryOf: String
+  waitTill: Boolean
+  annotationVote: String
+  annotationTags: [String!]
+}
+
+input CreateWorkflowInput {
+  name: String!
+  nodes: [JSON!]
+  connections: JSON
+  settings: JSON
+  active: Boolean
+  tags: [String!]
+  pinData: JSON
+  staticData: JSON
+}
+
+input UpdateWorkflowInput {
+  name: String
+  nodes: [JSON!]
+  connections: JSON
+  settings: JSON
+  active: Boolean
+  tags: [String!]
+  pinData: JSON
+  staticData: JSON
+  versionId: String
+}
+
+input CreateCredentialInput {
+  name: String!
+  type: String!
+  data: JSON!
+  projectId: String
+}
+
+input UpdateCredentialInput {
+  name: String
+  data: JSON
+}
+
+input CreateTagInput {
+  name: String!
+}
+
+input UpdateTagInput {
+  name: String!
+}
+
+input CreateUserInput {
+  email: String!
+  firstName: String
+  lastName: String
+  role: UserRole
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+}
+
+input CreateProjectInput {
+  name: String!
+}
+
+input UpdateProjectInput {
+  name: String
+  icon: JSON
+}
+
+input CreateVariableInput {
+  key: String!
+  value: String
+  type: String
+}
+
+input AnnotateExecutionInput {
+  vote: String
+  tags: [String!]
+}
+
+input CreateAPIKeyInput {
+  label: String!
+  expiresAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Root Types
+# ---------------------------------------------------------------------------
+
+type Query {
+  # Workflow queries
+  workflow(id: String!): Workflow
+  workflows(
+    filter: WorkflowFilterInput
+    sort: WorkflowSortInput
+    pagination: PaginationInput
+  ): WorkflowConnection!
+
+  # Execution queries
+  execution(id: String!): Execution
+  executions(
+    filter: ExecutionFilterInput
+    pagination: PaginationInput
+  ): ExecutionConnection!
+
+  # Credential queries
+  credential(id: String!): Credential
+  credentials(
+    includeData: Boolean
+    pagination: PaginationInput
+  ): CredentialConnection!
+  credentialTypes: [CredentialType!]!
+  credentialType(name: String!): CredentialType
+
+  # Node type queries
+  nodeTypes: [NodeType!]!
+  nodeType(name: String!, version: Float): NodeType
+
+  # Tag queries
+  tags(pagination: PaginationInput): TagConnection!
+  tag(id: String!): Tag
+
+  # User queries
+  users(pagination: PaginationInput): UserConnection!
+  user(id: UUID!): User
+  me: User!
+
+  # Project queries
+  projects(pagination: PaginationInput): ProjectConnection!
+  project(id: String!): Project
+
+  # Variable queries
+  variables(pagination: PaginationInput): [Variable!]!
+  variable(id: String!): Variable
+
+  # Instance queries
+  settings: [Setting!]!
+  setting(key: String!): Setting
+  license: License!
+  queue: Queue
+  workers: [Worker!]!
+
+  # Package queries
+  installedPackages(pagination: PaginationInput): InstalledPackageConnection!
+
+  # External secrets
+  externalSecretsProviders: [ExternalSecretsProvider!]!
+  externalSecretsProvider(id: String!): ExternalSecretsProvider
+
+  # Insights
+  insightsSummary(
+    workflowId: String
+    dateRange: InsightsDateRange
+  ): InsightsSummary
+  usageMetrics: [UsageMetric!]!
+}
+
+type Mutation {
+  # Workflow mutations
+  createWorkflow(input: CreateWorkflowInput!): Workflow!
+  updateWorkflow(id: String!, input: UpdateWorkflowInput!): Workflow!
+  deleteWorkflow(id: String!): Boolean!
+  activateWorkflow(id: String!): Workflow!
+  deactivateWorkflow(id: String!): Workflow!
+  runWorkflow(id: String!, data: JSON): WorkflowRun!
+  importWorkflow(data: JSON!): ImportWorkflowResult!
+  transferWorkflow(workflowId: String!, destinationProjectId: String!): Workflow!
+  shareWorkflow(workflowId: String!, shareWithIds: [UUID!]!): [SharedWorkflow!]!
+
+  # Execution mutations
+  deleteExecution(id: String!): Boolean!
+  deleteExecutions(filter: ExecutionFilterInput!): Int!
+  retryExecution(id: String!, loadWorkflow: Boolean): Execution!
+  stopExecution(id: String!): Execution!
+  annotateExecution(id: String!, input: AnnotateExecutionInput!): Execution!
+
+  # Credential mutations
+  createCredential(input: CreateCredentialInput!): Credential!
+  updateCredential(id: String!, input: UpdateCredentialInput!): Credential!
+  deleteCredential(id: String!): Boolean!
+  testCredential(id: String!): Boolean!
+  shareCredential(credentialId: String!, shareWithIds: [UUID!]!): [SharedCredential!]!
+  transferCredential(credentialId: String!, destinationProjectId: String!): Credential!
+
+  # Tag mutations
+  createTag(input: CreateTagInput!): Tag!
+  updateTag(id: String!, input: UpdateTagInput!): Tag!
+  deleteTag(id: String!): Boolean!
+
+  # User mutations
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: UUID!, input: UpdateUserInput!): User!
+  deleteUser(id: UUID!, transferId: UUID): Boolean!
+  changeRole(id: UUID!, role: UserRole!): User!
+
+  # Project mutations
+  createProject(input: CreateProjectInput!): Project!
+  updateProject(id: String!, input: UpdateProjectInput!): Project!
+  deleteProject(id: String!, transferId: String): Boolean!
+  addProjectMember(projectId: String!, userId: UUID!, role: ProjectRole!): ProjectRelation!
+  removeProjectMember(projectId: String!, userId: UUID!): Boolean!
+  changeProjectMemberRole(projectId: String!, userId: UUID!, role: ProjectRole!): ProjectRelation!
+
+  # Variable mutations
+  createVariable(input: CreateVariableInput!): Variable!
+  updateVariable(id: String!, key: String, value: String): Variable!
+  deleteVariable(id: String!): Boolean!
+
+  # API key mutations
+  createAPIKey(input: CreateAPIKeyInput!): APIKey!
+  deleteAPIKey(id: String!): Boolean!
+
+  # Package mutations
+  installPackage(packageName: String!): InstalledPackage!
+  updatePackage(packageName: String!): InstalledPackage!
+  uninstallPackage(packageName: String!): Boolean!
+}
+
+type Subscription {
+  executionUpdated(workflowId: String): ExecutionSummary!
+  workflowActivated: Workflow!
+  workflowDeactivated: Workflow!
+  pushMessage(sessionId: String!): PushMessage!
+  workerHeartbeat: Worker!
+}
