@@ -1,0 +1,1463 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate an audit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/audit"
+          },
+          "docs": "Generate a security audit for your n8n instance."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Credential",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/credentials"
+          },
+          "docs": "Creates a credential that can be used by nodes of the specified type."
+        },
+        {
+          "info": {
+            "name": "Delete credential by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/credentials/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The credential ID."
+              }
+            ]
+          },
+          "docs": "Delete credential by ID"
+        },
+        {
+          "info": {
+            "name": "Test a credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/credentials/:id/test",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Test a credential"
+        },
+        {
+          "info": {
+            "name": "Show credential data schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/credentials/schema/:credentialTypeName",
+            "params": [
+              {
+                "name": "credentialTypeName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show credential data schema"
+        },
+        {
+          "info": {
+            "name": "Transfer a credential to another project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/credentials/:id/transfer",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Transfer a credential to another project"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Execution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/executions",
+            "params": [
+              {
+                "name": "includeData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all executions from your instance."
+        },
+        {
+          "info": {
+            "name": "Retrieve an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve an execution"
+        },
+        {
+          "info": {
+            "name": "Delete an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an execution"
+        },
+        {
+          "info": {
+            "name": "Retry an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id/retry",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retry an execution"
+        },
+        {
+          "info": {
+            "name": "Stop an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id/stop",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an execution"
+        },
+        {
+          "info": {
+            "name": "Stop multiple executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/executions/stop"
+          },
+          "docs": "Stop multiple executions"
+        },
+        {
+          "info": {
+            "name": "Update tags on an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update tags on an execution"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/tags",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all tags"
+        },
+        {
+          "info": {
+            "name": "Create a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/tags"
+          },
+          "docs": "Create a tag"
+        },
+        {
+          "info": {
+            "name": "Retrieves a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a tag"
+        },
+        {
+          "info": {
+            "name": "Update a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a tag"
+        },
+        {
+          "info": {
+            "name": "Delete a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a tag"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workflow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows",
+            "params": [
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludePinnedData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all workflows"
+        },
+        {
+          "info": {
+            "name": "Create a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows"
+          },
+          "docs": "Create a workflow"
+        },
+        {
+          "info": {
+            "name": "Retrieves a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "excludePinnedData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a workflow"
+        },
+        {
+          "info": {
+            "name": "Update a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a workflow"
+        },
+        {
+          "info": {
+            "name": "Delete a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a workflow"
+        },
+        {
+          "info": {
+            "name": "Retrieves a specific version of a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/:versionId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific version of a workflow"
+        },
+        {
+          "info": {
+            "name": "Activate a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/activate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Activate a workflow"
+        },
+        {
+          "info": {
+            "name": "Deactivate a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/deactivate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deactivate a workflow"
+        },
+        {
+          "info": {
+            "name": "Archive a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive a workflow"
+        },
+        {
+          "info": {
+            "name": "Unarchive a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/unarchive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unarchive a workflow"
+        },
+        {
+          "info": {
+            "name": "Transfer a workflow to another project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/transfer",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Transfer a workflow to another project"
+        },
+        {
+          "info": {
+            "name": "Get workflow tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get workflow tags"
+        },
+        {
+          "info": {
+            "name": "Update tags of a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update tags of a workflow"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/users",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeRole",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all users"
+        },
+        {
+          "info": {
+            "name": "Create multiple users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/users"
+          },
+          "docs": "Create multiple users"
+        },
+        {
+          "info": {
+            "name": "Get user by ID/Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeRole",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get user by ID/Email"
+        },
+        {
+          "info": {
+            "name": "Delete a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a user"
+        },
+        {
+          "info": {
+            "name": "Change a user's global role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/users/:id/role",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Change a user's global role"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SourceControl",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pull changes from the remote repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/source-control/pull"
+          },
+          "docs": "Pull changes from the remote repository"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Variables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve variables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/variables",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve variables"
+        },
+        {
+          "info": {
+            "name": "Create a variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/variables"
+          },
+          "docs": "Create a variable"
+        },
+        {
+          "info": {
+            "name": "Update a variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/variables/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a variable"
+        },
+        {
+          "info": {
+            "name": "Delete a variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/variables/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a variable"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DataTable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all data tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables"
+          },
+          "docs": "List all data tables"
+        },
+        {
+          "info": {
+            "name": "Create a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables"
+          },
+          "docs": "Create a data table"
+        },
+        {
+          "info": {
+            "name": "Get a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a data table"
+        },
+        {
+          "info": {
+            "name": "Update a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a data table"
+        },
+        {
+          "info": {
+            "name": "Delete a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a data table"
+        },
+        {
+          "info": {
+            "name": "List rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List rows in a data table"
+        },
+        {
+          "info": {
+            "name": "Insert rows into a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Insert rows into a data table"
+        },
+        {
+          "info": {
+            "name": "Update rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows/update",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update rows in a data table"
+        },
+        {
+          "info": {
+            "name": "Upsert rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows/upsert",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Upsert rows in a data table"
+        },
+        {
+          "info": {
+            "name": "Delete rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows/delete",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete rows in a data table"
+        },
+        {
+          "info": {
+            "name": "List columns in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/columns",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List columns in a data table"
+        },
+        {
+          "info": {
+            "name": "Add a column to a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/columns",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add a column to a data table"
+        },
+        {
+          "info": {
+            "name": "Delete a column from a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/columns/:columnId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a column from a data table"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/projects"
+          },
+          "docs": "Retrieve projects"
+        },
+        {
+          "info": {
+            "name": "Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/projects"
+          },
+          "docs": "Create a project"
+        },
+        {
+          "info": {
+            "name": "Update a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a project"
+        },
+        {
+          "info": {
+            "name": "Delete a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a project"
+        },
+        {
+          "info": {
+            "name": "Get project users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/users",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get project users"
+        },
+        {
+          "info": {
+            "name": "Add users to a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/users",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add users to a project"
+        },
+        {
+          "info": {
+            "name": "Change a user's role within a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/users/:userId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Change a user's role within a project"
+        },
+        {
+          "info": {
+            "name": "Remove a user from a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/users/:userId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a user from a project"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CommunityPackage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List installed community packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/community-packages"
+          },
+          "docs": "List installed community packages"
+        },
+        {
+          "info": {
+            "name": "Install a community package",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/community-packages"
+          },
+          "docs": "Install a community package"
+        },
+        {
+          "info": {
+            "name": "Update a community package",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/community-packages/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a community package"
+        },
+        {
+          "info": {
+            "name": "Uninstall a community package",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/community-packages/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Uninstall a community package"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Discover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Discover API capabilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/discover"
+          },
+          "docs": "Discover API capabilities"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Insights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get insights summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/insights/summary"
+          },
+          "docs": "Get insights summary"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Folders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List folders in a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/folders",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List folders in a project"
+        },
+        {
+          "info": {
+            "name": "Create a folder in a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/folders",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a folder in a project"
+        },
+        {
+          "info": {
+            "name": "Get a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/folders/:folderId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a folder"
+        },
+        {
+          "info": {
+            "name": "Update a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/folders/:folderId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a folder"
+        },
+        {
+          "info": {
+            "name": "Delete a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/projects/:projectId/folders/:folderId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a folder"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
