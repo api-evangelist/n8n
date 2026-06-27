@@ -61,7 +61,7 @@ common:
 - url: https://app.n8n.cloud/login
   type: Login
 - url: https://app.n8n.cloud/magic-link
-  type: SignUp
+  type: Signup
 - url: https://n8n.io/pricing/
   type: Pricing
 - url: https://blog.n8n.io/
