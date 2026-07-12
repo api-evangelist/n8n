@@ -50,6 +50,14 @@ apis:
   description: The n8n public REST API provides programmatic access to n8n instance
     resources including workflows, executions, credentials, users, tags, and variables.
 common:
+- type: TrustCenter
+  url: security/n8n-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/n8n-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/n8n-domain-security.yml
+- type: Authentication
+  url: authentication/n8n-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/n8n
 - url: https://n8n.io/

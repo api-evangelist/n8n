@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/n8n-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-N8N-API-KEY
+  sources:
+  - openapi/n8n-openapi.yml
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/n8n-openapi.yml

@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://trust.n8n.io/
+url: https://trust.n8n.io/
+certifications:
+- SOC 2
+- GDPR
+evidence:
+- source: https://trust.n8n.io/
+  keywords:
+  - soc 2
+  - trust center
+  - gdpr
