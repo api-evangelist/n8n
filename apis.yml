@@ -50,6 +50,8 @@ apis:
   description: The n8n public REST API provides programmatic access to n8n instance
     resources including workflows, executions, credentials, users, tags, and variables.
 common:
+- type: AgenticAccess
+  url: agentic-access/n8n-agentic-access.yml
 - type: TrustCenter
   url: security/n8n-trust-center.yml
 - type: VulnerabilityDisclosure
