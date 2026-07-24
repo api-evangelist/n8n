@@ -1,0 +1,224 @@
+openapi: 3.0.0
+info:
+  title: n8n Public Audit DataTable API
+  description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.
+  termsOfService: https://n8n.io/legal/#terms
+  contact:
+    name: n8n
+    url: https://n8n.io/
+    email: hello@n8n.io
+  license:
+    name: Sustainable Use License
+    url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+  version: 1.1.1
+servers:
+- url: https://app.n8n.cloud/api/v1
+  description: n8n Cloud
+- url: '{baseUrl}/api/v1'
+  description: Self-hosted n8n
+  variables:
+    baseUrl:
+      default: http://localhost:5678
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: DataTable
+  description: Operations about data tables and their rows
+paths:
+  /data-tables:
+    get:
+      tags:
+      - DataTable
+      summary: List all data tables
+      operationId: listDataTables
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+      - DataTable
+      summary: Create a data table
+      operationId: createDataTable
+      responses:
+        '201':
+          description: Created
+  /data-tables/{dataTableId}:
+    get:
+      tags:
+      - DataTable
+      summary: Get a data table
+      operationId: getDataTable
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+      - DataTable
+      summary: Delete a data table
+      operationId: deleteDataTable
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+    patch:
+      tags:
+      - DataTable
+      summary: Update a data table
+      operationId: updateDataTable
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/rows:
+    get:
+      tags:
+      - DataTable
+      summary: List rows in a data table
+      operationId: listDataTableRows
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+      - DataTable
+      summary: Insert rows into a data table
+      operationId: insertDataTableRows
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+  /data-tables/{dataTableId}/rows/update:
+    post:
+      tags:
+      - DataTable
+      summary: Update rows in a data table
+      operationId: updateDataTableRows
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/rows/upsert:
+    post:
+      tags:
+      - DataTable
+      summary: Upsert rows in a data table
+      operationId: upsertDataTableRows
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/rows/delete:
+    post:
+      tags:
+      - DataTable
+      summary: Delete rows in a data table
+      operationId: deleteDataTableRows
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /data-tables/{dataTableId}/columns:
+    get:
+      tags:
+      - DataTable
+      summary: List columns in a data table
+      operationId: listDataTableColumns
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+    post:
+      tags:
+      - DataTable
+      summary: Add a column to a data table
+      operationId: addDataTableColumn
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+  /data-tables/{dataTableId}/columns/{columnId}:
+    delete:
+      tags:
+      - DataTable
+      summary: Delete a column from a data table
+      operationId: deleteDataTableColumn
+      parameters:
+      - name: dataTableId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: columnId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-N8N-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: n8n API documentation
+  url: https://docs.n8n.io/api/

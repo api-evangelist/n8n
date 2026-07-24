@@ -1,0 +1,259 @@
+openapi: 3.0.0
+info:
+  title: n8n Public Audit Workflow API
+  description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.
+  termsOfService: https://n8n.io/legal/#terms
+  contact:
+    name: n8n
+    url: https://n8n.io/
+    email: hello@n8n.io
+  license:
+    name: Sustainable Use License
+    url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+  version: 1.1.1
+servers:
+- url: https://app.n8n.cloud/api/v1
+  description: n8n Cloud
+- url: '{baseUrl}/api/v1'
+  description: Self-hosted n8n
+  variables:
+    baseUrl:
+      default: http://localhost:5678
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Workflow
+  description: Operations about workflows
+paths:
+  /workflows:
+    post:
+      tags:
+      - Workflow
+      summary: Create a workflow
+      operationId: createWorkflow
+      responses:
+        '200':
+          description: Operation successful.
+    get:
+      tags:
+      - Workflow
+      summary: Retrieve all workflows
+      operationId: getWorkflows
+      parameters:
+      - name: active
+        in: query
+        schema:
+          type: boolean
+      - name: tags
+        in: query
+        schema:
+          type: string
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: excludePinnedData
+        in: query
+        schema:
+          type: boolean
+      - name: limit
+        in: query
+        schema:
+          type: number
+          default: 100
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}:
+    get:
+      tags:
+      - Workflow
+      summary: Retrieves a workflow
+      operationId: getWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: excludePinnedData
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Operation successful.
+    delete:
+      tags:
+      - Workflow
+      summary: Delete a workflow
+      operationId: deleteWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+    put:
+      tags:
+      - Workflow
+      summary: Update a workflow
+      operationId: updateWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/{versionId}:
+    get:
+      tags:
+      - Workflow
+      summary: Retrieves a specific version of a workflow
+      operationId: getWorkflowVersion
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: versionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/activate:
+    post:
+      tags:
+      - Workflow
+      summary: Activate a workflow
+      operationId: activateWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/deactivate:
+    post:
+      tags:
+      - Workflow
+      summary: Deactivate a workflow
+      operationId: deactivateWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/archive:
+    post:
+      tags:
+      - Workflow
+      summary: Archive a workflow
+      operationId: archiveWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/unarchive:
+    post:
+      tags:
+      - Workflow
+      summary: Unarchive a workflow
+      operationId: unarchiveWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/transfer:
+    put:
+      tags:
+      - Workflow
+      summary: Transfer a workflow to another project
+      operationId: transferWorkflow
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+  /workflows/{id}/tags:
+    get:
+      tags:
+      - Workflow
+      summary: Get workflow tags
+      operationId: getWorkflowTags
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+    put:
+      tags:
+      - Workflow
+      summary: Update tags of a workflow
+      operationId: updateWorkflowTags
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-N8N-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: n8n API documentation
+  url: https://docs.n8n.io/api/
