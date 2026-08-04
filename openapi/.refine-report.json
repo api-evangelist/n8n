@@ -1,0 +1,40 @@
+{
+  "provider": "n8n",
+  "sources": [
+    "n8n-audit-api-openapi.yml",
+    "n8n-communitypackage-api-openapi.yml",
+    "n8n-credential-api-openapi.yml",
+    "n8n-datatable-api-openapi.yml",
+    "n8n-discover-api-openapi.yml",
+    "n8n-execution-api-openapi.yml",
+    "n8n-folders-api-openapi.yml",
+    "n8n-insights-api-openapi.yml",
+    "n8n-projects-api-openapi.yml",
+    "n8n-sourcecontrol-api-openapi.yml",
+    "n8n-tags-api-openapi.yml",
+    "n8n-user-api-openapi.yml",
+    "n8n-variables-api-openapi.yml",
+    "n8n-workflow-api-openapi.yml"
+  ],
+  "outputs": [
+    "n8n-audit-api-openapi.yml",
+    "n8n-communitypackage-api-openapi.yml",
+    "n8n-credential-api-openapi.yml",
+    "n8n-datatable-api-openapi.yml",
+    "n8n-discover-api-openapi.yml",
+    "n8n-execution-api-openapi.yml",
+    "n8n-folders-api-openapi.yml",
+    "n8n-insights-api-openapi.yml",
+    "n8n-projects-api-openapi.yml",
+    "n8n-sourcecontrol-api-openapi.yml",
+    "n8n-tags-api-openapi.yml",
+    "n8n-user-api-openapi.yml",
+    "n8n-variables-api-openapi.yml",
+    "n8n-workflow-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
