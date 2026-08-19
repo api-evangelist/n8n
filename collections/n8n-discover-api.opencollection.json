@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public Audit Discover API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Discover API capabilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/discover"
+          },
+          "docs": "Discover API capabilities"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

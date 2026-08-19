@@ -1,0 +1,293 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public Audit Workflow API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows",
+            "params": [
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludePinnedData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all workflows"
+        },
+        {
+          "info": {
+            "name": "Create a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows"
+          },
+          "docs": "Create a workflow"
+        },
+        {
+          "info": {
+            "name": "Retrieves a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "excludePinnedData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a workflow"
+        },
+        {
+          "info": {
+            "name": "Update a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a workflow"
+        },
+        {
+          "info": {
+            "name": "Delete a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a workflow"
+        },
+        {
+          "info": {
+            "name": "Retrieves a specific version of a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/:versionId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific version of a workflow"
+        },
+        {
+          "info": {
+            "name": "Activate a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/activate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Activate a workflow"
+        },
+        {
+          "info": {
+            "name": "Deactivate a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/deactivate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deactivate a workflow"
+        },
+        {
+          "info": {
+            "name": "Archive a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive a workflow"
+        },
+        {
+          "info": {
+            "name": "Unarchive a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/unarchive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unarchive a workflow"
+        },
+        {
+          "info": {
+            "name": "Transfer a workflow to another project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/transfer",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Transfer a workflow to another project"
+        },
+        {
+          "info": {
+            "name": "Get workflow tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get workflow tags"
+        },
+        {
+          "info": {
+            "name": "Update tags of a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/workflows/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update tags of a workflow"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

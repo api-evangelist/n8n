@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public Audit API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate an audit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/audit"
+          },
+          "docs": "Generate a security audit for your n8n instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

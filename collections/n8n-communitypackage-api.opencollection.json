@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public Audit CommunityPackage API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CommunityPackage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List installed community packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/community-packages"
+          },
+          "docs": "List installed community packages"
+        },
+        {
+          "info": {
+            "name": "Install a community package",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/community-packages"
+          },
+          "docs": "Install a community package"
+        },
+        {
+          "info": {
+            "name": "Update a community package",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/community-packages/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a community package"
+        },
+        {
+          "info": {
+            "name": "Uninstall a community package",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/community-packages/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Uninstall a community package"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

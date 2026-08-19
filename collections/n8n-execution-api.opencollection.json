@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public Audit Execution API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Execution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/executions",
+            "params": [
+              {
+                "name": "includeData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all executions from your instance."
+        },
+        {
+          "info": {
+            "name": "Retrieve an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve an execution"
+        },
+        {
+          "info": {
+            "name": "Delete an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an execution"
+        },
+        {
+          "info": {
+            "name": "Retry an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id/retry",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retry an execution"
+        },
+        {
+          "info": {
+            "name": "Stop an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id/stop",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an execution"
+        },
+        {
+          "info": {
+            "name": "Stop multiple executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/executions/stop"
+          },
+          "docs": "Stop multiple executions"
+        },
+        {
+          "info": {
+            "name": "Update tags on an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.n8n.cloud/api/v1/executions/:id/tags",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update tags on an execution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

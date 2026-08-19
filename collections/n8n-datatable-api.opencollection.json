@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "n8n Public Audit DataTable API",
+    "version": "1.1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-N8N-API-KEY",
+      "value": "{{X-N8N-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataTable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all data tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables"
+          },
+          "docs": "List all data tables"
+        },
+        {
+          "info": {
+            "name": "Create a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables"
+          },
+          "docs": "Create a data table"
+        },
+        {
+          "info": {
+            "name": "Get a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a data table"
+        },
+        {
+          "info": {
+            "name": "Update a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a data table"
+        },
+        {
+          "info": {
+            "name": "Delete a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a data table"
+        },
+        {
+          "info": {
+            "name": "List rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List rows in a data table"
+        },
+        {
+          "info": {
+            "name": "Insert rows into a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Insert rows into a data table"
+        },
+        {
+          "info": {
+            "name": "Update rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows/update",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update rows in a data table"
+        },
+        {
+          "info": {
+            "name": "Upsert rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows/upsert",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Upsert rows in a data table"
+        },
+        {
+          "info": {
+            "name": "Delete rows in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/rows/delete",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete rows in a data table"
+        },
+        {
+          "info": {
+            "name": "List columns in a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/columns",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List columns in a data table"
+        },
+        {
+          "info": {
+            "name": "Add a column to a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/columns",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add a column to a data table"
+        },
+        {
+          "info": {
+            "name": "Delete a column from a data table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.n8n.cloud/api/v1/data-tables/:dataTableId/columns/:columnId",
+            "params": [
+              {
+                "name": "dataTableId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "columnId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a column from a data table"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
