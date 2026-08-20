@@ -25,11 +25,19 @@ specificationVersion: '0.23'
 tags:
 - Agents
 - Artificial Intelligence
+- Integration
+tags_raw:
+- Agents
+- Artificial Intelligence
 - Integrations
 apis:
 - aid: n8n:n8n
   name: N8n
   tags:
+  - Agents
+  - Artificial Intelligence
+  - Integration
+  tags_raw:
   - Agents
   - Artificial Intelligence
   - Integrations
@@ -177,6 +185,8 @@ apis:
   humanURL: https://n8n.io/
   baseURL: https://app.n8n.cloud/api/v1
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -193,6 +203,8 @@ apis:
   humanURL: https://n8n.io/
   baseURL: https://app.n8n.cloud/api/v1
   tags:
+  - Source Control
+  tags_raw:
   - SourceControl
   properties:
   - type: OpenAPI
@@ -257,6 +269,8 @@ apis:
   humanURL: https://n8n.io/
   baseURL: https://app.n8n.cloud/api/v1
   tags:
+  - Workflows
+  tags_raw:
   - Workflow
   properties:
   - type: OpenAPI
