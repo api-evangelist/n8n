@@ -40,278 +40,256 @@ tags_raw:
   - Artificial Intelligence
   - Integrations
 apis:
-  - aid: n8n:n8n
-    name: N8n
-    tags:
-      - Agents
-      - Artificial Intelligence
-      - Integration
-    tags_raw:
-      - Agents
-      - Artificial Intelligence
-      - Integrations
-    humanURL: https://n8n.io/
-    properties:
-      - url: https://n8n.io/
-        type: Documentation
-      - url: graphql/n8n-graphql.md
-        type: GraphQL
-    description: >-
-      Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud
-      convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
-  - aid: n8n:n8n-audit-api
-    name: N8n Audit API
-    description: Operations about security audit
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Audit
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-audit-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-communitypackage-api
-    name: N8n CommunityPackage API
-    description: Operations about community packages
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - CommunityPackage
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-communitypackage-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-credential-api
-    name: N8n Credential API
-    description: Operations about credentials
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Credential
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-credential-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-datatable-api
-    name: N8n DataTable API
-    description: Operations about data tables and their rows
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - DataTable
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-datatable-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-discover-api
-    name: N8n Discover API
-    description: API capability discovery
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Discover
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-discover-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-execution-api
-    name: N8n Execution API
-    description: Operations about executions
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Execution
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-execution-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-folders-api
-    name: N8n Folders API
-    description: Operations about folders
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Folders
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-folders-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-insights-api
-    name: N8n Insights API
-    description: Operations about insights
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Insights
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-insights-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-projects-api
-    name: N8n Projects API
-    description: Operations about projects
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Project
-    tags_raw:
-      - Projects
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-projects-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-sourcecontrol-api
-    name: N8n SourceControl API
-    description: Operations about source control
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Source Control
-    tags_raw:
-      - SourceControl
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-sourcecontrol-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-tags-api
-    name: N8n Tags API
-    description: Operations about tags
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Tags
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-tags-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-user-api
-    name: N8n User API
-    description: Operations about users
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - User
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-user-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-variables-api
-    name: N8n Variables API
-    description: Operations about variables
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Variables
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-variables-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - aid: n8n:n8n-workflow-api
-    name: N8n Workflow API
-    description: Operations about workflows
-    humanURL: https://n8n.io/
-    baseURL: https://app.n8n.cloud/api/v1
-    tags:
-      - Workflows
-    tags_raw:
-      - Workflow
-    properties:
-      - type: OpenAPI
-        url: openapi/n8n-workflow-api-openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: Reference
-        url: https://docs.n8n.io/api/api-reference/
-      - type: Authentication
-        url: https://docs.n8n.io/api/authentication/
-  - name: n8n Public API
-    description: >-
-      Instance-scoped REST API (path /api/v1) for managing workflows, executions, credentials, users, tags, variables,
-      source control, security audit, and data tables. API-key auth via X-N8N-API-KEY header. Available on paid plans.
-    humanURL: https://docs.n8n.io/api/
-    baseURL: /api/v1
-    tags:
-      - Workflow Automation
-      - iPaaS
-      - Integration
-      - No-Code
-      - Low-Code
-      - AI Agents
-      - Orchestration
-      - DevOps
-      - MCP
-    properties:
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/api/v1/openapi.yml
-      - type: Documentation
-        url: https://docs.n8n.io/api/
-      - type: LLMsTxt
-        url: https://docs.n8n.io/llms.txt
+- aid: n8n:n8n
+  name: N8n
+  tags:
+  - Agents
+  - Artificial Intelligence
+  - Integration
+  tags_raw:
+  - Agents
+  - Artificial Intelligence
+  - Integrations
+  humanURL: https://n8n.io/
+  properties:
+  - url: https://n8n.io/
+    type: Documentation
+  - url: graphql/n8n-graphql.md
+    type: GraphQL
+  description: >-
+    Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud
+    convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than
+    any other tool.
+- aid: n8n:n8n-audit-api
+  name: N8n Audit API
+  description: Operations about security audit
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Audit
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-audit-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-communitypackage-api
+  name: N8n CommunityPackage API
+  description: Operations about community packages
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - CommunityPackage
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-communitypackage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-credential-api
+  name: N8n Credential API
+  description: Operations about credentials
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Credential
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-credential-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-datatable-api
+  name: N8n DataTable API
+  description: Operations about data tables and their rows
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - DataTable
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-datatable-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-discover-api
+  name: N8n Discover API
+  description: API capability discovery
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Discover
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-discover-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-execution-api
+  name: N8n Execution API
+  description: Operations about executions
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Execution
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-execution-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-folders-api
+  name: N8n Folders API
+  description: Operations about folders
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Folders
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-folders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-insights-api
+  name: N8n Insights API
+  description: Operations about insights
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Insights
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-insights-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-projects-api
+  name: N8n Projects API
+  description: Operations about projects
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Project
+  tags_raw:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-sourcecontrol-api
+  name: N8n SourceControl API
+  description: Operations about source control
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Source Control
+  tags_raw:
+  - SourceControl
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-sourcecontrol-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-tags-api
+  name: N8n Tags API
+  description: Operations about tags
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-user-api
+  name: N8n User API
+  description: Operations about users
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-user-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-variables-api
+  name: N8n Variables API
+  description: Operations about variables
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Variables
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-variables-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
+- aid: n8n:n8n-workflow-api
+  name: N8n Workflow API
+  description: Operations about workflows
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Workflows
+  tags_raw:
+  - Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-workflow-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/api/
+  - type: Reference
+    url: https://docs.n8n.io/api/api-reference/
+  - type: Authentication
+    url: https://docs.n8n.io/api/authentication/
 common:
   - type: AgenticAccess
     url: agentic-access/n8n-agentic-access.yml
