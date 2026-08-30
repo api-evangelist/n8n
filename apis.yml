@@ -39,14 +39,6 @@ tags:
   - Agents
   - Artificial Intelligence
   - Integration
-  - Workflow Automation
-  - iPaaS
-  - No-Code
-  - Low-Code
-  - AI Agents
-  - Orchestration
-  - DevOps
-  - MCP
 tags_raw:
   - Agents
   - Artificial Intelligence
@@ -224,7 +216,7 @@ apis:
   humanURL: https://n8n.io/
   baseURL: https://app.n8n.cloud/api/v1
   tags:
-  - Source Control
+  - SourceControl
   tags_raw:
   - SourceControl
   properties:
