@@ -1,0 +1,44 @@
+generated: '2026-09-03'
+method: searched
+source: https://github.com/n8n-io/skills
+note: >-
+  Provider-published Agent Skills — n8n's own team ships 14 official skills
+  (plus 50+ reference docs and examples) pairing with the instance-level MCP
+  server, installable as a Claude Code plugin marketplace (n8n-io/skills) and
+  for Codex/OpenCode. The meta-skill SKILL.md is saved verbatim at
+  skills/n8n-using-n8n-skills-official.md; the remaining skills live in the
+  provider repository. Repo active (pushed 2026-09-01, 475 stars at capture).
+install:
+  claude_code: '/plugin marketplace add n8n-io/skills ; /plugin install n8n-skills@n8n-io'
+  codex: 'codex mcp add (see repo README)'
+skills:
+  - name: using-n8n-skills-official
+    file: skills/n8n-using-n8n-skills-official.md
+    description: Always-on router/protocol skill; summarizes every n8n MCP tool and cross-cutting rules.
+    url: https://github.com/n8n-io/skills/tree/main/skills/using-n8n-skills-official
+  - name: n8n-agents-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-agents-official
+  - name: n8n-binary-and-data-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-binary-and-data-official
+  - name: n8n-code-nodes-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-code-nodes-official
+  - name: n8n-credentials-and-security-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-credentials-and-security-official
+  - name: n8n-data-tables-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-data-tables-official
+  - name: n8n-debugging-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-debugging-official
+  - name: n8n-error-handling-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-error-handling-official
+  - name: n8n-expressions-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-expressions-official
+  - name: n8n-extending-mcp-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-extending-mcp-official
+  - name: n8n-loops-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-loops-official
+  - name: n8n-node-configuration-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-node-configuration-official
+  - name: n8n-subworkflows-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-subworkflows-official
+  - name: n8n-workflow-lifecycle-official
+    url: https://github.com/n8n-io/skills/tree/main/skills/n8n-workflow-lifecycle-official

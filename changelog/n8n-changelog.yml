@@ -1,0 +1,35 @@
+generated: '2026-09-03'
+method: searched
+source: https://docs.n8n.io/changelog/release-notes.md (fetched 2026-09-03)
+url: https://docs.n8n.io/changelog/release-notes
+scheme: >-
+  Semantic versioning; weekly feature releases on the 2.x line with `latest`
+  and `stable` channels. Archived notes per major line (2.x, 1.x, 0.x).
+current_version: '2.37.9'
+current_version_source: registry.npmjs.org/n8n dist-tags.latest, published 2026-09-03
+latest_documented_release: '2.36'
+entries:
+  - version: '2.36'
+    highlights: Discord node adds member moderation actions, plus 8 other features.
+  - version: '2.35'
+    highlights: Enhanced human-in-the-loop approval for Slack and Telegram, plus 15 other features. MCP search_workflows slimmed (scopes/canExecute moved to get_workflow_details).
+  - version: '2.34'
+    highlights: OIDC logout support added and made opt-in, plus 18 other features.
+  - version: '2.33'
+    highlights: Redesigned instance settings for AI assistant; per-client MCP connection setup (Connection details / Access / Connected clients).
+  - version: '2.32'
+    highlights: Scope selection for MCP OAuth consent, plus 12 other features.
+  - version: '2.31'
+    highlights: Notion node overhauled with new API, plus 17 other features.
+  - version: '2.30'
+    highlights: Service Principal authentication across Microsoft nodes, plus 12 other features.
+  - version: '2.29'
+    highlights: Microsoft Entra Service Principal authentication support, plus 13 other features.
+  - version: '2.28'
+    highlights: GitHub node adds pull request resource, plus 27 other features.
+  - version: '2.27'
+    highlights: Create variables and data tables from add menu, plus 17 other features; MCP tag filtering.
+note: >-
+  Release-note headings on the docs page are versioned but not dated; npm
+  publish dates carry the per-patch dates. Breaking changes are reserved for
+  major versions per the provider's semantic-versioning policy.

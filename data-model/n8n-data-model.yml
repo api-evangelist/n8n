@@ -1,0 +1,112 @@
+generated: '2026-09-03'
+method: derived
+source: openapi/n8n-public-api-openapi.yml (paths + response schemas)
+description: >-
+  Entity-relationship graph of the n8n public API, derived from resource paths
+  and response schemas of the provider-published contract. All resources are
+  scoped to a single n8n instance.
+entities:
+  - name: Workflow
+    key: id
+    fields: [id, name, active, isArchived, versionId, nodes, connections, settings, tags]
+  - name: WorkflowVersion
+    key: versionId
+    note: Addressed at /workflows/{id}/{versionId}.
+  - name: TestRun
+    key: runId
+    note: Workflow evaluation runs at /workflows/{id}/test-runs.
+  - name: Execution
+    key: id
+    fields: [id, status, startedAt, stoppedAt, workflowId]
+  - name: Credential
+    key: id
+    fields: [id, name, role, createdAt, updatedAt]
+  - name: CredentialType
+    key: credentialTypeName
+    note: Schema readable at /credentials/schema/{credentialTypeName}.
+  - name: User
+    key: id
+    fields: [id, email, firstName, lastName, isPending, role, mfaEnabled, createdAt, updatedAt]
+  - name: Project
+    key: id
+    fields: [id, name, type]
+  - name: Folder
+    key: folderId
+    note: Nested under projects at /projects/{projectId}/folders.
+  - name: Tag
+    key: id
+    fields: [id, name]
+  - name: Variable
+    key: id
+    fields: [id, key, value, type, project]
+  - name: DataTable
+    key: id
+    fields: [id, name, columns, projectId, createdAt, updatedAt]
+  - name: DataTableColumn
+    key: columnId
+  - name: DataTableRow
+    key: id
+  - name: CommunityPackage
+    key: name
+  - name: LogStreamingDestination
+    key: id
+    note: /settings/log-streaming/destinations.
+relationships:
+  - from: Workflow
+    to: Execution
+    type: has_many
+    via: 'workflowId'
+  - from: Workflow
+    to: Tag
+    type: has_many
+    via: '/workflows/{id'
+  - from: Workflow
+    to: WorkflowVersion
+    type: has_many
+    via: 'versionId'
+  - from: Workflow
+    to: TestRun
+    type: has_many
+    via: '/workflows/{id'
+  - from: Workflow
+    to: Project
+    type: belongs_to
+    via: 'transferWorkflow destinationProjectId'
+  - from: Workflow
+    to: Folder
+    type: belongs_to
+    via: 'parentFolderId'
+  - from: Project
+    to: Folder
+    type: has_many
+    via: '/projects/{projectId'
+  - from: Project
+    to: User
+    type: has_many
+    via: '/projects/{projectId'
+  - from: DataTable
+    to: Project
+    type: belongs_to
+    via: 'projectId'
+  - from: DataTable
+    to: DataTableColumn
+    type: has_many
+    via: '/data-tables/{dataTableId'
+  - from: DataTable
+    to: DataTableRow
+    type: has_many
+    via: '/data-tables/{dataTableId'
+  - from: Credential
+    to: CredentialType
+    type: belongs_to
+    via: 'credentialTypeName'
+  - from: Credential
+    to: Project
+    type: belongs_to
+    via: 'transferCredential destinationProjectId'
+  - from: Variable
+    to: Project
+    type: belongs_to
+    via: 'project'
+id_conventions:
+  note: Opaque string ids; no documented id-prefix scheme (unlike Stripe-style prefixed ids).

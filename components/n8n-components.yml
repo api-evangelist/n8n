@@ -1,0 +1,24 @@
+generated: '2026-09-03'
+method: searched
+source: https://www.npmjs.com/package/@n8n/chat
+components:
+  - family: Chat widget
+    name: '@n8n/chat'
+    description: >-
+      Embeddable chat UI component for n8n Chat Trigger workflows — drop-in
+      widget (CDN script or npm package) that connects a website chat window
+      to an n8n workflow webhook.
+    registry: npm
+    package: '@n8n/chat'
+    version: 1.36.3
+    published: '2026-09-03'
+    url: https://www.npmjs.com/package/@n8n/chat
+    official: true
+  - family: Embedded / OEM n8n
+    name: n8n Embed
+    description: >-
+      White-label embedding of the full n8n workflow editor inside another
+      product, with iframe SSO and OAuth 2.0 Token Exchange for delegated API
+      access on behalf of embedded users.
+    docs: https://docs.n8n.io/deploy/host-n8n/deploy-as-an-oem-integration/set-up-token-exchange/
+    official: true

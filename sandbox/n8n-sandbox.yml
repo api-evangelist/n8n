@@ -1,0 +1,24 @@
+generated: '2026-09-03'
+method: searched
+source: https://docs.n8n.io/connect/n8n-api.md
+name: n8n API playground and test surfaces
+note: >-
+  n8n has no test-mode API keys or sandbox environment for the public API; the
+  API is unavailable during the free Cloud trial and requires a paid plan.
+  What the provider does publish: a built-in Swagger API playground on
+  self-hosted instances, manual (unpublished-version) execution modes, and a
+  separate per-plan test-evaluation surface.
+surfaces:
+  - name: Built-in API playground
+    availability: self-hosted only
+    docs: https://docs.n8n.io/connect/n8n-api/use-an-api-playground/
+    note: Interactive Swagger UI against the instance's own API; runs real operations against live data.
+  - name: Manual workflow execution mode
+    availability: all plans (via MCP test_workflow / execute_workflow mode=manual)
+    docs: https://docs.n8n.io/connect/connect-to-n8n-mcp-server/
+    note: Runs the current unpublished version of a workflow without publishing it.
+  - name: Test evaluations
+    availability: per-plan parallelism (Pro 1, Business 3, Enterprise 5)
+    docs: https://docs.n8n.io/deploy/use-n8n-cloud/understand-concurrency/
+    note: Workflow test runs (/workflows/{id}/test-runs) don't count against production concurrency limits.
+test_credentials: none published — never invented

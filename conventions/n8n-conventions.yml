@@ -1,0 +1,89 @@
+generated: '2026-09-03'
+method: searched
+source: >-
+  https://docs.n8n.io/connect/n8n-api/authentication.md,
+  https://docs.n8n.io/connect/n8n-api/pagination.md,
+  openapi/n8n-public-api-openapi.yml
+auth:
+  style: api-key header
+  header: X-N8N-API-KEY
+  alternatives:
+    - bearer JWT (BearerAuth scheme in the OpenAPI)
+    - n8n-auth cookie (CookieAuth scheme, browser session)
+  scoping: Enterprise API keys can be scoped (see scopes/n8n-scopes.yml); other keys have full account access.
+  docs: https://docs.n8n.io/connect/n8n-api/authentication
+versioning:
+  style: URL path
+  current: /api/v1
+  note: Instance-relative — https://<instance>/api/v1 on Cloud and self-hosted alike.
+pagination:
+  style: cursor
+  request_params: [limit, cursor]
+  default_page_size: 100
+  max_page_size: 250
+  response_fields: [data, nextCursor]
+  docs: https://docs.n8n.io/connect/n8n-api/pagination
+error_envelope:
+  shape: JSON object with a message field; not RFC 9457 problem+json
+  see: errors/n8n-problem-types.yml
+rate_limit_signaling:
+  documented_headers: []
+  throttled_status: 429
+  note: >-
+    n8n Cloud limits the REST API per workspace (60 req/min per pricing page)
+    but documents no X-RateLimit-*/RateLimit-* response headers for the
+    public API.
+request_id_tracing:
+  note: >-
+    No documented request-id header for the public API. Instance-level
+    OpenTelemetry trace export is configurable (/settings/otel).
+idempotency:
+  coverage: none
+  note: >-
+    No Idempotency-Key header or replay-protection mechanism is documented for
+    the public API. Retried POSTs (e.g. createWorkflow, insertDataTableRows)
+    can duplicate resources.
+webhooks:
+  note: >-
+    Webhooks in n8n are user-defined inbound workflow triggers (the Webhook
+    node), not a provider event catalog — so no AsyncAPI/provider-webhook
+    artifact is emitted. Webhook signature verification landed across trigger
+    nodes in n8n 2.21.
+reversibility:
+  status: documented
+  note: >-
+    Several write surfaces have documented reversal operations, but the docs
+    state no time windows for any of them, so the grade is documented, not
+    verified.
+  reversals:
+    - action: activate (publish) a workflow
+      operation: activateWorkflow
+      reversal: deactivateWorkflow
+      window: not stated
+    - action: archive a workflow
+      operation: archiveWorkflow
+      reversal: unarchiveWorkflow
+      window: not stated
+      note: workflow:delete scope covers delete, archive, and unarchive; archiving is the recoverable path.
+    - action: failed execution
+      operation: n/a
+      reversal: retryExecution
+      window: not stated
+    - action: running execution
+      operation: n/a
+      reversal: stopExecution
+      window: while running
+    - action: publish an agent (MCP surface)
+      operation: publish_agent
+      reversal: unpublish_agent / revert_agent (to a prior version)
+      window: not stated
+  irreversible:
+    - deleteWorkflow (delete without archive)
+    - deleteExecution
+    - deleteCredential
+    - deleteUser
+    - deleteDataTableRows / clear-data-table-rows
+field_expansion:
+  note: Not supported; responses are fixed shapes. excludePinnedData flag exists on workflow reads.
+metadata:
+  note: No generic metadata field convention on API resources; workflows carry tags, projects carry roles.

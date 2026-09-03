@@ -1,0 +1,51 @@
+generated: '2026-09-03'
+method: derived
+source: openapi/n8n-public-api-openapi.yml + docs.n8n.io (fetched 2026-09-03)
+standards:
+  - id: oauth2
+    conforms: true
+    scope: MCP surface only
+    evidence: >-
+      Instance-level MCP server authenticates clients via OAuth with per-client
+      granted permissions and scope selection at consent (n8n 2.32 release
+      notes; https://docs.n8n.io/connect/connect-to-n8n-mcp-server/). The REST
+      public API itself uses API keys (X-N8N-API-KEY), not OAuth.
+  - id: oidc
+    conforms: true
+    scope: product SSO, not the public API
+    evidence: >-
+      OIDC SSO supported for instance login (GET/PUT /settings/sso/oidc in the
+      published OpenAPI; OIDC logout support in n8n 2.34 release notes).
+  - id: pagination
+    conforms: true
+    evidence: >-
+      Cursor pagination documented at
+      https://docs.n8n.io/connect/n8n-api/pagination — limit (default 100,
+      max 250) + nextCursor response field + cursor request parameter.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key or replay-protection mechanism documented for the public API.
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      Error responses in the published OpenAPI are plain description-only
+      responses (400/401/403/404/409/415/422), not application/problem+json.
+  - id: opentelemetry
+    conforms: true
+    evidence: >-
+      OTLP trace export is a first-class instance feature: GET/PUT
+      /settings/otel and POST /settings/otel/test-trace in the published
+      OpenAPI; https://blog.n8n.io/ 2026-06-08 "Trace n8n workflow and node
+      executions with OpenTelemetry".
+  - id: scim
+    conforms: false
+    evidence: No SCIM provisioning surface found in the OpenAPI or docs; user provisioning is via /users and LDAP/SAML/OIDC SSO settings.
+  - id: saml
+    conforms: true
+    scope: product SSO, not the public API
+    evidence: GET/PUT /settings/sso/saml in the published OpenAPI; SSO/SAML documented on Business+ plans.
+domain_standard: >-
+  No sector contract standard declared in the spec itself (workflow
+  automation / iPaaS has no dominant domain contract standard); MCP
+  (Model Context Protocol) is the closest agent-facing standard n8n ships,
+  recorded in mcp/n8n-mcp.yml.

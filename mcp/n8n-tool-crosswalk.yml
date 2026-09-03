@@ -1,0 +1,160 @@
+generated: '2026-09-03'
+method: derived
+source: >-
+  https://docs.n8n.io/connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md
+  mapped against openapi/ (refined per-tag specs + openapi/n8n-public-api-openapi.yml)
+note: >-
+  The live MCP schema requires an authenticated n8n instance (OAuth or bearer
+  token), so bindings are mapped by name and documented semantics from the
+  provider's own tools reference, not live introspection. Confidence is set
+  accordingly. The MCP surface and the public REST API are siblings over the
+  same instance resources but are not one-to-one: the workflow-builder and
+  agent-management tool families have no public REST equivalents.
+surfaces:
+  openapi: openapi/n8n-public-api-openapi.yml
+  mcp: https://{your-n8n-instance}/mcp-server/http (auth-gated, instance-templated)
+  graphql: none published (graphql/n8n-graphql.md is a conceptual community derivation)
+coverage:
+  mcp_tools: 46
+  crosswalked: 15
+  mcp_only: 31
+  rest_operations: 86
+  rest_only_examples: 24
+crosswalk:
+  - tool: search_workflows
+    category: workflow_management
+    rest: [getWorkflows]
+    binding: semantic
+    confidence: high
+    note: GET /workflows with filters; MCP adds query/sort/folder semantics.
+  - tool: get_workflow_details
+    category: workflow_management
+    rest: [getWorkflow]
+    binding: semantic
+    confidence: high
+  - tool: publish_workflow
+    category: workflow_management
+    rest: [activateWorkflow]
+    binding: semantic
+    confidence: medium
+    note: Provider docs say activate/deactivate is "publish/unpublish" in the public API.
+  - tool: unpublish_workflow
+    category: workflow_management
+    rest: [deactivateWorkflow]
+    binding: semantic
+    confidence: medium
+  - tool: update_workflow
+    category: workflow_builder
+    rest: [updateWorkflow]
+    binding: semantic
+    confidence: medium
+  - tool: archive_workflow
+    category: workflow_builder
+    rest: [archiveWorkflow]
+    binding: semantic
+    confidence: high
+  - tool: search_projects
+    category: workflow_management
+    rest: [getProjects]
+    binding: semantic
+    confidence: high
+  - tool: search_folders
+    category: workflow_management
+    rest: [listFolders]
+    binding: semantic
+    confidence: high
+  - tool: list_workflow_tags
+    category: workflow_management
+    rest: [getTags]
+    binding: semantic
+    confidence: high
+  - tool: get_workflow_execution
+    category: execution_management
+    rest: [getExecution]
+    binding: semantic
+    confidence: high
+  - tool: search_workflow_executions
+    category: execution_management
+    rest: [getExecutions]
+    binding: semantic
+    confidence: high
+  - tool: list_credentials
+    category: credential_management
+    rest: [getCredentials]
+    binding: semantic
+    confidence: high
+  - tool: search_data_tables
+    category: data_tables
+    rest: [listDataTables]
+    binding: semantic
+    confidence: high
+  - tool: create_data_table
+    category: data_tables
+    rest: [createDataTable]
+    binding: semantic
+    confidence: high
+  - tool: add_data_table_rows
+    category: data_tables
+    rest: [insertDataTableRows]
+    binding: semantic
+    confidence: high
+mcp_only:
+  - tool: execute_workflow
+    reason: No public REST operation runs a workflow; execution happens via webhooks/triggers.
+  - tool: test_workflow
+    reason: Manual-mode test execution is an MCP/editor capability, not a public REST op.
+  - tool: prepare_workflow_pin_data
+    reason: Editor pin-data tooling; no REST equivalent.
+  - tool: get_workflow_versions_diff
+    reason: Version diffing has no public REST op (REST only fetches a single version).
+  - tool: get_workflow_sdk_reference
+    reason: Workflow-builder reference material served by the MCP server itself.
+  - tool: search_nodes
+    reason: Node-type catalog is not part of the public REST API.
+  - tool: get_node_types
+    reason: Node-type catalog is not part of the public REST API.
+  - tool: get_workflow_best_practices
+    reason: Reference material served by the MCP server itself.
+  - tool: explore_node_resources
+    reason: Node resource discovery; no REST equivalent.
+  - tool: validate_workflow
+    reason: Validation is an MCP/builder capability; no REST equivalent.
+  - tool: validate_node_config
+    reason: Validation is an MCP/builder capability; no REST equivalent.
+  - tool: create_workflow_from_code
+    reason: SDK-code-to-workflow builder path; REST createWorkflow takes workflow JSON, not code.
+  - tool: agent_management_family
+    reason: >-
+      All 15 agent tools (search_agents, get_agent, create_agent, mutate_agent,
+      validate_agent, call_agent, publish_agent, unpublish_agent, revert_agent,
+      list_agent_versions, update_agent_integration, delete_agent,
+      get_agent_builder_reference, discover_agent_assets,
+      verify_agent_mcp_server) manage n8n Agents, which have no public REST
+      surface.
+  - tool: data_table_column_renames
+    reason: rename_data_table_column / rename_data_table map loosely onto PATCH updates; kept out of the crosswalk pending schema introspection.
+rest_only:
+  - generateAudit
+  - createWorkflow
+  - deleteWorkflow
+  - transferWorkflow
+  - getWorkflowTags
+  - updateWorkflowTags
+  - deleteExecution
+  - retryExecution
+  - stopExecution
+  - createCredential
+  - deleteCredential
+  - testCredential
+  - getCredentialSchema
+  - transferCredential
+  - createTag
+  - updateTag
+  - deleteTag
+  - getUsers
+  - createUsers
+  - deleteUser
+  - changeUserRole
+  - createVariable
+  - getVariables
+  - sourceControlPull

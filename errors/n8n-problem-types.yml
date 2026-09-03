@@ -1,0 +1,53 @@
+generated: '2026-09-03'
+method: derived
+source: openapi/n8n-public-api-openapi.yml (provider-published contract, bundled from n8n-io/n8n)
+format: plain-json
+note: >-
+  n8n's public API does not use RFC 9457 application/problem+json; error
+  responses in the published contract carry a description and (at runtime) a
+  JSON body with a message field. Occurrence counts are operations in the
+  86-operation contract declaring each status.
+problems:
+  - status: 400
+    title: Bad request
+    description: The request is invalid or provides malformed data.
+    occurrences: 39
+  - status: 401
+    title: Unauthorized
+    description: Missing or invalid X-N8N-API-KEY (or bearer token).
+    occurrences: 85
+    remediation: Create an API key under Settings > n8n API and send it in the X-N8N-API-KEY header.
+  - status: 402
+    title: Payment required
+    description: Feature not available on the instance's current plan/license.
+    occurrences: 1
+  - status: 403
+    title: Forbidden
+    description: The API key or user role lacks the scope/permission for this operation.
+    occurrences: 47
+    remediation: On Enterprise, grant the required API-key scope (see scopes/n8n-scopes.yml); otherwise use an owner/admin key.
+  - status: 404
+    title: Not found
+    description: The requested resource does not exist.
+    occurrences: 53
+  - status: 409
+    title: Conflict
+    description: The request conflicts with current resource state (e.g. duplicate name, already-active workflow).
+    occurrences: 18
+  - status: 415
+    title: Unsupported media type
+    description: Request payload is not a supported content type.
+    occurrences: 1
+  - status: 422
+    title: Unprocessable entity
+    description: The request was well-formed but semantically invalid.
+    occurrences: 1
+  - status: 429
+    title: Too many requests
+    description: Rate limit exhausted (n8n Cloud REST API is limited per workspace); retry after backoff.
+    occurrences: 0
+    note: Not declared in the contract; documented at the platform level (see rate-limits/).
+  - status: 500
+    title: Internal server error
+    description: Unexpected server-side failure.
+    occurrences: 1

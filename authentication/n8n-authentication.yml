@@ -1,22 +1,45 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/n8n-openapi.yml
+generated: '2026-09-03'
+method: searched
+docs: https://docs.n8n.io/connect/n8n-api/authentication
+source: >-
+  https://docs.n8n.io/connect/n8n-api/authentication.md +
+  openapi/n8n-public-api-openapi.yml (provider-published contract)
 summary:
   types:
-  - apiKey
-  - http
+    - apiKey
+    - http
   api_key_in:
-  - header
+    - header
+    - cookie
+notes: >-
+  API keys are created in Settings > n8n API with a label and expiration; on
+  Enterprise plans keys can be restricted to scopes (see scopes/n8n-scopes.yml).
+  The API is not available during the free Cloud trial. The instance-level MCP
+  server authenticates separately via OAuth (recommended) or a bearer personal
+  access token.
 schemes:
-- name: ApiKeyAuth
-  type: apiKey
-  in: header
-  parameter: X-N8N-API-KEY
-  sources:
-  - openapi/n8n-openapi.yml
-- name: BearerAuth
-  type: http
-  scheme: bearer
-  bearerFormat: JWT
-  sources:
-  - openapi/n8n-openapi.yml
+  - name: ApiKeyAuth
+    type: apiKey
+    in: header
+    parameter: X-N8N-API-KEY
+    description: Primary public-API authentication; key created under Settings > n8n API.
+    sources:
+      - openapi/n8n-public-api-openapi.yml
+      - https://docs.n8n.io/connect/n8n-api/authentication
+  - name: BearerAuth
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+    sources:
+      - openapi/n8n-public-api-openapi.yml
+  - name: CookieAuth
+    type: apiKey
+    in: cookie
+    parameter: n8n-auth
+    description: Browser-session cookie auth (used by the instance UI).
+    sources:
+      - openapi/n8n-public-api-openapi.yml
+mcp_auth:
+  methods: [oauth, bearer-token]
+  docs: https://docs.n8n.io/connect/connect-to-n8n-mcp-server/
+  note: OAuth with per-client permissions and scope selection at consent (n8n 2.32+); tokens rotatable, revocation per client.

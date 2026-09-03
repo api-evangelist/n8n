@@ -1,0 +1,70 @@
+generated: '2026-09-03'
+method: probed
+source: live probes of /.well-known/* on n8n.io, www.n8n.io, docs.n8n.io, app.n8n.cloud
+note: >-
+  One real document served: security.txt on n8n.io (saved verbatim to
+  well-known/n8n-security.txt). www.n8n.io 301s every path to n8n.io.
+  app.n8n.cloud answers 200 for every /.well-known/* path but returns the Nuxt
+  SPA HTML shell (content-type text/html) — recorded as misses, not documents.
+hosts:
+  - host: n8n.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: well-known/n8n-security.txt
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.n8n.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        note: redirects to n8n.io
+  - host: docs.n8n.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: app.n8n.cloud
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: SPA HTML shell (text/html), not a document — treated as a miss
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/api-catalog
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/agent.json
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss

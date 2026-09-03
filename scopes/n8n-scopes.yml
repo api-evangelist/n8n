@@ -1,0 +1,78 @@
+generated: '2026-09-03'
+method: searched
+docs: https://docs.n8n.io/connect/n8n-api/authentication
+source: https://docs.n8n.io/connect/n8n-api/authentication.md (fetched 2026-09-03)
+note: >-
+  n8n's public REST API authenticates with API keys, not OAuth; these are the
+  provider's documented API-key scopes, available on Enterprise instances
+  (non-Enterprise keys have full access). The same scope vocabulary governs
+  what a scoped key may do, and the instance-level MCP server applies scope
+  selection at OAuth consent (n8n 2.32). resource:action format.
+scopes:
+  - {scope: 'communityPackage:install', description: Install a community node package on the instance.}
+  - {scope: 'communityPackage:list', description: List installed community node packages.}
+  - {scope: 'communityPackage:uninstall', description: Uninstall a community node package.}
+  - {scope: 'communityPackage:update', description: Update an installed community node package.}
+  - {scope: 'credential:create', description: Create credentials.}
+  - {scope: 'credential:read', description: Retrieve a credential and its data schema.}
+  - {scope: 'credential:list', description: List credentials.}
+  - {scope: 'credential:update', description: Update a credential.}
+  - {scope: 'credential:delete', description: Delete a credential.}
+  - {scope: 'credential:move', description: Transfer a credential to another project.}
+  - {scope: 'dataTable:create', description: Create a data table.}
+  - {scope: 'dataTable:read', description: Retrieve a data table.}
+  - {scope: 'dataTable:list', description: List data tables.}
+  - {scope: 'dataTable:update', description: Update a data table's metadata.}
+  - {scope: 'dataTable:delete', description: Delete a data table.}
+  - {scope: 'dataTableColumn:create', description: Add a column to a data table.}
+  - {scope: 'dataTableColumn:read', description: Retrieve a data table column.}
+  - {scope: 'dataTableColumn:update', description: Update a data table column.}
+  - {scope: 'dataTableColumn:delete', description: Delete a data table column.}
+  - {scope: 'dataTableRow:create', description: Insert rows into a data table.}
+  - {scope: 'dataTableRow:read', description: Read rows from a data table.}
+  - {scope: 'dataTableRow:update', description: Update existing rows in a data table.}
+  - {scope: 'dataTableRow:delete', description: Delete rows from a data table.}
+  - {scope: 'dataTableRow:upsert', description: Update an existing row, or insert if no row matches.}
+  - {scope: 'execution:read', description: Retrieve an execution and its details.}
+  - {scope: 'execution:list', description: List executions.}
+  - {scope: 'execution:retry', description: Retry a failed execution.}
+  - {scope: 'execution:stop', description: Stop a running execution.}
+  - {scope: 'execution:delete', description: Delete an execution.}
+  - {scope: 'executionTags:list', description: Read the annotation tags assigned to an execution.}
+  - {scope: 'executionTags:update', description: Update the annotation tags assigned to an execution.}
+  - {scope: 'folder:create', description: Create a folder in a project.}
+  - {scope: 'folder:read', description: Retrieve a folder.}
+  - {scope: 'folder:list', description: List folders in a project.}
+  - {scope: 'folder:update', description: Update a folder.}
+  - {scope: 'folder:delete', description: Delete a folder.}
+  - {scope: 'insights:read', description: Read instance insights data (execution counts, failure rates, time saved, run time).}
+  - {scope: 'project:create', description: Create a project.}
+  - {scope: 'project:list', description: List projects.}
+  - {scope: 'project:update', description: Update a project.}
+  - {scope: 'project:delete', description: Delete a project.}
+  - {scope: 'securityAudit:generate', description: Generate a security audit report for the instance.}
+  - {scope: 'sourceControl:pull', description: Pull changes from the connected source control repository.}
+  - {scope: 'tag:create', description: Create a tag in the global tag registry.}
+  - {scope: 'tag:read', description: Retrieve a tag.}
+  - {scope: 'tag:list', description: List tags.}
+  - {scope: 'tag:update', description: Update a tag.}
+  - {scope: 'tag:delete', description: Delete a tag.}
+  - {scope: 'user:create', description: Invite or create users on the instance.}
+  - {scope: 'user:read', description: Retrieve a user.}
+  - {scope: 'user:list', description: List users.}
+  - {scope: 'user:changeRole', description: Change a user's global (instance-level) role.}
+  - {scope: 'user:enforceMfa', description: Reserved scope; no /api/v1/ endpoint consumes it.}
+  - {scope: 'user:delete', description: Delete a user from the instance.}
+  - {scope: 'variable:create', description: Create an instance variable.}
+  - {scope: 'variable:list', description: List instance variables.}
+  - {scope: 'variable:update', description: Update an instance variable.}
+  - {scope: 'variable:delete', description: Delete an instance variable.}
+  - {scope: 'workflow:create', description: Create a workflow.}
+  - {scope: 'workflow:read', description: Retrieve a workflow and its details.}
+  - {scope: 'workflow:list', description: List workflows.}
+  - {scope: 'workflow:update', description: Update a workflow.}
+  - {scope: 'workflow:delete', description: Delete, archive, or unarchive a workflow.}
+  - {scope: 'workflow:move', description: Transfer a workflow to another project.}
+  - {scope: 'workflow:activate', description: Activate/deactivate (publish/unpublish) a workflow.}
+  - {scope: 'workflowTags:list', description: Read the tags assigned to a workflow.}
+  - {scope: 'workflowTags:update', description: Update the tags assigned to a workflow.}

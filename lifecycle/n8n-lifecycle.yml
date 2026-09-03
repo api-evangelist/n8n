@@ -1,0 +1,35 @@
+generated: '2026-09-03'
+method: searched
+source: https://docs.n8n.io/changelog/release-notes.md
+status_page:
+  url: https://status.n8n.cloud/
+  probed: '2026-09-03'
+  status: 200
+  note: Live n8n Cloud status page with per-component operational status and uptime.
+versioning:
+  api: URL-versioned (/api/v1); OpenAPI info.version 1.1.1.
+  platform: >-
+    Semantic versioning, documented in the release notes ("Semantic versioning
+    in n8n"). Weekly minor releases on the 2.x line (2.36 latest documented,
+    npm latest 2.37.9 published 2026-09-03); breaking changes reserved for
+    major versions.
+  release_channels: [latest, stable]
+release_notes:
+  url: https://docs.n8n.io/changelog/release-notes
+  archives:
+    - https://docs.n8n.io/changelog/release-notes-2.x/
+    - https://docs.n8n.io/changelog/release-notes-1.x/
+    - https://docs.n8n.io/changelog/release-notes-0.x/
+deprecation:
+  policy_url: null
+  note: >-
+    No standalone API deprecation policy page found. Deprecations are announced
+    per release in the release notes, and deprecated integration nodes are
+    listed at https://docs.n8n.io/integrations/builtin/deprecated-nodes/.
+    No Sunset/Deprecation (RFC 8594) headers documented. The published OpenAPI
+    marks no operation deprecated.
+sla:
+  note: No public API SLA found; Enterprise plans are custom-contracted.
+support:
+  community: https://community.n8n.io/
+  enterprise: https://n8n.io/enterprise/

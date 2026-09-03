@@ -35,6 +35,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "n8n-audit-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-communitypackage-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-credential-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-datatable-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-discover-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-execution-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-folders-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-insights-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-projects-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-sourcecontrol-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-tags-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-user-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-variables-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "n8n-workflow-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+0 apis, 15 total)"
+  ],
   "skipped": []
 }

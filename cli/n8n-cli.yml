@@ -1,0 +1,42 @@
+generated: '2026-09-03'
+method: searched
+source: https://docs.n8n.io/connect/n8n-cli.md
+name: n8n CLI (@n8n/cli)
+description: >-
+  First-party command-line client for the n8n public API. Runs from any machine
+  with network access, authenticates with an API key, and respects user roles
+  and API key scopes. Distinct from the built-in Server CLI (the `n8n` binary),
+  which runs on the instance host with direct database access for backups,
+  license management, and emergency resets.
+package:
+  registry: npm
+  name: '@n8n/cli'
+  version: 0.17.0
+  published: '2026-08-25'
+  url: https://www.npmjs.com/package/@n8n/cli
+install:
+  - 'npx @n8n/cli workflow list'
+  - 'npm install -g @n8n/cli'
+configuration:
+  file: ~/.n8n-cli/config.json (0600)
+  env: [N8N_URL, N8N_API_KEY]
+  flags: ['--url', '--api-key']
+  resolution_order: [flags, env, config file]
+commands:
+  workflow: [list, get, create, update, delete, activate, deactivate, tags, transfer]
+  execution: [list, get, retry, stop, delete]
+  credential: [list, get, schema, create, delete, transfer]
+  project: [list, get, create, update, delete, members, add-member, remove-member]
+  tag: [list, create, update, delete]
+  variable: [list, create, update, delete]
+  data-table: [list, get, create, delete, rows, add-rows, update-rows, upsert-rows, delete-rows]
+  user: [list, get]
+  config: [set-url, set-api-key, show]
+  source-control: [pull]
+  package: [export, import]
+  skill: [install]
+  top_level: [audit, login, logout]
+server_cli:
+  name: n8n (Server CLI, bundled with the n8n platform package)
+  docs: https://docs.n8n.io/deploy/host-n8n/configure-n8n/use-the-command-line/
+  note: Instance-operator tool; bypasses access control; runs on the n8n host.

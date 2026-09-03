@@ -1,0 +1,58 @@
+generated: '2026-09-03'
+method: searched
+source: registry.npmjs.org (metadata endpoints, fetched 2026-09-03)
+note: n8n is npm-native; no first-party packages found on PyPI, RubyGems, Maven, NuGet, crates.io, or
+  pkg.go.dev. The `n8n` package is the full platform (includes the Server CLI); @n8n/workflow-sdk is the
+  TypeScript workflows-as-code SDK; @n8n/cli is the API client CLI; @n8n/chat is the embeddable chat widget;
+  n8n-workflow and n8n-core are the platform's published building-block libraries used by community node
+  authors.
+packages:
+- name: n8n
+  registry: npm
+  language: TypeScript/JavaScript
+  official: true
+  version: 2.37.9
+  published: '2026-09-03'
+  url: https://www.npmjs.com/package/n8n
+  description: The n8n workflow automation platform itself (self-hosted install + Server CLI).
+- name: '@n8n/workflow-sdk'
+  registry: npm
+  language: TypeScript/JavaScript
+  official: true
+  version: 0.30.3
+  published: '2026-09-03'
+  url: https://www.npmjs.com/package/@n8n/workflow-sdk
+  description: TypeScript SDK for programmatically creating n8n workflows (workflows-as-code; pairs with
+    the MCP builder tools).
+- name: '@n8n/cli'
+  registry: npm
+  language: TypeScript/JavaScript
+  official: true
+  version: 0.17.0
+  published: '2026-08-25'
+  url: https://www.npmjs.com/package/@n8n/cli
+  description: First-party client CLI for the n8n public API (workflows, executions, credentials).
+- name: '@n8n/chat'
+  registry: npm
+  language: TypeScript/JavaScript
+  official: true
+  version: 1.36.3
+  published: '2026-09-03'
+  url: https://www.npmjs.com/package/@n8n/chat
+  description: Embeddable chat widget component for Chat Trigger workflows.
+- name: n8n-workflow
+  registry: npm
+  language: TypeScript/JavaScript
+  official: true
+  version: 2.16.0
+  published: '2026-04-07'
+  url: https://www.npmjs.com/package/n8n-workflow
+  description: Workflow base library; interface package for building n8n nodes.
+- name: n8n-core
+  registry: npm
+  language: TypeScript/JavaScript
+  official: true
+  version: 2.16.1
+  published: '2026-04-15'
+  url: https://www.npmjs.com/package/n8n-core
+  description: Core execution functionality library of the n8n platform.

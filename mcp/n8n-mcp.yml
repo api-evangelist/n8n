@@ -1,0 +1,110 @@
+generated: '2026-09-03'
+method: searched
+source: https://docs.n8n.io/connect/connect-to-n8n-mcp-server.md
+name: n8n MCP servers
+status: official
+description: >-
+  n8n ships an official instance-level MCP server built into every n8n instance
+  (Cloud and self-hosted, minimum n8n 2.2.0). MCP clients connect over
+  streamable HTTP to build, edit, publish, and execute workflows, manage
+  agents, and work with data tables. The docs site additionally publishes two
+  public documentation MCP servers.
+deployment:
+  mode: remote
+  endpoint: https://{your-n8n-instance}/mcp-server/http
+  endpoint_note: >-
+    Instance-templated, verbatim from the provider's client examples
+    (e.g. https://acme.app.n8n.cloud/mcp-server/http). Each customer's n8n
+    instance serves its own MCP endpoint at /mcp-server/http once
+    Settings > Instance-level MCP is enabled. There is no single shared
+    endpoint; app.n8n.cloud itself answers with the SPA shell (probed
+    2026-09-03, HTML 200).
+  auth: oauth
+  auth_note: >-
+    OAuth (recommended, with per-client granted permissions and scope
+    selection at consent since n8n 2.32) or a bearer personal access token
+    from the API key tab. Kill switch: N8N_DISABLED_MODULES=mcp (self-hosted).
+  verified: searched
+additional_servers:
+  - name: n8n GitBook docs MCP server
+    endpoint: https://docs.n8n.io/~gitbook/mcp
+    transport: http
+    auth: none
+    verified: probed
+    probe: >-
+      tools/list answered 200 on 2026-09-03 with tools searchDocumentation and
+      getPage (full inputSchema returned).
+    tools: [searchDocumentation, getPage]
+  - name: n8n Kapa.ai knowledge MCP server
+    endpoint: https://n8n.mcp.kapa.ai
+    transport: http
+    auth: oauth
+    verified: probed
+    probe: 'tools/list returned 401 on 2026-09-03: auth-gated, browser sign-in flow required.'
+docs:
+  - https://docs.n8n.io/connect/connect-to-n8n-mcp-server/
+  - https://docs.n8n.io/connect/connect-to-n8n-mcp-server/mcp-client-examples/
+  - https://docs.n8n.io/connect/connect-to-n8n-mcp-server/mcp-server-tools-reference/
+  - https://docs.n8n.io/connect/connect-to-n8n-docs-mcp-server/
+tools_note: >-
+  Tool list below is from the provider's MCP server tools reference
+  (docs.n8n.io, fetched 2026-09-03). Live schemas require an authenticated
+  instance; parameters are fully documented at the reference URL.
+tools:
+  workflow_management:
+    - search_workflows
+    - get_workflow_details
+    - execute_workflow
+    - test_workflow
+    - prepare_workflow_pin_data
+    - publish_workflow
+    - unpublish_workflow
+    - get_workflow_versions_diff
+    - search_projects
+    - search_folders
+    - list_workflow_tags
+  execution_management:
+    - get_workflow_execution
+    - search_workflow_executions
+  credential_management:
+    - list_credentials
+  workflow_builder:
+    - get_workflow_sdk_reference
+    - search_nodes
+    - get_node_types
+    - get_workflow_best_practices
+    - explore_node_resources
+    - validate_workflow
+    - validate_node_config
+    - create_workflow_from_code
+    - update_workflow
+    - archive_workflow
+  agent_management:
+    - search_agents
+    - get_agent
+    - get_agent_builder_reference
+    - discover_agent_assets
+    - create_agent
+    - mutate_agent
+    - validate_agent
+    - call_agent
+    - verify_agent_mcp_server
+    - publish_agent
+    - unpublish_agent
+    - revert_agent
+    - list_agent_versions
+    - update_agent_integration
+    - delete_agent
+  data_tables:
+    - search_data_tables
+    - create_data_table
+    - add_data_table_column
+    - rename_data_table_column
+    - delete_data_table_column
+    - rename_data_table
+    - add_data_table_rows
+skills:
+  note: >-
+    The provider publishes 14 official Agent Skills pairing with this MCP
+    server in the n8n-io/skills repository. See skills/_index.yml.
+  url: https://github.com/n8n-io/skills
