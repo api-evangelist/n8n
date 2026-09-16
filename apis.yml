@@ -43,7 +43,7 @@ tags:
 - Integration
 - Workflows
 - Automation
-- Low Code
+- Low-Code
 tags_raw:
 - Agents
 - Artificial Intelligence
@@ -52,29 +52,6 @@ tags_raw:
 - Automation
 - Low Code
 apis:
-- aid: n8n:n8n
-  name: N8n
-  tags:
-  - Agents
-  - Artificial Intelligence
-  - Integration
-  tags_raw:
-  - Agents
-  - Artificial Intelligence
-  - Integrations
-  humanURL: https://n8n.io/
-  properties:
-  - url: https://n8n.io/
-    type: Documentation
-  - type: OpenAPI
-    url: openapi/n8n-public-api-openapi.yml
-  - type: Reference
-    url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - url: graphql/n8n-graphql.md
-    type: GraphQL
-  description: Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud
-    convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other
-    tool.
 - aid: n8n:n8n-audit-api
   name: N8n Audit API
   description: Operations about security audit
@@ -305,6 +282,134 @@ apis:
     url: https://docs.n8n.io/connect/n8n-api/api-reference
   - type: Authentication
     url: https://docs.n8n.io/connect/n8n-api/authentication
+- aid: n8n:n8n-evaluation-api
+  name: n8n Evaluation API
+  description: Operations about evaluation test runs
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Evaluation
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-evaluation-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-logstreaming-api
+  name: n8n Log Streaming API
+  description: Operations about log streaming destinations
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - LogStreaming
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-logstreaming-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-n8npackage-api
+  name: n8n N8n Package API
+  description: Beta — breaking changes may still occur without major version bump.
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - N8nPackage
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-n8npackage-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-securitypolicy-api
+  name: n8n Security Policy API
+  description: Operations about the instance security policy settings
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - SecurityPolicy
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-securitypolicy-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-settingsldap-api
+  name: n8n Settings Ldap API
+  description: Operations about LDAP settings
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - SettingsLdap
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-settingsldap-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-settingsotel-api
+  name: n8n Settings Otel API
+  description: Operations about OpenTelemetry settings
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - SettingsOtel
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-settingsotel-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-settingsssooidc-api
+  name: n8n Settings SSO Oidc API
+  description: Operations about OIDC SSO settings
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - SettingsSsoOidc
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-settingsssooidc-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-settingsssosaml-api
+  name: n8n Settings SSO Saml API
+  description: Operations about SAML SSO settings
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - SettingsSsoSaml
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-settingsssosaml-api-openapi.yml
+  - type: Documentation
+    url: https://n8n.io/
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
 common:
 - type: Website
   url: https://n8n.io
