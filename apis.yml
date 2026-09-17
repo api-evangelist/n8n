@@ -198,24 +198,6 @@ apis:
     url: https://docs.n8n.io/connect/n8n-api/api-reference
   - type: Authentication
     url: https://docs.n8n.io/connect/n8n-api/authentication
-- aid: n8n:n8n-sourcecontrol-api
-  name: N8n SourceControl API
-  description: Operations about source control
-  humanURL: https://n8n.io/
-  baseURL: https://app.n8n.cloud/api/v1
-  tags:
-  - Source Control
-  tags_raw:
-  - SourceControl
-  properties:
-  - type: OpenAPI
-    url: openapi/n8n-sourcecontrol-api-openapi.yml
-  - type: Documentation
-    url: https://docs.n8n.io/connect/n8n-api
-  - type: Reference
-    url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: Authentication
-    url: https://docs.n8n.io/connect/n8n-api/authentication
 - aid: n8n:n8n-tags-api
   name: N8n Tags API
   description: Operations about tags
@@ -330,22 +312,6 @@ apis:
     url: https://docs.n8n.io/connect/n8n-api/api-reference
   - type: GraphQL
     url: graphql/n8n-graphql.md
-- aid: n8n:n8n-securitypolicy-api
-  name: n8n Security Policy API
-  description: Operations about the instance security policy settings
-  humanURL: https://n8n.io/
-  baseURL: https://app.n8n.cloud/api/v1
-  tags:
-  - SecurityPolicy
-  properties:
-  - type: OpenAPI
-    url: openapi/n8n-securitypolicy-api-openapi.yml
-  - type: Documentation
-    url: https://n8n.io/
-  - type: Reference
-    url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-settingsldap-api
   name: n8n Settings Ldap API
   description: Operations about LDAP settings
@@ -408,6 +374,46 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-security-policy-api
+  name: n8n security policy API
+  description: Operations about the instance security policy settings
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - security policy
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-security-policy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/connect/n8n-api
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: Authentication
+    url: https://docs.n8n.io/connect/n8n-api/authentication
+  - type: Documentation
+    url: https://n8n.io/
+  - type: GraphQL
+    url: graphql/n8n-graphql.md
+- aid: n8n:n8n-source-control-api
+  name: n8n Source Control API
+  description: Operations about source control
+  humanURL: https://n8n.io/
+  baseURL: https://app.n8n.cloud/api/v1
+  tags:
+  - Source Control
+  properties:
+  - type: OpenAPI
+    url: openapi/n8n-source-control-api-openapi.yml
+  - type: Documentation
+    url: https://docs.n8n.io/connect/n8n-api
+  - type: Reference
+    url: https://docs.n8n.io/connect/n8n-api/api-reference
+  - type: Authentication
+    url: https://docs.n8n.io/connect/n8n-api/authentication
+  - type: Documentation
+    url: https://n8n.io/
   - type: GraphQL
     url: graphql/n8n-graphql.md
 common:
