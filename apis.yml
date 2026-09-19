@@ -382,6 +382,8 @@ apis:
   humanURL: https://n8n.io/
   baseURL: https://app.n8n.cloud/api/v1
   tags:
+  - security-policy
+  tags_raw:
   - security policy
   properties:
   - type: OpenAPI
