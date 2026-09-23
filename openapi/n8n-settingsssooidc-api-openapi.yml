@@ -1,0 +1,311 @@
+openapi: 3.2.0
+info:
+  title: n8n Public Settings SSO Oidc API
+  description: n8n Public API
+  termsOfService: https://n8n.io/legal/#terms
+  contact:
+    email: hello@n8n.io
+  license:
+    name: Sustainable Use License
+    url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+  version: 1.1.1
+servers:
+- url: /api/v1
+  description: Current n8n instance (self-hosted built-in playground)
+- url: '{url}/api/v1'
+  description: Self-hosted n8n instance
+  variables:
+    url:
+      default: https://example.com
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+- CookieAuth: []
+tags:
+- name: SettingsSsoOidc
+  description: Operations about OIDC SSO settings
+paths:
+  /settings/sso/oidc:
+    get:
+      x-eov-operation-id: getOidcConfiguration
+      x-required-scope: oidc:manage
+      x-eov-operation-handler: v1/handlers/sso-oidc/sso-oidc.handler
+      tags:
+      - SettingsSsoOidc
+      summary: Retrieve the OIDC SSO configuration
+      description: Retrieve the current OIDC SSO configuration, including every field exposed in the UI. The client secret is redacted on read and is never echoed back in plaintext. Requires the `oidc:manage` scope and the OIDC feature to be licensed.
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required:
+                - clientId
+                - clientSecret
+                - discoveryEndpoint
+                - loginEnabled
+                - prompt
+                - authenticationContextClassReference
+                - additionalScopes
+                - emailVerifiedRequired
+                - rpInitiatedLogoutEnabled
+                properties:
+                  clientId:
+                    type: string
+                    description: The client ID issued when registering n8n with the OIDC provider.
+                    example: n8n-client
+                  clientSecret:
+                    type: string
+                    description: 'The client secret issued when registering n8n with the OIDC provider. Redacted on read when set; never echoed back in plaintext.
+
+                      '
+                    example: '**hidden**'
+                  discoveryEndpoint:
+                    type: string
+                    format: uri
+                    description: The OIDC provider's well-known discovery endpoint.
+                    example: https://accounts.google.com/.well-known/openid-configuration
+                  loginEnabled:
+                    type: boolean
+                    description: Whether OIDC single sign-on is enabled.
+                    example: false
+                  prompt:
+                    type: string
+                    enum:
+                    - none
+                    - login
+                    - consent
+                    - select_account
+                    - create
+                    description: The prompt parameter to use when authenticating with the OIDC provider.
+                    example: select_account
+                  authenticationContextClassReference:
+                    type: array
+                    items:
+                      type: string
+                    description: 'ACR values to include in the authorization request (acr_values parameter), in order of preference.
+
+                      '
+                    example:
+                    - mfa
+                    - pwd
+                  additionalScopes:
+                    type: string
+                    description: 'Additional scopes to request, space separated. n8n always requests `openid`, `profile` and `email`.
+
+                      '
+                    example: groups roles
+                  emailVerifiedRequired:
+                    type: boolean
+                    description: 'Whether the identity provider must assert that the user''s email address is verified before the login is accepted. When disabled, only an explicit negative assertion is rejected.
+
+                      '
+                    example: false
+                  rpInitiatedLogoutEnabled:
+                    type: boolean
+                    description: 'Whether signing out of n8n also ends the session at the OIDC provider via RP-Initiated Logout. When disabled, sign-out is local to n8n only.
+
+                      '
+                    example: false
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      operationId: getSettingsSsoOidc
+      x-operation-id-source: derived
+    put:
+      x-eov-operation-id: setOidcConfiguration
+      x-required-scope: oidc:manage
+      x-eov-operation-handler: v1/handlers/sso-oidc/sso-oidc.handler
+      tags:
+      - SettingsSsoOidc
+      summary: Set the OIDC SSO configuration
+      description: Set the OIDC SSO configuration. The update takes effect exactly as it would from the UI, using the same validation. `clientId`, `clientSecret` and `discoveryEndpoint` are required; submit the redacted client secret sentinel to keep the stored secret unchanged. Requires the `oidc:manage` scope and the OIDC feature to be licensed. The client secret is redacted in the response. When the configuration is managed declaratively (via environment variables), the write is rejected with 409 and no changes are made.
+      requestBody:
+        description: The OIDC SSO configuration to set.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              description: 'Full OIDC SSO configuration to set. This is a full replacement: every writable field must be provided. Partial updates are rejected. Submit the redacted secret sentinel  for `clientSecret` to keep the stored secret unchanged.
+
+                '
+              required:
+              - clientId
+              - clientSecret
+              - discoveryEndpoint
+              - loginEnabled
+              - prompt
+              - authenticationContextClassReference
+              - additionalScopes
+              - emailVerifiedRequired
+              - rpInitiatedLogoutEnabled
+              properties:
+                clientId:
+                  type: string
+                  minLength: 1
+                  description: The client ID issued when registering n8n with the OIDC provider.
+                  example: n8n-client
+                clientSecret:
+                  type: string
+                  minLength: 1
+                  description: 'The client secret issued when registering n8n with the OIDC provider. Submit the redacted sentinel value returned on read to keep the stored secret unchanged.
+
+                    '
+                  example: my-client-secret
+                discoveryEndpoint:
+                  type: string
+                  format: uri
+                  description: The OIDC provider's well-known discovery endpoint.
+                  example: https://accounts.google.com/.well-known/openid-configuration
+                loginEnabled:
+                  type: boolean
+                  description: Whether OIDC single sign-on is enabled.
+                  example: false
+                prompt:
+                  type: string
+                  enum:
+                  - none
+                  - login
+                  - consent
+                  - select_account
+                  - create
+                  description: The prompt parameter to use when authenticating.
+                  example: select_account
+                authenticationContextClassReference:
+                  type: array
+                  items:
+                    type: string
+                  description: 'ACR values to include in the authorization request (acr_values parameter), in order of preference. Use an empty array when unused.
+
+                    '
+                  example:
+                  - mfa
+                  - pwd
+                additionalScopes:
+                  type: string
+                  description: 'Additional scopes to request, space separated. n8n always requests `openid`, `profile` and `email`. Use an empty string when unused.
+
+                    '
+                  example: groups roles
+                emailVerifiedRequired:
+                  type: boolean
+                  description: 'Whether the identity provider must assert that the user''s email address is verified before the login is accepted. When disabled, only an explicit negative assertion is rejected.
+
+                    '
+                  example: false
+                rpInitiatedLogoutEnabled:
+                  type: boolean
+                  description: 'Whether signing out of n8n also ends the session at the OIDC provider via RP-Initiated Logout. When disabled, sign-out is local to n8n only.
+
+                    '
+                  example: false
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required:
+                - clientId
+                - clientSecret
+                - discoveryEndpoint
+                - loginEnabled
+                - prompt
+                - authenticationContextClassReference
+                - additionalScopes
+                - emailVerifiedRequired
+                - rpInitiatedLogoutEnabled
+                properties:
+                  clientId:
+                    type: string
+                    description: The client ID issued when registering n8n with the OIDC provider.
+                    example: n8n-client
+                  clientSecret:
+                    type: string
+                    description: 'The client secret issued when registering n8n with the OIDC provider. Redacted on read when set; never echoed back in plaintext.
+
+                      '
+                    example: '**hidden**'
+                  discoveryEndpoint:
+                    type: string
+                    format: uri
+                    description: The OIDC provider's well-known discovery endpoint.
+                    example: https://accounts.google.com/.well-known/openid-configuration
+                  loginEnabled:
+                    type: boolean
+                    description: Whether OIDC single sign-on is enabled.
+                    example: false
+                  prompt:
+                    type: string
+                    enum:
+                    - none
+                    - login
+                    - consent
+                    - select_account
+                    - create
+                    description: The prompt parameter to use when authenticating with the OIDC provider.
+                    example: select_account
+                  authenticationContextClassReference:
+                    type: array
+                    items:
+                      type: string
+                    description: 'ACR values to include in the authorization request (acr_values parameter), in order of preference.
+
+                      '
+                    example:
+                    - mfa
+                    - pwd
+                  additionalScopes:
+                    type: string
+                    description: 'Additional scopes to request, space separated. n8n always requests `openid`, `profile` and `email`.
+
+                      '
+                    example: groups roles
+                  emailVerifiedRequired:
+                    type: boolean
+                    description: 'Whether the identity provider must assert that the user''s email address is verified before the login is accepted. When disabled, only an explicit negative assertion is rejected.
+
+                      '
+                    example: false
+                  rpInitiatedLogoutEnabled:
+                    type: boolean
+                    description: 'Whether signing out of n8n also ends the session at the OIDC provider via RP-Initiated Logout. When disabled, sign-out is local to n8n only.
+
+                      '
+                    example: false
+        '400':
+          description: The request is invalid or provides malformed data.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+      operationId: putSettingsSsoOidc
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-N8N-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: n8n-auth
+externalDocs:
+  description: n8n API documentation
+  url: https://docs.n8n.io/api/
+x-enable-proxy: false

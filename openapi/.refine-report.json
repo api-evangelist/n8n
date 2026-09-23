@@ -1,20 +1,17 @@
 {
   "provider": "n8n",
   "sources": [
-    "n8n-audit-api-openapi.yml",
-    "n8n-communitypackage-api-openapi.yml",
+    "_original/n8n-openapi.yml",
     "n8n-credential-api-openapi.yml",
     "n8n-datatable-api-openapi.yml",
-    "n8n-discover-api-openapi.yml",
-    "n8n-execution-api-openapi.yml",
-    "n8n-folders-api-openapi.yml",
-    "n8n-insights-api-openapi.yml",
-    "n8n-projects-api-openapi.yml",
-    "n8n-sourcecontrol-api-openapi.yml",
-    "n8n-tags-api-openapi.yml",
-    "n8n-user-api-openapi.yml",
-    "n8n-variables-api-openapi.yml",
-    "n8n-workflow-api-openapi.yml"
+    "n8n-evaluation-api-openapi.yml",
+    "n8n-logstreaming-api-openapi.yml",
+    "n8n-n8npackage-api-openapi.yml",
+    "n8n-security-policy-api-openapi.yml",
+    "n8n-settingsldap-api-openapi.yml",
+    "n8n-settingsotel-api-openapi.yml",
+    "n8n-settingsssooidc-api-openapi.yml",
+    "n8n-settingsssosaml-api-openapi.yml"
   ],
   "outputs": [
     "n8n-audit-api-openapi.yml",
@@ -30,27 +27,52 @@
     "n8n-tags-api-openapi.yml",
     "n8n-user-api-openapi.yml",
     "n8n-variables-api-openapi.yml",
-    "n8n-workflow-api-openapi.yml"
+    "n8n-workflow-api-openapi.yml",
+    "n8n-evaluation-api-openapi.yml",
+    "n8n-logstreaming-api-openapi.yml",
+    "n8n-n8npackage-api-openapi.yml",
+    "n8n-security-policy-api-openapi.yml",
+    "n8n-settingsldap-api-openapi.yml",
+    "n8n-settingsotel-api-openapi.yml",
+    "n8n-settingsssooidc-api-openapi.yml",
+    "n8n-settingsssosaml-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
-  "warnings": [],
-  "notes": [
-    "n8n-audit-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-communitypackage-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-credential-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-datatable-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-discover-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-execution-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-folders-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-insights-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-projects-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-sourcecontrol-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-tags-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-user-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-variables-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "n8n-workflow-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "apis.yml register: written (+0 apis, 15 total)"
+  "warnings": [
+    "n8n-credential-api-openapi.yml: previously refined output kept for 3 operation(s) no archived document covers (e.g. /credentials get, /credentials/{id} get, /credentials/{id} patch); its other 5 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-datatable-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /data-tables/{dataTableId}/columns/{columnId} patch, /data-tables/{dataTableId}/rows/clear delete, /data-tables/{dataTableId}/rows/delete delete); its other 13 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-evaluation-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /workflows/{id}/test-runs get, /workflows/{id}/test-runs post, /workflows/{id}/test-runs/{runId} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-logstreaming-api-openapi.yml: previously refined output kept for 7 operation(s) no archived document covers (e.g. /settings/log-streaming/destinations get, /settings/log-streaming/destinations post, /settings/log-streaming/destinations/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-n8npackage-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /n8n-packages/export post, /n8n-packages/import post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-security-policy-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /settings/security-policy get, /settings/security-policy put); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-settingsldap-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /settings/ldap get, /settings/ldap put, /settings/ldap/sync get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-settingsotel-api-openapi.yml: previously refined output kept for 3 operation(s) no archived document covers (e.g. /settings/otel get, /settings/otel put, /settings/otel/test-trace post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-settingsssooidc-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /settings/sso/oidc get, /settings/sso/oidc put); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "n8n-settingsssosaml-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /settings/sso/saml get, /settings/sso/saml put); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
   ],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "n8n-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "tag 'Credential' spans 2 source specs (n8n-openapi.yml, n8n-credential-api-openapi.yml): per-path servers applied",
+    "tag 'DataTable' spans 2 source specs (n8n-openapi.yml, n8n-datatable-api-openapi.yml): per-path servers applied",
+    "superseded outputs removed: n8n-source-control-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 22 total)"
+  ],
+  "skipped": [
+    "n8n-audit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-communitypackage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-discover-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-execution-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-folders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-insights-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-source-control-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-variables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "n8n-workflow-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: n8n Public Audit Source Control API
+  title: n8n Public Source Control API
   description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.
   termsOfService: https://n8n.io/legal/#terms
   contact:
@@ -23,13 +23,13 @@ security:
 - ApiKeyAuth: []
 - BearerAuth: []
 tags:
-- name: SourceControl
+- name: Source Control
   description: Operations about source control
 paths:
   /source-control/pull:
     post:
       tags:
-      - SourceControl
+      - Source Control
       summary: Pull changes from the remote repository
       operationId: sourceControlPull
       responses:

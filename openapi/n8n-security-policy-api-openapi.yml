@@ -1,0 +1,235 @@
+openapi: 3.2.0
+info:
+  title: n8n Public security policy API
+  description: n8n Public API
+  termsOfService: https://n8n.io/legal/#terms
+  contact:
+    email: hello@n8n.io
+  license:
+    name: Sustainable Use License
+    url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+  version: 1.1.1
+servers:
+- url: /api/v1
+  description: Current n8n instance (self-hosted built-in playground)
+- url: '{url}/api/v1'
+  description: Self-hosted n8n instance
+  variables:
+    url:
+      default: https://example.com
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+- CookieAuth: []
+tags:
+- name: security policy
+  description: Operations about the instance security policy settings
+paths:
+  /settings/security-policy:
+    get:
+      x-eov-operation-id: getSecurityPolicy
+      x-required-scope: securitySettings:manage
+      x-eov-operation-handler: v1/handlers/security-policy/security-policy.handler
+      tags:
+      - security policy
+      summary: Retrieve the security policy
+      description: 'Retrieve the instance security policy: personal-space publishing and sharing, the execution-data redaction enforcement floor, and the read-only usage counts shown in the UI. Requires the `securitySettings:manage` scope and the Personal Space Policy feature to be licensed.'
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required:
+                - personalSpacePublishing
+                - personalSpaceSharing
+                - publishedPersonalWorkflowsCount
+                - sharedPersonalWorkflowsCount
+                - sharedPersonalCredentialsCount
+                - redactionEnforcement
+                properties:
+                  personalSpacePublishing:
+                    type: boolean
+                    description: Whether members may publish workflows and agents from their personal space.
+                    example: true
+                  personalSpaceSharing:
+                    type: boolean
+                    description: Whether members may share workflows and credentials from their personal space.
+                    example: true
+                  publishedPersonalWorkflowsCount:
+                    type: integer
+                    readOnly: true
+                    description: Number of currently published personal workflows, shown for awareness before tightening the policy.
+                    example: 3
+                  sharedPersonalWorkflowsCount:
+                    type: integer
+                    readOnly: true
+                    description: Number of personal workflows currently shared with other users.
+                    example: 5
+                  sharedPersonalCredentialsCount:
+                    type: integer
+                    readOnly: true
+                    description: Number of personal credentials currently shared with other users.
+                    example: 2
+                  redactionEnforcement:
+                    type: object
+                    additionalProperties: false
+                    required:
+                    - floor
+                    properties:
+                      floor:
+                        type: string
+                        enum:
+                        - false
+                        - production
+                        - all
+                        description: Minimum execution-data redaction level enforced across the instance.
+                        example: production
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      operationId: getSettingsSecurityPolicy
+      x-operation-id-source: derived
+    put:
+      x-eov-operation-id: updateSecurityPolicy
+      x-required-scope: securitySettings:manage
+      x-eov-operation-handler: v1/handlers/security-policy/security-policy.handler
+      tags:
+      - security policy
+      summary: Set the security policy
+      description: Replace the instance security policy with the provided full object. Every writable field must be sent. Read-only usage counts from GET are ignored if included, so a GET response can be sent back as a PUT body. The update takes effect exactly as it would from the UI, using the same validation. Requires the `securitySettings:manage` scope and the Personal Space Policy feature to be licensed. When the group is managed via environment variables, the write is rejected with 409 and no changes are made; a read still returns the current values.
+      requestBody:
+        description: The full security policy to set.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              description: Full security policy. All writable fields must be provided; partial updates are not supported.
+              required:
+              - personalSpacePublishing
+              - personalSpaceSharing
+              - redactionEnforcement
+              properties:
+                personalSpacePublishing:
+                  type: boolean
+                  description: Whether members may publish workflows and agents from their personal space.
+                  example: false
+                personalSpaceSharing:
+                  type: boolean
+                  description: Whether members may share workflows and credentials from their personal space.
+                  example: false
+                redactionEnforcement:
+                  type: object
+                  additionalProperties: false
+                  required:
+                  - floor
+                  properties:
+                    floor:
+                      type: string
+                      enum:
+                      - false
+                      - production
+                      - all
+                      description: Minimum execution-data redaction level enforced across the instance.
+                      example: production
+                publishedPersonalWorkflowsCount:
+                  type: integer
+                  description: 'Read-only usage count returned by GET. Ignored on write so a GET response can be sent back as a PUT body.
+
+                    '
+                sharedPersonalWorkflowsCount:
+                  type: integer
+                  description: 'Read-only usage count returned by GET. Ignored on write so a GET response can be sent back as a PUT body.
+
+                    '
+                sharedPersonalCredentialsCount:
+                  type: integer
+                  description: 'Read-only usage count returned by GET. Ignored on write so a GET response can be sent back as a PUT body.
+
+                    '
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required:
+                - personalSpacePublishing
+                - personalSpaceSharing
+                - publishedPersonalWorkflowsCount
+                - sharedPersonalWorkflowsCount
+                - sharedPersonalCredentialsCount
+                - redactionEnforcement
+                properties:
+                  personalSpacePublishing:
+                    type: boolean
+                    description: Whether members may publish workflows and agents from their personal space.
+                    example: true
+                  personalSpaceSharing:
+                    type: boolean
+                    description: Whether members may share workflows and credentials from their personal space.
+                    example: true
+                  publishedPersonalWorkflowsCount:
+                    type: integer
+                    readOnly: true
+                    description: Number of currently published personal workflows, shown for awareness before tightening the policy.
+                    example: 3
+                  sharedPersonalWorkflowsCount:
+                    type: integer
+                    readOnly: true
+                    description: Number of personal workflows currently shared with other users.
+                    example: 5
+                  sharedPersonalCredentialsCount:
+                    type: integer
+                    readOnly: true
+                    description: Number of personal credentials currently shared with other users.
+                    example: 2
+                  redactionEnforcement:
+                    type: object
+                    additionalProperties: false
+                    required:
+                    - floor
+                    properties:
+                      floor:
+                        type: string
+                        enum:
+                        - false
+                        - production
+                        - all
+                        description: Minimum execution-data redaction level enforced across the instance.
+                        example: production
+        '400':
+          description: The request is invalid or provides malformed data.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+      operationId: putSettingsSecurityPolicy
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-N8N-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: n8n-auth
+externalDocs:
+  description: n8n API documentation
+  url: https://docs.n8n.io/api/
+x-enable-proxy: false

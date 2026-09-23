@@ -1,16 +1,12 @@
 openapi: 3.2.0
 info:
-  title: n8n Public Audit Data Table API
-  description: The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.
-  termsOfService: https://n8n.io/legal/#terms
-  contact:
-    name: n8n
-    url: https://n8n.io/
-    email: hello@n8n.io
+  title: N8n Data Table API
+  version: 1.1.1
   license:
     name: Sustainable Use License
     url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
-  version: 1.1.1
+  termsOfService: https://n8n.io/legal/#terms
+  description: 'Operations tagged DataTable across 2 of this provider''s published API definitions: n8n-openapi.yml, n8n-datatable-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://app.n8n.cloud/api/v1
   description: n8n Cloud
@@ -19,9 +15,13 @@ servers:
   variables:
     baseUrl:
       default: http://localhost:5678
-security:
-- ApiKeyAuth: []
-- BearerAuth: []
+- url: /api/v1
+  description: Current n8n instance (self-hosted built-in playground)
+- url: '{url}/api/v1'
+  description: Self-hosted n8n instance
+  variables:
+    url:
+      default: https://example.com
 tags:
 - name: DataTable
   description: Operations about data tables and their rows
@@ -35,6 +35,9 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
     post:
       tags:
       - DataTable
@@ -43,6 +46,17 @@ paths:
       responses:
         '201':
           description: Created
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
   /data-tables/{dataTableId}:
     get:
       tags:
@@ -58,6 +72,9 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
     delete:
       tags:
       - DataTable
@@ -72,6 +89,9 @@ paths:
       responses:
         '204':
           description: Deleted
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
     patch:
       tags:
       - DataTable
@@ -86,6 +106,17 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
   /data-tables/{dataTableId}/rows:
     get:
       tags:
@@ -101,6 +132,9 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
     post:
       tags:
       - DataTable
@@ -115,6 +149,17 @@ paths:
       responses:
         '201':
           description: Created
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
   /data-tables/{dataTableId}/rows/update:
     post:
       tags:
@@ -130,6 +175,139 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
+    patch:
+      x-eov-operation-id: updateDataTableRows
+      x-required-scope: dataTableRow:update
+      x-eov-operation-handler: v1/handlers/data-tables/data-tables.rows.handler
+      tags:
+      - DataTable
+      summary: Update rows in a data table
+      description: Update rows matching filter conditions in a data table.
+      operationId: update-data-table-rows
+      parameters:
+      - name: dataTableId
+        in: path
+        description: The ID of the data table
+        required: true
+        schema:
+          type: string
+          format: nanoid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - and
+                      - or
+                      default: and
+                    filters:
+                      type: array
+                      minItems: 1
+                      items:
+                        type: object
+                        properties:
+                          columnName:
+                            type: string
+                          condition:
+                            type: string
+                            enum:
+                            - eq
+                            - neq
+                            - like
+                            - ilike
+                            - gt
+                            - gte
+                            - lt
+                            - lte
+                          value: {}
+                        required:
+                        - columnName
+                        - condition
+                        - value
+                  required:
+                  - filters
+                  description: Filter conditions to match rows for update
+                data:
+                  type: object
+                  additionalProperties: true
+                  description: Column values to update
+                returnData:
+                  type: boolean
+                  default: false
+                  description: If true, return the updated rows; if false, return true on success
+                dryRun:
+                  type: boolean
+                  default: false
+                  description: If true, preview changes without persisting them
+              required:
+              - filter
+              - data
+            example:
+              filter:
+                type: and
+                filters:
+                - columnName: status
+                  condition: eq
+                  value: pending
+              data:
+                status: completed
+                updatedBy: admin
+              returnData: false
+              dryRun: false
+      responses:
+        '200':
+          description: Rows updated successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - type: boolean
+                  description: True when returnData is false
+                - type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: The row ID (auto-generated)
+                      createdAt:
+                        type: string
+                        format: date-time
+                        description: The date and time the row was created
+                      updatedAt:
+                        type: string
+                        format: date-time
+                        description: The date and time the row was last updated
+                    additionalProperties: true
+                    description: A data table row with system columns (id, createdAt, updatedAt) and user-defined columns
+                  description: Updated rows when returnData is true
+        '400':
+          description: The request is invalid or provides malformed data.
+        '401':
+          description: Unauthorized
+        '404':
+          description: The specified resource was not found.
+      security:
+      - ApiKeyAuth: []
   /data-tables/{dataTableId}/rows/upsert:
     post:
       tags:
@@ -145,6 +323,17 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
   /data-tables/{dataTableId}/rows/delete:
     post:
       tags:
@@ -160,6 +349,89 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
+    delete:
+      x-eov-operation-id: deleteDataTableRows
+      x-required-scope: dataTableRow:delete
+      x-eov-operation-handler: v1/handlers/data-tables/data-tables.rows.handler
+      tags:
+      - DataTable
+      summary: Delete rows from a data table
+      description: Delete rows matching filter conditions from a data table. Filter is required to prevent accidental deletion of all data.
+      operationId: delete-data-table-rows
+      parameters:
+      - name: dataTableId
+        in: path
+        description: The ID of the data table
+        required: true
+        schema:
+          type: string
+          format: nanoid
+      - name: filter
+        in: query
+        required: true
+        description: JSON string of filter conditions. Required to prevent accidental deletion of all data.
+        schema:
+          type: string
+          format: jsonString
+        example: '{"type":"and","filters":[{"columnName":"status","condition":"eq","value":"archived"}]}'
+      - name: returnData
+        in: query
+        description: If true, return the deleted rows; if false, return true on success
+        schema:
+          type: boolean
+          default: false
+      - name: dryRun
+        in: query
+        description: If true, preview which rows would be deleted without actually deleting them
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Rows deleted successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - type: boolean
+                  description: True when returnData is false
+                - type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: The row ID (auto-generated)
+                      createdAt:
+                        type: string
+                        format: date-time
+                        description: The date and time the row was created
+                      updatedAt:
+                        type: string
+                        format: date-time
+                        description: The date and time the row was last updated
+                    additionalProperties: true
+                    description: A data table row with system columns (id, createdAt, updatedAt) and user-defined columns
+                  description: Deleted rows when returnData is true
+        '400':
+          description: The request is invalid or provides malformed data.
+        '401':
+          description: Unauthorized
+        '404':
+          description: The specified resource was not found.
+      security:
+      - ApiKeyAuth: []
   /data-tables/{dataTableId}/columns:
     get:
       tags:
@@ -175,6 +447,9 @@ paths:
       responses:
         '200':
           description: Operation successful.
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
     post:
       tags:
       - DataTable
@@ -189,6 +464,17 @@ paths:
       responses:
         '201':
           description: Created
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
   /data-tables/{dataTableId}/columns/{columnId}:
     delete:
       tags:
@@ -209,6 +495,154 @@ paths:
       responses:
         '204':
           description: Deleted
+      security:
+      - ApiKeyAuth: []
+      - BearerAuth: []
+    servers:
+    - url: https://app.n8n.cloud/api/v1
+      description: n8n Cloud
+    - url: '{baseUrl}/api/v1'
+      description: Self-hosted n8n
+      variables:
+        baseUrl:
+          default: http://localhost:5678
+    patch:
+      x-eov-operation-id: updateDataTableColumn
+      x-required-scope: dataTableColumn:update
+      x-eov-operation-handler: v1/handlers/data-tables/data-tables.columns.handler
+      tags:
+      - DataTable
+      summary: Update a column
+      description: Rename and/or reorder a column in a data table.
+      operationId: update-data-table-column
+      parameters:
+      - name: dataTableId
+        in: path
+        description: The ID of the data table
+        required: true
+        schema:
+          type: string
+          format: nanoid
+      - name: columnId
+        in: path
+        description: The ID of the column
+        required: true
+        schema:
+          type: string
+          format: nanoid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Column name. Must start with a letter; only letters, digits, and underscores after that; maximum 63 characters.
+                  minLength: 1
+                  maxLength: 63
+                  pattern: ^[a-zA-Z][a-zA-Z0-9_]*$
+                index:
+                  type: integer
+                  minimum: 0
+                  description: New zero-based position for the column
+              additionalProperties: false
+              anyOf:
+              - required:
+                - name
+              - required:
+                - index
+            example:
+              name: email
+              index: 1
+      responses:
+        '200':
+          description: Column updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Column ID
+                  name:
+                    type: string
+                    description: Column name
+                  dataTableId:
+                    type: string
+                    description: ID of the data table this column belongs to
+                  type:
+                    type: string
+                    enum:
+                    - string
+                    - number
+                    - boolean
+                    - date
+                    description: Column data type
+                  index:
+                    type: integer
+                    description: Column position
+                required:
+                - id
+                - name
+                - dataTableId
+                - type
+                - index
+        '400':
+          description: The request is invalid or provides malformed data.
+        '401':
+          description: Unauthorized
+        '404':
+          description: The specified resource was not found.
+        '409':
+          description: Conflict
+      security:
+      - ApiKeyAuth: []
+  /data-tables/{dataTableId}/rows/clear:
+    servers:
+    - url: /api/v1
+      description: Current n8n instance (self-hosted built-in playground)
+    - url: '{url}/api/v1'
+      description: Self-hosted n8n instance
+      variables:
+        url:
+          default: https://example.com
+    delete:
+      x-eov-operation-id: clearDataTableRows
+      x-required-scope: dataTableRow:delete
+      x-eov-operation-handler: v1/handlers/data-tables/data-tables.rows.handler
+      tags:
+      - DataTable
+      summary: Clear all rows from a data table
+      description: Permanently deletes all rows from a data table. The table structure will be retained. This action cannot be undone.
+      operationId: clear-data-table-rows
+      parameters:
+      - name: dataTableId
+        in: path
+        description: The ID of the data table
+        required: true
+        schema:
+          type: string
+          format: nanoid
+      responses:
+        '200':
+          description: Rows cleared successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deletedCount:
+                    type: integer
+                    description: The number of rows that were deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: The specified resource was not found.
+      security:
+      - ApiKeyAuth: []
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -219,6 +653,13 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: n8n-auth
 externalDocs:
   description: n8n API documentation
   url: https://docs.n8n.io/api/
+x-refined-from:
+- n8n-openapi.yml
+- n8n-datatable-api-openapi.yml

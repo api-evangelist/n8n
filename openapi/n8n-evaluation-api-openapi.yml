@@ -1,0 +1,478 @@
+openapi: 3.2.0
+info:
+  title: n8n Public Evaluation API
+  description: n8n Public API
+  termsOfService: https://n8n.io/legal/#terms
+  contact:
+    email: hello@n8n.io
+  license:
+    name: Sustainable Use License
+    url: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+  version: 1.1.1
+servers:
+- url: /api/v1
+  description: Current n8n instance (self-hosted built-in playground)
+- url: '{url}/api/v1'
+  description: Self-hosted n8n instance
+  variables:
+    url:
+      default: https://example.com
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+- CookieAuth: []
+tags:
+- name: Evaluation
+  description: Operations about evaluation test runs
+paths:
+  /workflows/{id}/test-runs:
+    get:
+      x-eov-operation-id: getTestRuns
+      x-required-scope: testRun:list
+      x-eov-operation-handler: v1/handlers/evaluations/evaluations.handler
+      tags:
+      - Evaluation
+      summary: Retrieve test runs
+      description: Retrieve the evaluation test runs of a workflow.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the workflow.
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: Status to filter the test runs by.
+        required: false
+        schema:
+          type: string
+          enum:
+          - new
+          - running
+          - completed
+          - error
+          - cancelled
+      - name: limit
+        in: query
+        description: The maximum number of items to return.
+        required: false
+        schema:
+          type: number
+          example: 100
+          default: 100
+          maximum: 250
+      - name: cursor
+        in: query
+        description: Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first "page" of the collection. See pagination for more detail.
+        required: false
+        style: form
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9f8e7d6c5b4a3210
+                        status:
+                          type: string
+                          enum:
+                          - new
+                          - running
+                          - completed
+                          - error
+                          - cancelled
+                        runAt:
+                          type:
+                          - string
+                          - 'null'
+                          format: date-time
+                        completedAt:
+                          type:
+                          - string
+                          - 'null'
+                          format: date-time
+                        metrics:
+                          type:
+                          - object
+                          - 'null'
+                          additionalProperties: true
+                          description: Aggregated metrics collected across the run's test cases.
+                        errorCode:
+                          type:
+                          - string
+                          - 'null'
+                        errorDetails:
+                          type:
+                          - object
+                          - 'null'
+                          additionalProperties: true
+                        finalResult:
+                          type:
+                          - string
+                          - 'null'
+                          enum:
+                          - success
+                          - error
+                          - warning
+                          description: Overall result of the run, derived from its test cases once completed.
+                        testCaseCount:
+                          type: integer
+                          example: 42
+                        createdAt:
+                          type: string
+                          format: date-time
+                        updatedAt:
+                          type: string
+                          format: date-time
+                  nextCursor:
+                    type:
+                    - string
+                    - 'null'
+                    description: Paginate through test runs by setting the cursor parameter to the nextCursor attribute returned by a previous request. Default value fetches the first "page" of the collection.
+                    example: MTIzZTQ1NjctZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDA
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The specified resource was not found.
+      operationId: getWorkflowsByIdTestRuns
+      x-operation-id-source: derived
+    post:
+      x-eov-operation-id: createTestRun
+      x-required-scope: testRun:create
+      x-eov-operation-handler: v1/handlers/evaluations/evaluations.handler
+      tags:
+      - Evaluation
+      summary: Trigger a test run
+      description: Start a new evaluation test run for a workflow. The workflow must contain a configured evaluation trigger. Requires the `workflow:execute` project scope in addition to the `testRun:create` API key scope.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the workflow.
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Test run triggered.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 9f8e7d6c5b4a3210
+                  status:
+                    type: string
+                    enum:
+                    - new
+                    - running
+                    - completed
+                    - error
+                    - cancelled
+                  createdAt:
+                    type: string
+                    format: date-time
+        '401':
+          description: Unauthorized
+        '402':
+          description: Payment required
+        '403':
+          description: Forbidden
+        '404':
+          description: The specified resource was not found.
+        '409':
+          description: Conflict
+      operationId: postWorkflowsByIdTestRuns
+      x-operation-id-source: derived
+  /workflows/{id}/test-runs/{runId}:
+    get:
+      x-eov-operation-id: getTestRun
+      x-required-scope: testRun:read
+      x-eov-operation-handler: v1/handlers/evaluations/evaluations.handler
+      tags:
+      - Evaluation
+      summary: Retrieve a test run
+      description: Retrieve a single evaluation test run of a workflow, including its aggregated metrics and final result.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the workflow.
+        required: true
+        schema:
+          type: string
+      - name: runId
+        in: path
+        description: The ID of the test run.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 9f8e7d6c5b4a3210
+                  status:
+                    type: string
+                    enum:
+                    - new
+                    - running
+                    - completed
+                    - error
+                    - cancelled
+                  runAt:
+                    type:
+                    - string
+                    - 'null'
+                    format: date-time
+                  completedAt:
+                    type:
+                    - string
+                    - 'null'
+                    format: date-time
+                  metrics:
+                    type:
+                    - object
+                    - 'null'
+                    additionalProperties: true
+                    description: Aggregated metrics collected across the run's test cases.
+                  errorCode:
+                    type:
+                    - string
+                    - 'null'
+                  errorDetails:
+                    type:
+                    - object
+                    - 'null'
+                    additionalProperties: true
+                  finalResult:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - success
+                    - error
+                    - warning
+                    description: Overall result of the run, derived from its test cases once completed.
+                  testCaseCount:
+                    type: integer
+                    example: 42
+                  createdAt:
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    type: string
+                    format: date-time
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The specified resource was not found.
+      operationId: getWorkflowsByIdTestRunsByRunId
+      x-operation-id-source: derived
+  /workflows/{id}/test-runs/{runId}/cancel:
+    post:
+      x-eov-operation-id: cancelTestRun
+      x-required-scope: testRun:cancel
+      x-eov-operation-handler: v1/handlers/evaluations/evaluations.handler
+      tags:
+      - Evaluation
+      summary: Cancel a test run
+      description: Cancel a running evaluation test run of a workflow. Requires the `workflow:execute` project scope in addition to the `testRun:cancel` API key scope.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the workflow.
+        required: true
+        schema:
+          type: string
+      - name: runId
+        in: path
+        description: The ID of the test run.
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Cancellation requested.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 9f8e7d6c5b4a3210
+                  status:
+                    type: string
+                    enum:
+                    - cancelled
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The specified resource was not found.
+        '409':
+          description: Conflict
+      operationId: postWorkflowsByIdTestRunsByRunIdCancel
+      x-operation-id-source: derived
+  /workflows/{id}/test-runs/{runId}/test-cases:
+    get:
+      x-eov-operation-id: getTestCases
+      x-required-scope: testRun:read
+      x-eov-operation-handler: v1/handlers/evaluations/evaluations.handler
+      tags:
+      - Evaluation
+      summary: Retrieve test run cases
+      description: Retrieve the per-case results of an evaluation test run.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the workflow.
+        required: true
+        schema:
+          type: string
+      - name: runId
+        in: path
+        description: The ID of the test run.
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: The maximum number of items to return.
+        required: false
+        schema:
+          type: number
+          example: 100
+          default: 100
+          maximum: 250
+      - name: cursor
+        in: query
+        description: Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first "page" of the collection. See pagination for more detail.
+        required: false
+        style: form
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Operation successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 1a2b3c4d5e6f7080
+                        status:
+                          type: string
+                          enum:
+                          - new
+                          - running
+                          - evaluation_running
+                          - success
+                          - error
+                          - warning
+                          - cancelled
+                        runAt:
+                          type:
+                          - string
+                          - 'null'
+                          format: date-time
+                        completedAt:
+                          type:
+                          - string
+                          - 'null'
+                          format: date-time
+                        metrics:
+                          type:
+                          - object
+                          - 'null'
+                          additionalProperties: true
+                          description: Metrics produced by this test case.
+                        errorCode:
+                          type:
+                          - string
+                          - 'null'
+                        errorDetails:
+                          type:
+                          - object
+                          - 'null'
+                          additionalProperties: true
+                        inputs:
+                          type:
+                          - object
+                          - 'null'
+                          additionalProperties: true
+                          description: Input data for this test case.
+                        outputs:
+                          type:
+                          - object
+                          - 'null'
+                          additionalProperties: true
+                          description: Output data produced by this test case.
+                        executionId:
+                          type:
+                          - string
+                          - 'null'
+                          description: ID of the underlying workflow execution, if still retained.
+                  nextCursor:
+                    type:
+                    - string
+                    - 'null'
+                    description: Paginate through test cases by setting the cursor parameter to the nextCursor attribute returned by a previous request. Default value fetches the first "page" of the collection.
+                    example: MTIzZTQ1NjctZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDA
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The specified resource was not found.
+      operationId: getWorkflowsByIdTestRunsByRunIdTestCases
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-N8N-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: n8n-auth
+externalDocs:
+  description: n8n API documentation
+  url: https://docs.n8n.io/api/
+x-enable-proxy: false
