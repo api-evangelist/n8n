@@ -44,6 +44,7 @@ tags:
 - Workflows
 - Automation
 - Low-Code
+- Workflow Automation
 tags_raw:
 - Agents
 - Artificial Intelligence
@@ -51,6 +52,7 @@ tags_raw:
 - Workflows
 - Automation
 - Low Code
+- Workflow-Automation
 apis:
 - aid: n8n:n8n-audit-api
   name: N8n Audit API
@@ -278,8 +280,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-logstreaming-api
   name: n8n Log Streaming API
   description: Operations about log streaming destinations
@@ -294,8 +294,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-n8npackage-api
   name: n8n N8n Package API
   description: Beta — breaking changes may still occur without major version bump.
@@ -310,8 +308,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-settingsldap-api
   name: n8n Settings Ldap API
   description: Operations about LDAP settings
@@ -326,8 +322,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-settingsotel-api
   name: n8n Settings Otel API
   description: Operations about OpenTelemetry settings
@@ -342,8 +336,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-settingsssooidc-api
   name: n8n Settings SSO Oidc API
   description: Operations about OIDC SSO settings
@@ -358,8 +350,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-settingsssosaml-api
   name: n8n Settings SSO Saml API
   description: Operations about SAML SSO settings
@@ -374,8 +364,6 @@ apis:
     url: https://n8n.io/
   - type: Reference
     url: https://docs.n8n.io/connect/n8n-api/api-reference
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-security-policy-api
   name: n8n security policy API
   description: Operations about the instance security policy settings
@@ -396,8 +384,6 @@ apis:
     url: https://docs.n8n.io/connect/n8n-api/authentication
   - type: Documentation
     url: https://n8n.io/
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 - aid: n8n:n8n-source-control-api
   name: n8n Source Control API
   description: Operations about source control
@@ -416,8 +402,6 @@ apis:
     url: https://docs.n8n.io/connect/n8n-api/authentication
   - type: Documentation
     url: https://n8n.io/
-  - type: GraphQL
-    url: graphql/n8n-graphql.md
 common:
 - type: Website
   url: https://n8n.io
