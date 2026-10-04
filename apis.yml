@@ -403,6 +403,9 @@ apis:
   - type: Documentation
     url: https://n8n.io/
 common:
+- type: CapabilityMap
+  url: capabilities/n8n-capability-edges.yml
+  name: n8n Business Capability Map
 - type: Website
   url: https://n8n.io
 - type: AgenticAccess
