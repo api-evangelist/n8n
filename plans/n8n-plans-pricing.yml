@@ -64,3 +64,49 @@ rate_limit_statements:
 - Max execution duration 5 min 40 min 40 min
 - 'Trial limits: 1,000 executions, 5 concurrent executions, a 180-second execution timeout, and 1 team
   project'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units: []
+  plans:
+  - name: Starter
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Business
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Community Edition
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
