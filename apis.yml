@@ -403,6 +403,8 @@ apis:
   - type: Documentation
     url: https://n8n.io/
 common:
+- type: FinOps
+  url: finops/n8n-finops.yml
 - type: CapabilityMap
   url: capabilities/n8n-capability-edges.yml
   name: n8n Business Capability Map
