@@ -15,3 +15,15 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: n8n-github-marketplace-apps
+  label: GitHub Marketplace (apps)
+  partner: github
+  partner_name: GitHub Marketplace (apps)
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  evidence: https://github.com/marketplace/n8n-cloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

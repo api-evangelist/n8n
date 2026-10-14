@@ -5,6 +5,7 @@ source:
 checked:
 - https://azuremarketplace.microsoft.com/
 - https://composio.dev/toolkits/n8n
+- https://github.com/marketplace?type=apps
 - https://monid.ai/tools/n8n
 - https://n8n.io/integrations/n8n/
 - https://zapier.com/apps/n8n/integrations
@@ -34,4 +35,19 @@ edges:
   seller_name: n8n GmbH
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/n8n-cloud
+  listing_count: 1
+  apps:
+  - n8n.cloud
+  publisher_name: n8n
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 templates: []
