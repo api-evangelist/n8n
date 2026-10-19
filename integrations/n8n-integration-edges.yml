@@ -3,16 +3,23 @@ method: searched
 source:
 - https://n8n.io/integrations/n8n/
 checked:
+- https://api.nuget.org/v3
 - https://azuremarketplace.microsoft.com/
 - https://composio.dev/toolkits/n8n
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://crates.io/api/v1
 - https://github.com/marketplace?type=apps
 - https://github.com/meltano/hub
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
 - https://monid.ai/tools/n8n
 - https://n8n.io/integrations/n8n/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
 - https://registry.npmjs.org/-/v1/search?text=keywords:n8n-community-node-package
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/apps/n8n/integrations
 - slack/integrations/slack-integration-edges.yml
 summary: null
@@ -6194,4 +6201,79 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Slack app
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@n8n/chat
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@n8n/chat'
+      version: 1.42.6
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/chat
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: '@n8n/cli'
+      version: 0.22.0
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/cli
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: '@n8n/workflow-sdk'
+      version: 0.36.5
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/workflow-sdk
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n
+      version: 2.43.7
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n-core
+      version: 2.16.1
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n-core
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n-workflow
+      version: 2.16.0
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n-workflow
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 templates: []
