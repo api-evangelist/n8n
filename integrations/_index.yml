@@ -27,6 +27,154 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: n8n-slack-own
+  label: Slack (own)
+  partner: slack
+  partner_name: Slack (own)
+  category: Slack app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: n8n-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@n8n/chat
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@n8n/chat'
+      version: 1.42.6
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/chat
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: '@n8n/cli'
+      version: 0.22.0
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/cli
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: '@n8n/workflow-sdk'
+      version: 0.36.5
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/workflow-sdk
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n
+      version: 2.43.7
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n-core
+      version: 2.16.1
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n-core
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n-workflow
+      version: 2.16.0
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n-workflow
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: n8n-airbyte
+  label: Airbyte
+  partner: airbyte
+  partner_name: Airbyte
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  evidence: https://docs.airbyte.com/integrations/sources/n8n
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-community
+    registered_name: n8n
+    matched_domain: n8n.io
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-n8n
+    support_level:
+    - community
+    release_stage:
+    - alpha
+    in_cloud: true
+    builder: unknown (community connector; contributor not in the record)
+  status: not-a-workflow
+  arazzo: null
+- slug: n8n-meltano
+  label: Meltano
+  partner: meltano
+  partner_name: Meltano
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  evidence: https://hub.meltano.com/extractors/tap-n8n--airbyte
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: n8n
+    matched_domain: n8n.io
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-n8n--airbyte
+    maintenance_status:
+    - beta
+    quality:
+    - bronze
+    builder: 'community (Meltano Hub variant maintainers: airbyte)'
+  status: not-a-workflow
+  arazzo: null
 - slug: n8n-8x8
   label: 8x8
   partner: 8x8
@@ -61,7 +209,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/AcuityScheduling
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/AcuityScheduling
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -86,7 +234,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Adalo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Adalo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -111,7 +259,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Affinity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Affinity
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -136,7 +284,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/AgileCrm
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/AgileCrm
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -188,7 +336,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Airtable
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Airtable
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -215,7 +363,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Airtop
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Airtop
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -296,7 +444,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/S3
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/S3
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -402,7 +550,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/ApiTemplateIo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/ApiTemplateIo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -481,7 +629,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Asana
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Asana
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -533,7 +681,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Aws
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Aws
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -558,7 +706,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bannerbear
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bannerbear
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -583,7 +731,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Baserow
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Baserow
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -635,7 +783,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bitbucket
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bitbucket
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -660,7 +808,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bitly
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bitly
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -685,7 +833,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bitwarden
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bitwarden
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -764,7 +912,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Box
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Box
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -816,7 +964,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Brevo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Brevo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -870,7 +1018,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bubble
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bubble
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -895,7 +1043,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Calendly
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Calendly
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1060,7 +1208,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/CircleCi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/CircleCi
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1085,7 +1233,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Clearbit
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Clearbit
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1137,7 +1285,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/ClickUp
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/ClickUp
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1162,7 +1310,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Clockify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Clockify
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1214,7 +1362,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Coda
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Coda
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1239,7 +1387,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/CoinGecko
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/CoinGecko
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1264,7 +1412,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Contentful
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Contentful
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1316,7 +1464,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Copper
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Copper
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1368,7 +1516,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/CustomerIo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/CustomerIo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1393,7 +1541,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Databricks
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Databricks
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1418,7 +1566,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/DeepL
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/DeepL
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1470,7 +1618,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Demio
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Demio
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1495,7 +1643,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Dhl
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Dhl
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1547,7 +1695,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Discord
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Discord
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1574,7 +1722,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Discourse
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Discourse
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1599,7 +1747,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Disqus
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Disqus
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1651,7 +1799,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Drift
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Drift
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1730,7 +1878,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Elastic/ElasticSecurity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Elastic/ElasticSecurity
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1755,7 +1903,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Elastic/Elasticsearch
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Elastic/Elasticsearch
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1807,7 +1955,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Eventbrite
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Eventbrite
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1886,7 +2034,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Figma
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Figma
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1911,7 +2059,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Formstack
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Formstack
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1936,7 +2084,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Freshdesk
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Freshdesk
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -1961,7 +2109,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/FreshworksCrm
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/FreshworksCrm
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2094,7 +2242,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/GetResponse
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/GetResponse
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2119,7 +2267,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Ghost
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Ghost
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2144,7 +2292,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Gmail
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Gmail
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2172,7 +2320,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Gong
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Gong
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2197,7 +2345,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Contacts
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Contacts
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2222,7 +2370,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Analytics
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Analytics
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2249,7 +2397,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/BigQuery
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/BigQuery
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2274,7 +2422,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/BusinessProfile
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/BusinessProfile
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2299,7 +2447,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Drive
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Drive
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2324,7 +2472,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Sheet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Sheet
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2349,7 +2497,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Task
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Task
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2374,7 +2522,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Grafana
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Grafana
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2399,7 +2547,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Grist
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Grist
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2424,7 +2572,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Gumroad
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Gumroad
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2449,7 +2597,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Harvest
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Harvest
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2474,7 +2622,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/HelpScout
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/HelpScout
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2526,7 +2674,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Hubspot
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Hubspot
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2551,7 +2699,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Hunter
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Hunter
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2657,7 +2805,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Iterable
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Iterable
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2682,7 +2830,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Jenkins
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Jenkins
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2734,7 +2882,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/JinaAI
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/JinaAI
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2759,7 +2907,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Jira
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Jira
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2894,7 +3042,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Lemlist
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Lemlist
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2922,7 +3070,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Line
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Line
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2947,7 +3095,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Linear
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Linear
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -2999,7 +3147,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Mailchimp
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Mailchimp
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3024,7 +3172,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MailerLite
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MailerLite
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3079,7 +3227,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Mailjet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Mailjet
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3104,7 +3252,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Matrix
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Matrix
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3129,7 +3277,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Mattermost
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Mattermost
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3181,7 +3329,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Dynamics
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Dynamics
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3209,7 +3357,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Entra
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Entra
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3234,7 +3382,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/ExcelSharePoint
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/ExcelSharePoint
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3259,7 +3407,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/GraphSecurity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/GraphSecurity
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3284,7 +3432,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/OneDrive
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/OneDrive
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3309,7 +3457,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Outlook
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Outlook
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3336,7 +3484,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Teams
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Teams
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3363,7 +3511,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/ToDo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/ToDo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3388,7 +3536,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MistralAI
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MistralAI
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3413,7 +3561,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MondayCom
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MondayCom
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3438,7 +3586,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MongoDb
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MongoDb
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3490,7 +3638,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Nasa
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Nasa
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3515,7 +3663,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Netlify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Netlify
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3594,7 +3742,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/NocoDB/v1
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/NocoDB/v1
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3619,7 +3767,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Notion
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Notion
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3644,7 +3792,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Odoo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Odoo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3671,7 +3819,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Okta
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Okta
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3696,7 +3844,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Onfleet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Onfleet
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3721,7 +3869,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/OpenAi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/OpenAi
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3746,7 +3894,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/OpenWeatherMap
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/OpenWeatherMap
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3771,7 +3919,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Orbit
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Orbit
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3796,7 +3944,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Oura
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Oura
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3848,7 +3996,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Paddle
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Paddle
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3873,7 +4021,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/PagerDuty
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/PagerDuty
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3925,7 +4073,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/PayPal
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/PayPal
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3950,7 +4098,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Perplexity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Perplexity
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -3975,7 +4123,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Pipedrive
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Pipedrive
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4002,7 +4150,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Plivo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Plivo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4027,7 +4175,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Postgres
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Postgres
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4052,7 +4200,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/PostHog
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/PostHog
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4077,7 +4225,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Postmark
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Postmark
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4129,7 +4277,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Pushbullet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Pushbullet
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4154,7 +4302,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Pushover
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Pushover
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4172,6 +4320,31 @@
     builder: n8n (built-in node)
   status: not-a-workflow
   arazzo: null
+- slug: n8n-quickbase
+  label: Quickbase
+  partner: quickbase
+  partner_name: Quickbase
+  type: coverage
+  marketplace: coverage
+  channel: provider-built
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/QuickBase
+  source: edge
+  relationship: connector-coverage
+  contract_reference:
+    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
+    spec_file: null
+    role: ipaas-connector:n8n-nodes-base
+    registered_name: Quick Base
+    matched_domain: quickbase.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-20'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    node_path: QuickBase
+    trigger: false
+    builder: n8n (built-in node)
+  status: not-a-workflow
+  arazzo: null
 - slug: n8n-quickbooks
   label: QuickBooks
   partner: quickbooks
@@ -4179,7 +4352,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/QuickBooks
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/QuickBooks
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4204,7 +4377,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/QuickChart
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/QuickChart
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4229,7 +4402,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Reddit
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Reddit
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4362,7 +4535,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Salesforce
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Salesforce
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4495,7 +4668,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Segment
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Segment
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4520,7 +4693,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/SendGrid
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/SendGrid
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4599,7 +4772,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/ServiceNow
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/ServiceNow
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4624,7 +4797,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Sms77
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Sms77
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4649,7 +4822,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/SharePoint
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/SharePoint
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4703,7 +4876,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Shopify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Shopify
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4728,7 +4901,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Signl4
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Signl4
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4837,7 +5010,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Snowflake
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Snowflake
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4889,7 +5062,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Splunk
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Splunk
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4916,7 +5089,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Spotify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Spotify
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4968,7 +5141,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Storyblok
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Storyblok
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -4993,7 +5166,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Strapi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Strapi
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5018,7 +5191,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Strava
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Strava
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5043,7 +5216,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Stripe
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Stripe
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5068,7 +5241,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Supabase
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Supabase
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5093,7 +5266,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/SurveyMonkey
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/SurveyMonkey
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5145,7 +5318,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Tapfiliate
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Tapfiliate
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5278,7 +5451,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Todoist
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Todoist
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5306,7 +5479,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Toggl
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Toggl
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5358,7 +5531,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/TravisCi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/TravisCi
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5383,7 +5556,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Trello
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Trello
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5435,7 +5608,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Twilio
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Twilio
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5460,7 +5633,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Typeform
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Typeform
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5539,7 +5712,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Uplead
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Uplead
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5591,7 +5764,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/UrlScanIo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/UrlScanIo
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5616,7 +5789,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Venafi/ProtectCloud
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Venafi/ProtectCloud
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5695,7 +5868,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Webflow/V1
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Webflow/V1
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5750,7 +5923,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Wise
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Wise
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5775,7 +5948,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Wordpress
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Wordpress
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5827,7 +6000,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Xero
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Xero
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5879,7 +6052,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zendesk
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zendesk
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5931,7 +6104,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zoho
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zoho
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -5956,7 +6129,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zoom
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zoom
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -6008,7 +6181,7 @@
   type: coverage
   marketplace: coverage
   channel: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zulip
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zulip
   source: edge
   relationship: connector-coverage
   contract_reference:
@@ -6024,153 +6197,5 @@
     node_path: Zulip
     trigger: false
     builder: n8n (built-in node)
-  status: not-a-workflow
-  arazzo: null
-- slug: n8n-airbyte
-  label: Airbyte
-  partner: airbyte
-  partner_name: Airbyte
-  type: marketplace
-  marketplace: airbyte-registry
-  channel: elt-connector
-  evidence: https://docs.airbyte.com/integrations/sources/n8n
-  source: edge
-  relationship: ipaas-bridge
-  contract_reference:
-    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
-    spec_file: null
-    role: elt-connector:airbyte-community
-    registered_name: n8n
-    matched_domain: n8n.io
-    matched_by: domain
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connectors:
-    - airbyte/source-n8n
-    support_level:
-    - community
-    release_stage:
-    - alpha
-    in_cloud: true
-    builder: unknown (community connector; contributor not in the record)
-  status: not-a-workflow
-  arazzo: null
-- slug: n8n-meltano
-  label: Meltano
-  partner: meltano
-  partner_name: Meltano
-  type: marketplace
-  marketplace: meltano-hub
-  channel: elt-connector
-  evidence: https://hub.meltano.com/extractors/tap-n8n--airbyte
-  source: edge
-  relationship: ipaas-bridge
-  contract_reference:
-    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
-    spec_file: null
-    role: elt-connector:meltano-hub
-    registered_name: n8n
-    matched_domain: n8n.io
-    matched_by: domain
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    plugins:
-    - tap-n8n--airbyte
-    maintenance_status:
-    - beta
-    quality:
-    - bronze
-    builder: 'community (Meltano Hub variant maintainers: airbyte)'
-  status: not-a-workflow
-  arazzo: null
-- slug: n8n-slack-own
-  label: Slack (own)
-  partner: slack
-  partner_name: Slack (own)
-  category: Slack app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: n8n-npm-registry
-  label: npm registry
-  partner: npm
-  partner_name: npm registry
-  category: official SDK (JavaScript/TypeScript)
-  type: register
-  channel: package-registry
-  evidence: https://www.npmjs.com/package/@n8n/chat
-  source: edge
-  relationship: distribution-channel
-  contract_reference:
-    register: npm registry (public registry JSON)
-    spec_file: null
-    language: JavaScript/TypeScript
-    packages:
-    - name: '@n8n/chat'
-      version: 1.42.6
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/@n8n/chat
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: '@n8n/cli'
-      version: 0.22.0
-      released: '2026-10-13'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/@n8n/cli
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: '@n8n/workflow-sdk'
-      version: 0.36.5
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/@n8n/workflow-sdk
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: n8n
-      version: 2.43.7
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/n8n
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: n8n-core
-      version: 2.16.1
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/n8n-core
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: n8n-workflow
-      version: 2.16.0
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/n8n-workflow
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    current: true
-    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
-      24 months'
-    detected_by: sweep-official-sdks.py
-    detected: '2026-10-18'
   status: not-a-workflow
   arazzo: null

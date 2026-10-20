@@ -12,6 +12,7 @@ checked:
 - https://github.com/marketplace?type=apps
 - https://github.com/meltano/hub
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
+- https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/
 - https://monid.ai/tools/n8n
 - https://n8n.io/integrations/n8n/
 - https://proxy.golang.org
@@ -37,8 +38,8 @@ marketplace_apps:
   url: https://n8n.io/integrations/
   app_count: 454
   adapter: sweep-workflow-automation.py:n8n
-  listed: 233
-  note: 'n8n nodes-base @860f1273eb: 454 nodes, 144 linked; community nodes on npm: 13687 listed, 89 provider-published
+  listed: 234
+  note: 'n8n nodes-base @f73dc337f8: 454 nodes, 145 linked; community nodes on npm: 13687 listed, 89 provider-published
     linked'
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -72,6 +73,157 @@ edges:
   publisher_name: n8n
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - n8n.cloud
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@n8n/chat
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@n8n/chat'
+      version: 1.42.6
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/chat
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: '@n8n/cli'
+      version: 0.22.0
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/cli
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: '@n8n/workflow-sdk'
+      version: 0.36.5
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@n8n/workflow-sdk
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n
+      version: 2.43.7
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n-core
+      version: 2.16.1
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n-core
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    - name: n8n-workflow
+      version: 2.16.0
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/n8n-workflow
+      repo_leg: domain:n8n.io
+      publisher_leg: email:n8n.io
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: Airbyte
+  partner: airbyte
+  partner_match: aggregator
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://docs.airbyte.com/integrations/sources/n8n
+  category: null
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-community
+    registered_name: n8n
+    matched_domain: n8n.io
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-n8n
+    support_level:
+    - community
+    release_stage:
+    - alpha
+    in_cloud: true
+    builder: unknown (community connector; contributor not in the record)
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-n8n--airbyte
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: n8n
+    matched_domain: n8n.io
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-n8n--airbyte
+    maintenance_status:
+    - beta
+    quality:
+    - bronze
+    builder: 'community (Meltano Hub variant maintainers: airbyte)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
 - partner_name: 8x8
   partner: 8x8
   partner_match: domain
@@ -108,7 +260,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/AcuityScheduling
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/AcuityScheduling
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -133,7 +285,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Adalo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Adalo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -158,7 +310,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Affinity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Affinity
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -183,7 +335,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/AgileCrm
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/AgileCrm
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -235,7 +387,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Airtable
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Airtable
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -262,7 +414,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Airtop
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Airtop
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -343,7 +495,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/S3
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/S3
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -449,7 +601,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/ApiTemplateIo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/ApiTemplateIo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -528,7 +680,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Asana
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Asana
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -580,7 +732,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Aws
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Aws
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -605,7 +757,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bannerbear
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bannerbear
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -630,7 +782,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Baserow
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Baserow
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -682,7 +834,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bitbucket
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bitbucket
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -707,7 +859,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bitly
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bitly
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -732,7 +884,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bitwarden
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bitwarden
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -811,7 +963,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Box
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Box
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -863,7 +1015,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Brevo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Brevo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -917,7 +1069,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Bubble
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Bubble
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -942,7 +1094,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Calendly
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Calendly
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1107,7 +1259,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/CircleCi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/CircleCi
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1132,7 +1284,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Clearbit
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Clearbit
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1184,7 +1336,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/ClickUp
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/ClickUp
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1209,7 +1361,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Clockify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Clockify
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1261,7 +1413,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Coda
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Coda
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1286,7 +1438,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/CoinGecko
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/CoinGecko
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1311,7 +1463,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Contentful
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Contentful
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1363,7 +1515,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Copper
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Copper
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1415,7 +1567,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/CustomerIo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/CustomerIo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1440,7 +1592,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Databricks
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Databricks
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1492,7 +1644,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/DeepL
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/DeepL
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1544,7 +1696,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Demio
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Demio
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1569,7 +1721,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Dhl
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Dhl
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1621,7 +1773,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Discord
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Discord
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1648,7 +1800,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Discourse
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Discourse
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1673,7 +1825,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Disqus
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Disqus
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1725,7 +1877,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Drift
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Drift
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1804,7 +1956,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Elastic/ElasticSecurity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Elastic/ElasticSecurity
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1829,7 +1981,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Elastic/Elasticsearch
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Elastic/Elasticsearch
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1881,7 +2033,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Eventbrite
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Eventbrite
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1960,7 +2112,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Figma
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Figma
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -1985,7 +2137,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Formstack
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Formstack
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2010,7 +2162,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Freshdesk
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Freshdesk
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2035,7 +2187,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/FreshworksCrm
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/FreshworksCrm
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2168,7 +2320,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/GetResponse
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/GetResponse
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2193,7 +2345,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Ghost
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Ghost
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2218,7 +2370,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Gmail
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Gmail
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2246,7 +2398,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Gong
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Gong
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2271,7 +2423,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Contacts
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Contacts
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2296,7 +2448,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Analytics
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Analytics
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2323,7 +2475,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/BigQuery
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/BigQuery
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2348,7 +2500,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/BusinessProfile
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/BusinessProfile
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2373,7 +2525,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Drive
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Drive
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2398,7 +2550,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Sheet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Sheet
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2423,7 +2575,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Google/Task
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Google/Task
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2448,7 +2600,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Grafana
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Grafana
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2473,7 +2625,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Grist
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Grist
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2498,7 +2650,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Gumroad
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Gumroad
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2523,7 +2675,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Harvest
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Harvest
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2548,7 +2700,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/HelpScout
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/HelpScout
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2600,7 +2752,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Hubspot
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Hubspot
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2625,7 +2777,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Hunter
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Hunter
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2731,7 +2883,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Iterable
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Iterable
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2756,7 +2908,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Jenkins
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Jenkins
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2808,7 +2960,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/JinaAI
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/JinaAI
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2833,7 +2985,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Jira
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Jira
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2968,7 +3120,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Lemlist
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Lemlist
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -2996,7 +3148,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Line
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Line
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3021,7 +3173,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Linear
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Linear
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3073,7 +3225,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Mailchimp
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Mailchimp
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3098,7 +3250,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MailerLite
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MailerLite
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3153,7 +3305,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Mailjet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Mailjet
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3178,7 +3330,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Matrix
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Matrix
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3203,7 +3355,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Mattermost
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Mattermost
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3255,7 +3407,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Dynamics
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Dynamics
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3283,7 +3435,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Entra
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Entra
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3308,7 +3460,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/ExcelSharePoint
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/ExcelSharePoint
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3333,7 +3485,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/GraphSecurity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/GraphSecurity
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3358,7 +3510,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/OneDrive
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/OneDrive
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3383,7 +3535,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Outlook
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Outlook
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3410,7 +3562,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Teams
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Teams
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3437,7 +3589,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/ToDo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/ToDo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3462,7 +3614,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MistralAI
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MistralAI
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3487,7 +3639,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MondayCom
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MondayCom
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3539,7 +3691,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/MongoDb
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/MongoDb
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3591,7 +3743,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Nasa
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Nasa
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3616,7 +3768,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Netlify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Netlify
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3695,7 +3847,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/NocoDB/v1
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/NocoDB/v1
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3720,7 +3872,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Notion
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Notion
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3745,7 +3897,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Odoo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Odoo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3772,7 +3924,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Okta
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Okta
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3797,7 +3949,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Onfleet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Onfleet
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3822,7 +3974,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/OpenAi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/OpenAi
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3847,7 +3999,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/OpenWeatherMap
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/OpenWeatherMap
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3872,7 +4024,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Orbit
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Orbit
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3897,7 +4049,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Oura
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Oura
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3949,7 +4101,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Paddle
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Paddle
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -3974,7 +4126,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/PagerDuty
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/PagerDuty
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4026,7 +4178,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/PayPal
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/PayPal
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4051,7 +4203,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Perplexity
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Perplexity
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4076,7 +4228,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Pipedrive
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Pipedrive
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4103,7 +4255,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Plivo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Plivo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4128,7 +4280,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Postgres
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Postgres
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4153,7 +4305,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/PostHog
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/PostHog
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4178,7 +4330,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Postmark
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Postmark
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4230,7 +4382,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Pushbullet
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Pushbullet
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4255,7 +4407,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Pushover
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Pushover
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4271,6 +4423,31 @@ edges:
     builder: n8n (built-in node)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Quickbase
+  partner: quickbase
+  partner_match: domain
+  partner_url: https://quickbase.com
+  type: coverage
+  marketplace: coverage
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/QuickBase
+  contract_reference:
+    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
+    spec_file: null
+    role: ipaas-connector:n8n-nodes-base
+    registered_name: Quick Base
+    matched_domain: quickbase.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-20'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    node_path: QuickBase
+    trigger: false
+    builder: n8n (built-in node)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-20'
 - partner_name: QuickBooks
   partner: quickbooks
   partner_match: domain+name-among-holders
@@ -4280,7 +4457,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/QuickBooks
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/QuickBooks
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4305,7 +4482,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/QuickChart
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/QuickChart
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4330,7 +4507,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Reddit
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Reddit
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4463,7 +4640,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Salesforce
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Salesforce
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4596,7 +4773,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Segment
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Segment
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4621,7 +4798,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/SendGrid
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/SendGrid
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4700,7 +4877,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/ServiceNow
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/ServiceNow
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4725,7 +4902,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Sms77
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Sms77
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4750,7 +4927,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/SharePoint
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/SharePoint
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4804,7 +4981,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Shopify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Shopify
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4829,7 +5006,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Signl4
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Signl4
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4938,7 +5115,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Snowflake
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Snowflake
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -4990,7 +5167,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Splunk
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Splunk
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5017,7 +5194,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Spotify
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Spotify
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5069,7 +5246,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Storyblok
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Storyblok
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5094,7 +5271,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Strapi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Strapi
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5119,7 +5296,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Strava
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Strava
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5144,7 +5321,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Stripe
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Stripe
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5169,7 +5346,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Supabase
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Supabase
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5194,7 +5371,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/SurveyMonkey
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/SurveyMonkey
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5246,7 +5423,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Tapfiliate
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Tapfiliate
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5379,7 +5556,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Todoist
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Todoist
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5407,7 +5584,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Toggl
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Toggl
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5459,7 +5636,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/TravisCi
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/TravisCi
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5484,7 +5661,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Trello
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Trello
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5536,7 +5713,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Twilio
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Twilio
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5561,7 +5738,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Typeform
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Typeform
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5640,7 +5817,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Uplead
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Uplead
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5692,7 +5869,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/UrlScanIo
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/UrlScanIo
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5717,7 +5894,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Venafi/ProtectCloud
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Venafi/ProtectCloud
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5796,7 +5973,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Webflow/V1
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Webflow/V1
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5851,7 +6028,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Wise
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Wise
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5876,7 +6053,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Wordpress
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Wordpress
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5928,7 +6105,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Xero
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Xero
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -5980,7 +6157,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zendesk
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zendesk
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -6032,7 +6209,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zoho
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zoho
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -6057,7 +6234,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zoom
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zoom
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -6109,7 +6286,7 @@ edges:
   channel: provider-built
   relationship: connector-coverage
   direction: provider-built
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Zulip
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Zulip
   contract_reference:
     register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
     spec_file: null
@@ -6125,155 +6302,4 @@ edges:
     builder: n8n (built-in node)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-- partner_name: Airbyte
-  partner: airbyte
-  partner_match: aggregator
-  type: marketplace
-  marketplace: airbyte-registry
-  channel: elt-connector
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://docs.airbyte.com/integrations/sources/n8n
-  category: null
-  contract_reference:
-    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
-    spec_file: null
-    role: elt-connector:airbyte-community
-    registered_name: n8n
-    matched_domain: n8n.io
-    matched_by: domain
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connectors:
-    - airbyte/source-n8n
-    support_level:
-    - community
-    release_stage:
-    - alpha
-    in_cloud: true
-    builder: unknown (community connector; contributor not in the record)
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Meltano
-  partner: meltano
-  partner_match: aggregator
-  type: marketplace
-  marketplace: meltano-hub
-  channel: elt-connector
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://hub.meltano.com/extractors/tap-n8n--airbyte
-  category: null
-  contract_reference:
-    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
-    spec_file: null
-    role: elt-connector:meltano-hub
-    registered_name: n8n
-    matched_domain: n8n.io
-    matched_by: domain
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    plugins:
-    - tap-n8n--airbyte
-    maintenance_status:
-    - beta
-    quality:
-    - bronze
-    builder: 'community (Meltano Hub variant maintainers: airbyte)'
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - n8n.cloud
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
-- partner_name: npm registry
-  partner: npm
-  partner_match: register
-  type: register
-  direction: provider-built
-  category: official SDK (JavaScript/TypeScript)
-  evidence: https://www.npmjs.com/package/@n8n/chat
-  channel: package-registry
-  relationship: distribution-channel
-  contract_reference:
-    register: npm registry (public registry JSON)
-    spec_file: null
-    language: JavaScript/TypeScript
-    packages:
-    - name: '@n8n/chat'
-      version: 1.42.6
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/@n8n/chat
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: '@n8n/cli'
-      version: 0.22.0
-      released: '2026-10-13'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/@n8n/cli
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: '@n8n/workflow-sdk'
-      version: 0.36.5
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/@n8n/workflow-sdk
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: n8n
-      version: 2.43.7
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/n8n
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: n8n-core
-      version: 2.16.1
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/n8n-core
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    - name: n8n-workflow
-      version: 2.16.0
-      released: '2026-10-16'
-      released_field: modified
-      lapsed: false
-      page: https://www.npmjs.com/package/n8n-workflow
-      repo_leg: domain:n8n.io
-      publisher_leg: email:n8n.io
-      matched_by: domain
-    current: true
-    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
-      24 months'
-    detected_by: sweep-official-sdks.py
-    detected: '2026-10-18'
-  detected_by: sweep-official-sdks.py
-  first_seen: '2026-10-18'
 templates: []
