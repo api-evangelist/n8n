@@ -35,6 +35,7 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- docker-hub/integrations/docker-hub-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: n8n
@@ -85,23 +86,6 @@ edges:
   publisher_name: n8n
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - n8n.cloud
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
 - partner_name: npm registry
   partner: npm
   partner_match: register
@@ -6452,4 +6436,41 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - n8n.cloud
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/n8nio
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - n8nio/n8n
+  - n8nio/runners
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
 templates: []
