@@ -48,6 +48,7 @@ checked:
 - https://raw.githubusercontent.com/<repo>/HEAD/manifest.json
 - https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugin-stats.json
 - https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugins.json
+- artifact-hub/integrations/artifact-hub-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: n8n
@@ -6448,43 +6449,6 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - n8n.cloud
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
-- partner_name: Docker Hub (docker-verified-publisher)
-  partner: docker-hub
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: docker-verified-publisher
-  evidence: https://hub.docker.com/u/n8nio
-  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
-  apps:
-  - n8nio/n8n
-  - n8nio/runners
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Docker Verified Publisher
-  badges:
-  - Docker Verified Publisher
 - partner_name: Sequoia Capital
   partner: sequoia-capital
   partner_match: register
@@ -6590,4 +6554,60 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-obsidian-community-plugins.py
   first_seen: '2026-10-22'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A016X0AT6QL-n8ncloud
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - n8n.cloud
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/n8nio
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - n8nio/n8n
+  - n8nio/runners
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
+- partner_name: Artifact Hub (artifact-hub)
+  partner: artifact-hub
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: artifact-hub
+  evidence: https://artifacthub.io/packages/search?repo=n8n-io
+  mirror_of: artifact-hub/integrations/artifact-hub-integration-edges.yml
+  apps:
+  - n8n
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Artifact Hub listing (Helm chart)
+  badges:
+  - 'Verified publisher (Artifact Hub verified publisher: repository ownership proven)'
 templates: []
