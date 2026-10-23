@@ -405,6 +405,8 @@ apis:
   - type: Documentation
     url: https://n8n.io/
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/n8n/overview
 - type: FinOps
   url: finops/n8n-finops.yml
 - type: CapabilityMap
