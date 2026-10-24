@@ -1,1130 +1,2513 @@
 {
+  "info": {
+    "_postman_id": "d7863984-3062-4d97-be62-78a4ae087eb5",
+    "name": "N8n Data Table API",
+    "description": "Operations tagged DataTable across 2 of this provider's published API definitions: n8n-openapi.yml, n8n-datatable-api-openapi.yml. Each path carries the servers of the definition it was published in.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:14:35.000Z",
+    "updatedAt": "2026-10-22T02:14:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d7863984-3062-4d97-be62-78a4ae087eb5"
+  },
   "item": [
     {
-      "id": "e2228d3f-690e-4139-9bc1-f10129b41c87",
-      "name": "DataTable",
-      "description": {
-        "content": "Operations about data tables and their rows",
-        "type": "text/plain"
-      },
+      "name": "data-tables",
       "item": [
         {
-          "id": "b8b1599b-f225-4ae1-b029-3dce18ffeebc",
-          "name": "List all data tables",
-          "request": {
-            "name": "List all data tables",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{dataTableId}",
+          "item": [
             {
-              "id": "a4a0f2b4-cabe-4467-9a3d-3c35b1b47d21",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+              "name": "rows",
+              "item": [
+                {
+                  "name": "update",
+                  "item": [
+                    {
+                      "name": "Update rows in a data table",
+                      "id": "9fda6190-561e-4191-9c43-8b37ab11dd1a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows",
+                            "update"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8fdbc283-90bd-4041-b267-e02e800c1e77",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "cbd91f52-2c71-46e4-b7e3-78087db0bc9c",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "update"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-cbd91f52-2c71-46e4-b7e3-78087db0bc9c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-9fda6190-561e-4191-9c43-8b37ab11dd1a"
                     },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
+                    {
+                      "name": "Update rows in a data table",
+                      "id": "9cae9c10-79de-474c-9a1e-bb47742c1c00",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"filter\": {\n    \"filters\": [\n      {\n        \"columnName\": \"<string>\",\n        \"condition\": \"lte\",\n        \"value\": {}\n      }\n    ],\n    \"type\": \"and\"\n  },\n  \"data\": {\n    \"ut_60d\": -42848711.26613714,\n    \"qui_6e6\": -68621732.76015481\n  },\n  \"returnData\": false,\n  \"dryRun\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows",
+                            "update"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cd51d39a-8c10-4ae9-a674-1427be11d955",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the data table"
+                            }
+                          ]
+                        },
+                        "description": "Update rows matching filter conditions in a data table."
+                      },
+                      "response": [
+                        {
+                          "id": "e73a84a4-a8e0-49f0-a3e4-04c6925b0995",
+                          "name": "Rows updated successfully",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filter\": {\n    \"filters\": [\n      {\n        \"columnName\": \"<string>\",\n        \"condition\": \"lte\",\n        \"value\": {}\n      }\n    ],\n    \"type\": \"and\"\n  },\n  \"data\": {\n    \"ut_60d\": -42848711.26613714,\n    \"qui_6e6\": -68621732.76015481\n  },\n  \"returnData\": false,\n  \"dryRun\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "update"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<boolean>",
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-e73a84a4-a8e0-49f0-a3e4-04c6925b0995"
+                        },
+                        {
+                          "id": "55668ce7-91dc-4fa0-a530-bc0f9b9c87bf",
+                          "name": "The request is invalid or provides malformed data.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filter\": {\n    \"filters\": [\n      {\n        \"columnName\": \"<string>\",\n        \"condition\": \"lte\",\n        \"value\": {}\n      }\n    ],\n    \"type\": \"and\"\n  },\n  \"data\": {\n    \"ut_60d\": -42848711.26613714,\n    \"qui_6e6\": -68621732.76015481\n  },\n  \"returnData\": false,\n  \"dryRun\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "update"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-55668ce7-91dc-4fa0-a530-bc0f9b9c87bf"
+                        },
+                        {
+                          "id": "965ea661-b283-435b-8305-c51a4684ed7b",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filter\": {\n    \"filters\": [\n      {\n        \"columnName\": \"<string>\",\n        \"condition\": \"lte\",\n        \"value\": {}\n      }\n    ],\n    \"type\": \"and\"\n  },\n  \"data\": {\n    \"ut_60d\": -42848711.26613714,\n    \"qui_6e6\": -68621732.76015481\n  },\n  \"returnData\": false,\n  \"dryRun\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "update"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-965ea661-b283-435b-8305-c51a4684ed7b"
+                        },
+                        {
+                          "id": "99d006a0-54af-486b-9408-6a16d0b90b17",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filter\": {\n    \"filters\": [\n      {\n        \"columnName\": \"<string>\",\n        \"condition\": \"lte\",\n        \"value\": {}\n      }\n    ],\n    \"type\": \"and\"\n  },\n  \"data\": {\n    \"ut_60d\": -42848711.26613714,\n    \"qui_6e6\": -68621732.76015481\n  },\n  \"returnData\": false,\n  \"dryRun\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "update"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-99d006a0-54af-486b-9408-6a16d0b90b17"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-9cae9c10-79de-474c-9a1e-bb47742c1c00"
+                    }
+                  ],
+                  "id": "f80b9592-02f3-4e89-8e07-0825099f165a",
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-f80b9592-02f3-4e89-8e07-0825099f165a"
+                },
+                {
+                  "name": "upsert",
+                  "item": [
+                    {
+                      "name": "Upsert rows in a data table",
+                      "id": "3aa976cc-156e-44a9-981a-2a636f1b7b55",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/upsert",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows",
+                            "upsert"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f4fc3b10-b60b-4a2b-873d-2f942e013b1d",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "af4863e3-ed75-4fdd-8429-4885c18e68c9",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/upsert",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "upsert"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-af4863e3-ed75-4fdd-8429-4885c18e68c9"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-3aa976cc-156e-44a9-981a-2a636f1b7b55"
+                    }
+                  ],
+                  "id": "40b83fec-748a-4453-bb6c-b1284f165077",
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-40b83fec-748a-4453-bb6c-b1284f165077"
+                },
+                {
+                  "name": "delete",
+                  "item": [
+                    {
+                      "name": "Delete rows in a data table",
+                      "id": "8b7a12c1-41b2-4b06-8228-afc4373a973d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows",
+                            "delete"
+                          ],
+                          "variable": [
+                            {
+                              "id": "694f9b5f-b3e3-46e9-89d2-9576df617758",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "da6c63dc-dba2-4e95-9a20-b073fec5c77a",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "delete"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-da6c63dc-dba2-4e95-9a20-b073fec5c77a"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-8b7a12c1-41b2-4b06-8228-afc4373a973d"
+                    },
+                    {
+                      "name": "Delete rows from a data table",
+                      "id": "48d3063a-1232-4a55-b083-d7abf822b52a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete?filter=<string>&returnData=false&dryRun=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows",
+                            "delete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) JSON string of filter conditions. Required to prevent accidental deletion of all data.",
+                              "key": "filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "If true, return the deleted rows; if false, return true on success",
+                              "key": "returnData",
+                              "value": "false"
+                            },
+                            {
+                              "description": "If true, preview which rows would be deleted without actually deleting them",
+                              "key": "dryRun",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "03faed91-08df-449e-97ac-0a9bb9f39b3c",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the data table"
+                            }
+                          ]
+                        },
+                        "description": "Delete rows matching filter conditions from a data table. Filter is required to prevent accidental deletion of all data."
+                      },
+                      "response": [
+                        {
+                          "id": "d96dcb5d-fcc9-4516-b452-cf1603597c4f",
+                          "name": "Rows deleted successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete?filter=<string>&returnData=false&dryRun=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "delete"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) JSON string of filter conditions. Required to prevent accidental deletion of all data.",
+                                  "key": "filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If true, return the deleted rows; if false, return true on success",
+                                  "key": "returnData",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "If true, preview which rows would be deleted without actually deleting them",
+                                  "key": "dryRun",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<boolean>",
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-d96dcb5d-fcc9-4516-b452-cf1603597c4f"
+                        },
+                        {
+                          "id": "bff6bee4-2cda-4d87-b93c-aceec28d7e33",
+                          "name": "The request is invalid or provides malformed data.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete?filter=<string>&returnData=false&dryRun=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "delete"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) JSON string of filter conditions. Required to prevent accidental deletion of all data.",
+                                  "key": "filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If true, return the deleted rows; if false, return true on success",
+                                  "key": "returnData",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "If true, preview which rows would be deleted without actually deleting them",
+                                  "key": "dryRun",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-bff6bee4-2cda-4d87-b93c-aceec28d7e33"
+                        },
+                        {
+                          "id": "6fea6ece-1d2a-4389-bb94-7bfcab8ad10c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete?filter=<string>&returnData=false&dryRun=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "delete"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) JSON string of filter conditions. Required to prevent accidental deletion of all data.",
+                                  "key": "filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If true, return the deleted rows; if false, return true on success",
+                                  "key": "returnData",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "If true, preview which rows would be deleted without actually deleting them",
+                                  "key": "dryRun",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-6fea6ece-1d2a-4389-bb94-7bfcab8ad10c"
+                        },
+                        {
+                          "id": "dd297e9b-72dc-4b25-9d88-a180c868f2a8",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/delete?filter=<string>&returnData=false&dryRun=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "delete"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) JSON string of filter conditions. Required to prevent accidental deletion of all data.",
+                                  "key": "filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If true, return the deleted rows; if false, return true on success",
+                                  "key": "returnData",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "If true, preview which rows would be deleted without actually deleting them",
+                                  "key": "dryRun",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-dd297e9b-72dc-4b25-9d88-a180c868f2a8"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-48d3063a-1232-4a55-b083-d7abf822b52a"
+                    }
+                  ],
+                  "id": "a396a14e-a95d-4d82-81e7-bf5fa6e5af14",
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-a396a14e-a95d-4d82-81e7-bf5fa6e5af14"
+                },
+                {
+                  "name": "clear",
+                  "item": [
+                    {
+                      "name": "Clear all rows from a data table",
+                      "id": "058821b2-05a1-4aab-a92c-5b9818457844",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/clear",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows",
+                            "clear"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f9fff21c-7109-4fba-b2ed-31ab4114fbfb",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the data table"
+                            }
+                          ]
+                        },
+                        "description": "Permanently deletes all rows from a data table. The table structure will be retained. This action cannot be undone."
+                      },
+                      "response": [
+                        {
+                          "id": "a3854074-8256-4068-9666-1f69d6377fb3",
+                          "name": "Rows cleared successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/clear",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "clear"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"deletedCount\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-a3854074-8256-4068-9666-1f69d6377fb3"
+                        },
+                        {
+                          "id": "7fbda797-c30a-4444-95d8-617fb8911614",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/clear",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "clear"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-7fbda797-c30a-4444-95d8-617fb8911614"
+                        },
+                        {
+                          "id": "1b68e68e-428b-43a1-8809-39af138764bc",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/rows/clear",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "rows",
+                                "clear"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-1b68e68e-428b-43a1-8809-39af138764bc"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-058821b2-05a1-4aab-a92c-5b9818457844"
+                    }
+                  ],
+                  "id": "292977f0-aead-439c-95fa-3030f07607b4",
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-292977f0-aead-439c-95fa-3030f07607b4"
+                },
+                {
+                  "name": "List rows in a data table",
+                  "id": "c298cc93-d57f-4897-8927-fba44bd6b494",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "X-N8N-API-KEY",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId/rows",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId",
+                        "rows"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8d41bf70-a9f7-430b-9aeb-590097bd4d80",
+                          "key": "dataTableId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c15c6f68-b573-4530-b2e6-07a1bae8485f",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataTableId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-c15c6f68-b573-4530-b2e6-07a1bae8485f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-c298cc93-d57f-4897-8927-fba44bd6b494"
+                },
+                {
+                  "name": "Insert rows into a data table",
+                  "id": "9074b722-b308-41e4-9c7d-654512c2fcd4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "X-N8N-API-KEY",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId/rows",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId",
+                        "rows"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9f3a59da-b184-4471-8f24-f6ce93e3f01b",
+                          "key": "dataTableId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1528e0d6-524b-419a-9b4d-254a011685a1",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/rows",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "rows"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataTableId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-1528e0d6-524b-419a-9b4d-254a011685a1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-9074b722-b308-41e4-9c7d-654512c2fcd4"
+                }
+              ],
+              "id": "858bdbc1-78ba-467b-a697-50e0e97a8d32",
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-858bdbc1-78ba-467b-a697-50e0e97a8d32"
+            },
+            {
+              "name": "columns",
+              "item": [
+                {
+                  "name": "{columnId}",
+                  "item": [
+                    {
+                      "name": "Delete a column from a data table",
+                      "id": "c10e5c22-d7ec-4a20-99ed-1241d6ff4188",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "columns",
+                            ":columnId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "78f84fa2-1b5d-47b5-9697-ee8f06763c86",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "af641d32-7bf7-4381-95dc-2e08d4d4a77e",
+                              "key": "columnId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1968bc2a-9b5d-4c04-b2bc-2cc0bee81340",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "columns",
+                                ":columnId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                },
+                                {
+                                  "key": "columnId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-1968bc2a-9b5d-4c04-b2bc-2cc0bee81340"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-c10e5c22-d7ec-4a20-99ed-1241d6ff4188"
+                    },
+                    {
+                      "name": "Update a column",
+                      "id": "22537962-c06e-458e-bd74-29a8a50deb56",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "X-N8N-API-KEY",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "columns",
+                            ":columnId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2579e4b1-621f-4e9b-9c05-88c7b0a4706e",
+                              "key": "dataTableId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the data table"
+                            },
+                            {
+                              "id": "deeed698-3ce2-4731-8d7f-a4a5b6546fcb",
+                              "key": "columnId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the column"
+                            }
+                          ]
+                        },
+                        "description": "Rename and/or reorder a column in a data table."
+                      },
+                      "response": [
+                        {
+                          "id": "25d3b278-90d7-4ab5-a5d3-cde143a68438",
+                          "name": "Column updated successfully",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "columns",
+                                ":columnId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                },
+                                {
+                                  "key": "columnId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataTableId\": \"<string>\",\n  \"type\": \"boolean\",\n  \"index\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-25d3b278-90d7-4ab5-a5d3-cde143a68438"
+                        },
+                        {
+                          "id": "4b318b03-f4b8-4e88-b806-27914024b89b",
+                          "name": "The request is invalid or provides malformed data.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "columns",
+                                ":columnId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                },
+                                {
+                                  "key": "columnId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-4b318b03-f4b8-4e88-b806-27914024b89b"
+                        },
+                        {
+                          "id": "72296d94-0c7e-4966-8494-2cb790c6d3ee",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "columns",
+                                ":columnId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                },
+                                {
+                                  "key": "columnId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-72296d94-0c7e-4966-8494-2cb790c6d3ee"
+                        },
+                        {
+                          "id": "08a62369-6894-4f2d-931d-e33c3ca1dbda",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "columns",
+                                ":columnId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                },
+                                {
+                                  "key": "columnId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-08a62369-6894-4f2d-931d-e33c3ca1dbda"
+                        },
+                        {
+                          "id": "21bd8afa-f700-46b7-9714-a410eecd6abb",
+                          "name": "Conflict",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data-tables/:dataTableId/columns/:columnId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-tables",
+                                ":dataTableId",
+                                "columns",
+                                ":columnId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dataTableId"
+                                },
+                                {
+                                  "key": "columnId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:36.000Z",
+                          "updatedAt": "2026-10-22T02:14:36.000Z",
+                          "uid": "35240-21bd8afa-f700-46b7-9714-a410eecd6abb"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-22537962-c06e-458e-bd74-29a8a50deb56"
+                    }
+                  ],
+                  "id": "ead4a70a-4341-4373-9a80-5e6b96be19ea",
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-ead4a70a-4341-4373-9a80-5e6b96be19ea"
+                },
+                {
+                  "name": "List columns in a data table",
+                  "id": "bcf40ac0-8ed0-4954-8b56-577cf0a3ef9f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "X-N8N-API-KEY",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId/columns",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId",
+                        "columns"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9718face-7d37-48e9-a927-335e01bcb435",
+                          "key": "dataTableId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "36deb7ba-6c9b-4ff1-9154-be5789e2404a",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/columns",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "columns"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataTableId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-36deb7ba-6c9b-4ff1-9154-be5789e2404a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-bcf40ac0-8ed0-4954-8b56-577cf0a3ef9f"
+                },
+                {
+                  "name": "Add a column to a data table",
+                  "id": "9c6f4639-78fd-48ad-a94a-d43ac7669e8a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "X-N8N-API-KEY",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId/columns",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId",
+                        "columns"
+                      ],
+                      "variable": [
+                        {
+                          "id": "51d75907-8419-49c1-85cd-6a64ba141e7b",
+                          "key": "dataTableId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d08ddf70-b1e9-42a6-90ca-dc755e1a3833",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-tables/:dataTableId/columns",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-tables",
+                            ":dataTableId",
+                            "columns"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dataTableId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:36.000Z",
+                      "updatedAt": "2026-10-22T02:14:36.000Z",
+                      "uid": "35240-d08ddf70-b1e9-42a6-90ca-dc755e1a3833"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-9c6f4639-78fd-48ad-a94a-d43ac7669e8a"
+                }
+              ],
+              "id": "9d0c4ce5-7884-48b9-82aa-dd74341128e2",
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-9d0c4ce5-7884-48b9-82aa-dd74341128e2"
+            },
+            {
+              "name": "Get a data table",
+              "id": "763bbe74-8bc6-4bce-a8de-5fa03e7e7f6e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "X-N8N-API-KEY",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ebaab6b6-fce1-4bfb-bf7c-d07ac7e4541d",
-          "name": "Create a data table",
-          "request": {
-            "name": "Create a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d170feaf-c992-46a3-aee6-ad5af513980f",
-              "name": "Created",
-              "originalRequest": {
+                "header": [],
                 "url": {
-                  "path": [
-                    "data-tables"
-                  ],
+                  "raw": "{{baseUrl}}/data-tables/:dataTableId",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5f7036f7-1e28-4910-b89e-9f52ee18ec26",
-          "name": "Get a data table",
-          "request": {
-            "name": "Get a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b5927903-7edd-4de1-9134-42cb09df3f3a",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "data-tables",
                     ":dataTableId"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "913702a2-6d79-4999-baf2-a4a3c4859440",
                       "key": "dataTableId",
+                      "value": "<string>",
                       "description": "(Required) "
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "590f9594-6fff-449e-960f-ae4a728f11bf",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataTableId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-590f9594-6fff-449e-960f-ae4a728f11bf"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5b6c6042-a3a5-45c5-b8db-fd37a67fe076",
-          "name": "Delete a data table",
-          "request": {
-            "name": "Delete a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-763bbe74-8bc6-4bce-a8de-5fa03e7e7f6e"
             },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "51b329c3-8b64-459c-abc8-cef09b106a17",
-              "name": "Deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "Delete a data table",
+              "id": "3faf371c-5785-49ea-bda9-00dd2cbd86e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
+                      "key": "key",
+                      "value": "X-N8N-API-KEY",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
                 "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "367a1f76-a543-40ee-b3b9-f22072ec880b",
-          "name": "Update a data table",
-          "request": {
-            "name": "Update a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bcf070d0-5ba4-4adb-abf3-48a2eeb63c99",
-              "name": "Operation successful.",
-              "originalRequest": {
+                "header": [],
                 "url": {
+                  "raw": "{{baseUrl}}/data-tables/:dataTableId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "data-tables",
                     ":dataTableId"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "bb8f180b-4df5-4a46-9bc1-497e22fc35ea",
                       "key": "dataTableId",
+                      "value": "<string>",
                       "description": "(Required) "
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                }
+              },
+              "response": [
+                {
+                  "id": "51201595-3f4c-404f-9b3c-950df75bdc9f",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataTableId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-51201595-3f4c-404f-9b3c-950df75bdc9f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-3faf371c-5785-49ea-bda9-00dd2cbd86e0"
+            },
+            {
+              "name": "Update a data table",
+              "id": "b2bc8a4c-e770-45ac-9993-3f7096ada81f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "X-N8N-API-KEY",
+                      "type": "string"
                     },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "method": "PATCH",
-                "body": {}
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/data-tables/:dataTableId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data-tables",
+                    ":dataTableId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4d98c6f9-0856-4a56-8144-76976b375ead",
+                      "key": "dataTableId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "47f85e64-8644-4e94-97e3-6a4ca0b7639d",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-tables/:dataTableId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-tables",
+                        ":dataTableId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataTableId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:36.000Z",
+                  "updatedAt": "2026-10-22T02:14:36.000Z",
+                  "uid": "35240-47f85e64-8644-4e94-97e3-6a4ca0b7639d"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-b2bc8a4c-e770-45ac-9993-3f7096ada81f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "3f12c17a-a4dc-4406-89ea-9a858160eda9",
+          "createdAt": "2026-10-22T02:14:36.000Z",
+          "updatedAt": "2026-10-22T02:14:36.000Z",
+          "uid": "35240-3f12c17a-a4dc-4406-89ea-9a858160eda9"
         },
         {
-          "id": "32e467e9-3132-403c-acab-db8123b3a774",
-          "name": "List rows in a data table",
+          "name": "List all data tables",
+          "id": "25fe8bd3-8fe0-44d2-8c54-90792643af1d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List rows in a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "rows"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+            "auth": {
+              "type": "apikey",
+              "apikey": [
                 {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
+                  "key": "key",
+                  "value": "X-N8N-API-KEY",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
                 }
               ]
             },
             "method": "GET",
-            "auth": null
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/data-tables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data-tables"
+              ]
+            }
           },
           "response": [
             {
-              "id": "50ea1938-25d6-4d04-bac6-97ab2f627b04",
+              "id": "c90cddaf-1927-4205-9bc7-cd509be81ce6",
               "name": "Operation successful.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "rows"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/data-tables",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data-tables"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-c90cddaf-1927-4205-9bc7-cd509be81ce6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:36.000Z",
+          "updatedAt": "2026-10-22T02:14:36.000Z",
+          "uid": "35240-25fe8bd3-8fe0-44d2-8c54-90792643af1d"
         },
         {
-          "id": "d60bf630-dfef-4ea5-bea2-e9cc1123cbb4",
-          "name": "Insert rows into a data table",
+          "name": "Create a data table",
+          "id": "2714b1c4-659f-4ba7-a84a-649d12d3292a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Insert rows into a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "rows"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+            "auth": {
+              "type": "apikey",
+              "apikey": [
                 {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
+                  "key": "key",
+                  "value": "X-N8N-API-KEY",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
                 }
               ]
             },
             "method": "POST",
-            "auth": null
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/data-tables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data-tables"
+              ]
+            }
           },
           "response": [
             {
-              "id": "675ca9aa-05af-4e13-bbf0-8c1cd78fe88f",
+              "id": "b8bbdd75-fa72-4c42-952a-65772e6bc0aa",
               "name": "Created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "rows"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/data-tables",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data-tables"
+                  ]
+                }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:36.000Z",
+              "updatedAt": "2026-10-22T02:14:36.000Z",
+              "uid": "35240-b8bbdd75-fa72-4c42-952a-65772e6bc0aa"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "da34229d-3980-4bd5-83b1-22a511d6d615",
-          "name": "Update rows in a data table",
-          "request": {
-            "name": "Update rows in a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "rows",
-                "update"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "65baf8ff-50af-4c87-829b-771d7b0fdded",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "rows",
-                    "update"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e19f6a1c-7fdb-4e7b-a8d4-79bcc0c2c9d4",
-          "name": "Upsert rows in a data table",
-          "request": {
-            "name": "Upsert rows in a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "rows",
-                "upsert"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3250304b-f103-47b7-bc67-165abe529900",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "rows",
-                    "upsert"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dce6832f-5f96-475e-9a2e-ad5a30049e60",
-          "name": "Delete rows in a data table",
-          "request": {
-            "name": "Delete rows in a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "rows",
-                "delete"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ec76da62-1897-43a3-8253-b48283faef05",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "rows",
-                    "delete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "550da197-6c90-41cc-b8a8-05d1ff392f2a",
-          "name": "List columns in a data table",
-          "request": {
-            "name": "List columns in a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "columns"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "66491547-866e-452b-a18d-ccaf453a24fe",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "columns"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3cc3a794-0c3a-42f2-8153-e468e36f06fd",
-          "name": "Add a column to a data table",
-          "request": {
-            "name": "Add a column to a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "columns"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "304adc06-cb6e-4c90-af29-37a94bf35a55",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "columns"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4a9bf5f9-0bec-4341-b056-557b4a7d6158",
-          "name": "Delete a column from a data table",
-          "request": {
-            "name": "Delete a column from a data table",
-            "description": {},
-            "url": {
-              "path": [
-                "data-tables",
-                ":dataTableId",
-                "columns",
-                ":columnId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "dataTableId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "columnId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fb447f32-8d78-4432-bb98-454ac2614c16",
-              "name": "Deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "data-tables",
-                    ":dataTableId",
-                    "columns",
-                    ":columnId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "dataTableId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "columnId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:36.000Z",
+          "updatedAt": "2026-10-22T02:14:36.000Z",
+          "uid": "35240-2714b1c4-659f-4ba7-a84a-649d12d3292a"
         }
       ],
-      "event": []
+      "id": "3bf098ea-8861-4fb1-863b-ffa10240c27c",
+      "createdAt": "2026-10-22T02:14:36.000Z",
+      "updatedAt": "2026-10-22T02:14:36.000Z",
+      "uid": "35240-3bf098ea-8861-4fb1-863b-ffa10240c27c"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  ],
-  "auth": {
-    "type": "apikey",
-    "apikey": [
-      {
-        "key": "key",
-        "value": "X-N8N-API-KEY"
-      },
-      {
-        "key": "value",
-        "value": "{{apiKey}}"
-      },
-      {
-        "key": "in",
-        "value": "header"
-      }
-    ]
-  },
-  "info": {
-    "_postman_id": "c8894c3b-75f3-4747-a638-cbe0210f5642",
-    "name": "n8n Public Audit DataTable API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

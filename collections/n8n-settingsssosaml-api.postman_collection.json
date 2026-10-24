@@ -1,0 +1,515 @@
+{
+  "info": {
+    "_postman_id": "c6f1298a-b744-4816-8662-b04c2f7351c2",
+    "name": "n8n Public Settings SSO Saml API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:16:34.000Z",
+    "updatedAt": "2026-10-22T02:16:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6f1298a-b744-4816-8662-b04c2f7351c2"
+  },
+  "item": [
+    {
+      "name": "settings",
+      "item": [
+        {
+          "name": "sso",
+          "item": [
+            {
+              "name": "saml",
+              "item": [
+                {
+                  "name": "Retrieve the SAML SSO configuration",
+                  "id": "f81ad55e-3a47-48c8-ad86-68870c10b7b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/sso/saml",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "sso",
+                        "saml"
+                      ]
+                    },
+                    "description": "Retrieve the current SAML SSO configuration, including every field exposed in the UI plus the service provider entity ID and ACS return URL. Signing private keys, signing certificates, and identity provider metadata are redacted on read. Requires the `saml:manage` scope and the SAML feature to be licensed."
+                  },
+                  "response": [
+                    {
+                      "id": "6a3d3dd7-f0fd-4bae-8fc9-b3ee5a62159d",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\",\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"redirect\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"before\"\n    }\n  },\n  \"relayState\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-6a3d3dd7-f0fd-4bae-8fc9-b3ee5a62159d"
+                    },
+                    {
+                      "id": "281c1b8d-1ed9-4582-b028-ba58c7e89bdd",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-281c1b8d-1ed9-4582-b028-ba58c7e89bdd"
+                    },
+                    {
+                      "id": "0c08f06e-f74b-4944-805f-5b8ebcea0f19",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-0c08f06e-f74b-4944-805f-5b8ebcea0f19"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:35.000Z",
+                  "updatedAt": "2026-10-22T02:16:35.000Z",
+                  "uid": "35240-f81ad55e-3a47-48c8-ad86-68870c10b7b7"
+                },
+                {
+                  "name": "Set the SAML SSO configuration",
+                  "id": "3fdab0f7-d6f2-472c-a17b-bdd5c2c70bfb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"post\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"after\"\n    }\n  },\n  \"relayState\": \"<string>\",\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/sso/saml",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "sso",
+                        "saml"
+                      ]
+                    },
+                    "description": "Replace the SAML SSO configuration with the provided full object. Every writable field must be sent; use empty strings or empty arrays when a value is unset. Read-only `entityID` / `returnUrl` from GET are ignored if included, so a GET response can be sent back as a PUT body. Redacted secret placeholders keep the stored values unchanged. The update takes effect exactly as it would from the UI, using the same validation. Requires the `saml:manage` scope and the SAML feature to be licensed. When the configuration is managed via environment variables, the write is rejected with 409 and no changes are made."
+                  },
+                  "response": [
+                    {
+                      "id": "0166839b-3d05-49eb-89d5-14ab06cbb5f6",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"post\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"after\"\n    }\n  },\n  \"relayState\": \"<string>\",\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\",\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"redirect\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"before\"\n    }\n  },\n  \"relayState\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-0166839b-3d05-49eb-89d5-14ab06cbb5f6"
+                    },
+                    {
+                      "id": "6f8424cd-726b-4d04-83ef-10c601605fdc",
+                      "name": "The request is invalid or provides malformed data.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"post\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"after\"\n    }\n  },\n  \"relayState\": \"<string>\",\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-6f8424cd-726b-4d04-83ef-10c601605fdc"
+                    },
+                    {
+                      "id": "1a54f769-9dd1-4f82-b5f8-e544e97a9376",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"post\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"after\"\n    }\n  },\n  \"relayState\": \"<string>\",\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-1a54f769-9dd1-4f82-b5f8-e544e97a9376"
+                    },
+                    {
+                      "id": "c5a13af7-9a8c-488c-88e1-63d293b60609",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"post\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"after\"\n    }\n  },\n  \"relayState\": \"<string>\",\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-c5a13af7-9a8c-488c-88e1-63d293b60609"
+                    },
+                    {
+                      "id": "3c3af675-1e72-4c8d-bdbd-be80fba4d702",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"mapping\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"userPrincipalName\": \"<string>\",\n    \"n8nInstanceRole\": \"<string>\",\n    \"n8nProjectRoles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"metadata\": \"<string>\",\n  \"metadataUrl\": \"<string>\",\n  \"ignoreSSL\": \"<boolean>\",\n  \"loginBinding\": \"post\",\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"authnRequestsSigned\": \"<boolean>\",\n  \"wantAssertionsSigned\": \"<boolean>\",\n  \"wantMessageSigned\": \"<boolean>\",\n  \"signingPrivateKey\": \"<string>\",\n  \"signingCertificate\": \"<string>\",\n  \"acsBinding\": \"post\",\n  \"signatureConfig\": {\n    \"prefix\": \"<string>\",\n    \"location\": {\n      \"reference\": \"<string>\",\n      \"action\": \"after\"\n    }\n  },\n  \"relayState\": \"<string>\",\n  \"entityID\": \"<string>\",\n  \"returnUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/saml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "saml"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:35.000Z",
+                      "updatedAt": "2026-10-22T02:16:35.000Z",
+                      "uid": "35240-3c3af675-1e72-4c8d-bdbd-be80fba4d702"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:35.000Z",
+                  "updatedAt": "2026-10-22T02:16:35.000Z",
+                  "uid": "35240-3fdab0f7-d6f2-472c-a17b-bdd5c2c70bfb"
+                }
+              ],
+              "id": "44dfb430-887c-4c0c-bbe3-192490ff54ed",
+              "createdAt": "2026-10-22T02:16:35.000Z",
+              "updatedAt": "2026-10-22T02:16:35.000Z",
+              "uid": "35240-44dfb430-887c-4c0c-bbe3-192490ff54ed"
+            }
+          ],
+          "id": "92b88ece-f83f-4497-be55-dce61b0fdf7b",
+          "createdAt": "2026-10-22T02:16:35.000Z",
+          "updatedAt": "2026-10-22T02:16:35.000Z",
+          "uid": "35240-92b88ece-f83f-4497-be55-dce61b0fdf7b"
+        }
+      ],
+      "id": "d7258147-aacd-4274-beba-c8451a9ac5fd",
+      "createdAt": "2026-10-22T02:16:35.000Z",
+      "updatedAt": "2026-10-22T02:16:35.000Z",
+      "uid": "35240-d7258147-aacd-4274-beba-c8451a9ac5fd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

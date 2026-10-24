@@ -1,144 +1,1057 @@
 {
+  "info": {
+    "_postman_id": "ff6d255e-2f1d-42cd-9589-5e4843992a2b",
+    "name": "n8n Public Workflow API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:37.000Z",
+    "updatedAt": "2026-10-22T02:15:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ff6d255e-2f1d-42cd-9589-5e4843992a2b"
+  },
   "item": [
     {
-      "id": "92e7e207-95bc-47d9-9d52-597467e5aff9",
-      "name": "Workflow",
-      "description": {
-        "content": "Operations about workflows",
-        "type": "text/plain"
-      },
+      "name": "workflows",
       "item": [
         {
-          "id": "c84aa165-7461-4391-bca8-a3fd0f9837d4",
-          "name": "Create a workflow",
-          "request": {
-            "name": "Create a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "5dcd5b69-03f9-4f40-808b-a55673645ed7",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows"
+              "name": "{versionId}",
+              "item": [
+                {
+                  "name": "Retrieves a specific version of a workflow",
+                  "id": "c41ca4cf-5bf2-474f-a137-10e1476d3c54",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/:versionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        ":versionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ab5164fd-fef8-431e-992d-cee24bdb2876",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "52918dd4-ba58-4af9-a036-1ce08adb8f31",
+                          "key": "versionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1f02a76c-c09b-485f-8fc9-334ae131566f",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/:versionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            ":versionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            },
+                            {
+                              "key": "versionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-1f02a76c-c09b-485f-8fc9-334ae131566f"
+                    }
                   ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-c41ca4cf-5bf2-474f-a137-10e1476d3c54"
+                }
+              ],
+              "id": "5423bfbf-e94e-473d-aee9-6622f4420331",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-5423bfbf-e94e-473d-aee9-6622f4420331"
+            },
+            {
+              "name": "activate",
+              "item": [
+                {
+                  "name": "Activate a workflow",
+                  "id": "6df2cf9c-59a5-4e1e-b566-e07ae7839d8f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/activate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "activate"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f98c2c5a-407e-43ec-b535-c6d55ed8e6aa",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e58d85de-e4ab-4842-8300-5f9fd5a9e8cb",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/activate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "activate"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-e58d85de-e4ab-4842-8300-5f9fd5a9e8cb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-6df2cf9c-59a5-4e1e-b566-e07ae7839d8f"
+                }
+              ],
+              "id": "c650438d-93df-419f-92f8-d797c0ad004a",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-c650438d-93df-419f-92f8-d797c0ad004a"
+            },
+            {
+              "name": "deactivate",
+              "item": [
+                {
+                  "name": "Deactivate a workflow",
+                  "id": "a3f9c6fc-eada-4c9d-95ad-c5e8718f0856",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/deactivate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "deactivate"
+                      ],
+                      "variable": [
+                        {
+                          "id": "673765f2-50dc-4108-b3ed-b0b1830e4a26",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3eac081f-64ef-48f9-be26-da066d388213",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "deactivate"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-3eac081f-64ef-48f9-be26-da066d388213"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-a3f9c6fc-eada-4c9d-95ad-c5e8718f0856"
+                }
+              ],
+              "id": "ebf12da1-7963-4536-9c44-aa8ffa169fc4",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-ebf12da1-7963-4536-9c44-aa8ffa169fc4"
+            },
+            {
+              "name": "archive",
+              "item": [
+                {
+                  "name": "Archive a workflow",
+                  "id": "57b8783c-4bf0-417a-b2bf-9726e1f4f1a5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/archive",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "archive"
+                      ],
+                      "variable": [
+                        {
+                          "id": "27ca4e1f-ec75-4a95-8558-79f2d70caf0d",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bc5f0443-18f2-4953-8557-80e90c6191b4",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/archive",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "archive"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-bc5f0443-18f2-4953-8557-80e90c6191b4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-57b8783c-4bf0-417a-b2bf-9726e1f4f1a5"
+                }
+              ],
+              "id": "074c820a-13ff-4a2f-a0e3-2c14f9084bc3",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-074c820a-13ff-4a2f-a0e3-2c14f9084bc3"
+            },
+            {
+              "name": "unarchive",
+              "item": [
+                {
+                  "name": "Unarchive a workflow",
+                  "id": "27201545-143b-4c64-9528-84f59d3afa14",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/unarchive",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "unarchive"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fcb2cd36-5d8f-4e71-b514-4b44a9ffb540",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6b4c0d9e-14f5-49bf-8b73-328f0978e180",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/unarchive",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "unarchive"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-6b4c0d9e-14f5-49bf-8b73-328f0978e180"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-27201545-143b-4c64-9528-84f59d3afa14"
+                }
+              ],
+              "id": "fa864729-d411-4509-ad3d-20c5f1331d8d",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-fa864729-d411-4509-ad3d-20c5f1331d8d"
+            },
+            {
+              "name": "transfer",
+              "item": [
+                {
+                  "name": "Transfer a workflow to another project",
+                  "id": "15b3df32-8368-4368-96f7-e588e7503d8b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "transfer"
+                      ],
+                      "variable": [
+                        {
+                          "id": "15a1b9ba-e616-438a-bd5a-d513b18fe5ad",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f9329c58-ebef-4c8a-ba82-e10a4ea5cd4e",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "transfer"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-f9329c58-ebef-4c8a-ba82-e10a4ea5cd4e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-15b3df32-8368-4368-96f7-e588e7503d8b"
+                }
+              ],
+              "id": "32dddb56-1de5-4dd3-8d0c-33722c1a1d41",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-32dddb56-1de5-4dd3-8d0c-33722c1a1d41"
+            },
+            {
+              "name": "tags",
+              "item": [
+                {
+                  "name": "Get workflow tags",
+                  "id": "f6663af7-c180-43c1-b8d3-9cf1a565b437",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1b84dc35-8a50-48d3-bcc6-4b2cdb8ba7f2",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1d40618d-a9ca-4476-b35a-ace8f327afab",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-1d40618d-a9ca-4476-b35a-ace8f327afab"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-f6663af7-c180-43c1-b8d3-9cf1a565b437"
+                },
+                {
+                  "name": "Update tags of a workflow",
+                  "id": "853180e8-6b85-4f1b-bd51-8d6d318e3381",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "480e6177-9964-45bf-9f04-588dadc91b90",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d469e813-8fc4-4a2d-8299-a847d6b86595",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:38.000Z",
+                      "updatedAt": "2026-10-22T02:15:38.000Z",
+                      "uid": "35240-d469e813-8fc4-4a2d-8299-a847d6b86595"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-853180e8-6b85-4f1b-bd51-8d6d318e3381"
+                }
+              ],
+              "id": "1274b610-ec77-45d3-8965-7108ef8f41ce",
+              "createdAt": "2026-10-22T02:15:37.000Z",
+              "updatedAt": "2026-10-22T02:15:37.000Z",
+              "uid": "35240-1274b610-ec77-45d3-8965-7108ef8f41ce"
+            },
+            {
+              "name": "Retrieves a workflow",
+              "id": "49bbd787-0801-4371-a037-4db39b480d63",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/:id?excludePinnedData=<boolean>",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
+                  "path": [
+                    "workflows",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "excludePinnedData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "d72e2fc4-e406-46ab-b33d-dd347b1bbcc1",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "37de47df-7334-4e67-a38e-453f977a79c9",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id?excludePinnedData=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "excludePinnedData",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-37de47df-7334-4e67-a38e-453f977a79c9"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:38.000Z",
+              "updatedAt": "2026-10-22T02:15:38.000Z",
+              "uid": "35240-49bbd787-0801-4371-a037-4db39b480d63"
+            },
+            {
+              "name": "Delete a workflow",
+              "id": "04698312-f547-40c4-8425-1a2ed2fe616a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "15a7f2fa-a544-4275-950c-7ce6aef60a28",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3a6d31d7-f0ed-4016-8150-2ca9383d6567",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-3a6d31d7-f0ed-4016-8150-2ca9383d6567"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:38.000Z",
+              "updatedAt": "2026-10-22T02:15:38.000Z",
+              "uid": "35240-04698312-f547-40c4-8425-1a2ed2fe616a"
+            },
+            {
+              "name": "Update a workflow",
+              "id": "d71ccc1e-4c23-4e89-afdc-8d9efc0953c5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e84e4890-9de6-4cdc-a55e-3f638966aece",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "728caa1d-5089-46b6-80b8-c9fb6b28e48e",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:38.000Z",
+                  "updatedAt": "2026-10-22T02:15:38.000Z",
+                  "uid": "35240-728caa1d-5089-46b6-80b8-c9fb6b28e48e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:38.000Z",
+              "updatedAt": "2026-10-22T02:15:38.000Z",
+              "uid": "35240-d71ccc1e-4c23-4e89-afdc-8d9efc0953c5"
+            }
+          ],
+          "id": "df24fd04-a651-4a6a-a5ca-4c9913e4f889",
+          "createdAt": "2026-10-22T02:15:37.000Z",
+          "updatedAt": "2026-10-22T02:15:37.000Z",
+          "uid": "35240-df24fd04-a651-4a6a-a5ca-4c9913e4f889"
+        },
+        {
+          "name": "Create a workflow",
+          "id": "3d20c1de-aafe-4c65-a4c2-2fc4fd8ac78b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/workflows",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workflows"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0d7517e8-8ac9-4f10-aaa4-ca4dbcac5097",
+              "name": "Operation successful.",
+              "originalRequest": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/workflows",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:38.000Z",
+              "updatedAt": "2026-10-22T02:15:38.000Z",
+              "uid": "35240-0d7517e8-8ac9-4f10-aaa4-ca4dbcac5097"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:38.000Z",
+          "updatedAt": "2026-10-22T02:15:38.000Z",
+          "uid": "35240-3d20c1de-aafe-4c65-a4c2-2fc4fd8ac78b"
         },
         {
-          "id": "734fd18a-938a-4031-a59d-a5b05d6887db",
           "name": "Retrieve all workflows",
+          "id": "e972aae4-72d7-4118-8c8e-304a65743247",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Retrieve all workflows",
-            "description": {},
+            "method": "GET",
+            "header": [],
             "url": {
-              "path": [
-                "workflows"
-              ],
+              "raw": "{{baseUrl}}/workflows?active=<boolean>&tags=<string>&name=<string>&projectId=<string>&excludePinnedData=<boolean>&limit=100&cursor=<string>",
               "host": [
                 "{{baseUrl}}"
               ],
+              "path": [
+                "workflows"
+              ],
               "query": [
                 {
-                  "disabled": false,
                   "key": "active",
                   "value": "<boolean>"
                 },
                 {
-                  "disabled": false,
                   "key": "tags",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "name",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "projectId",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "excludePinnedData",
                   "value": "<boolean>"
                 },
                 {
-                  "disabled": false,
                   "key": "limit",
                   "value": "100"
                 },
                 {
-                  "disabled": false,
                   "key": "cursor",
                   "value": "<string>"
                 }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "65c2e44c-1f8f-4c98-82b7-f834996961e6",
+              "id": "4f68dc59-2b40-4759-91d4-14bff46b4663",
               "name": "Operation successful.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-N8N-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "workflows"
-                  ],
+                  "raw": "{{baseUrl}}/workflows?active=<boolean>&tags=<string>&name=<string>&projectId=<string>&excludePinnedData=<boolean>&limit=100&cursor=<string>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows"
                   ],
                   "query": [
                     {
@@ -169,1004 +1082,30 @@
                       "key": "cursor",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e1cf1528-d49e-44f4-8c1f-1af017599431",
-          "name": "Retrieves a workflow",
-          "request": {
-            "name": "Retrieves a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "excludePinnedData",
-                  "value": "<boolean>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "126f7bb2-cbe0-4a4d-88f3-8d7c4d7b4643",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "excludePinnedData",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:38.000Z",
+              "updatedAt": "2026-10-22T02:15:38.000Z",
+              "uid": "35240-4f68dc59-2b40-4759-91d4-14bff46b4663"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6b370b27-6d5f-49d0-bc98-d4a5bf1a9c06",
-          "name": "Delete a workflow",
-          "request": {
-            "name": "Delete a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0daf99b2-d585-4a27-ac9e-bacfe06ac7dd",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7af1fdcb-2797-4be3-b37e-1fa906624cf5",
-          "name": "Update a workflow",
-          "request": {
-            "name": "Update a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "984cea52-53cf-4b2a-866f-620fe35b685c",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "eac52ea8-1c09-4ea6-ae6e-06f5a4817997",
-          "name": "Retrieves a specific version of a workflow",
-          "request": {
-            "name": "Retrieves a specific version of a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                ":versionId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "versionId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "89378dd4-2f26-4289-a8af-3383d8d190aa",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    ":versionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "versionId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b0d806e2-b688-4ea1-9100-6e1d90f888f8",
-          "name": "Activate a workflow",
-          "request": {
-            "name": "Activate a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "activate"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "609e8788-967e-48c6-a4e1-cd67b5f46895",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "activate"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b1a122d4-622b-4cf9-b2e9-2786824fa69c",
-          "name": "Deactivate a workflow",
-          "request": {
-            "name": "Deactivate a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "deactivate"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "36dbb544-7935-4a36-984a-09a782426a25",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "deactivate"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "df8ab0f5-4660-4b6c-981e-7f385429b8e8",
-          "name": "Archive a workflow",
-          "request": {
-            "name": "Archive a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "archive"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a190d98e-ff3c-4ce4-b80d-29d338321e99",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "archive"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fe388e62-d3a5-432d-a00c-e2496ff3d9e7",
-          "name": "Unarchive a workflow",
-          "request": {
-            "name": "Unarchive a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "unarchive"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cb0dbf48-cdcf-4377-98d0-a1ff64a10a71",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "unarchive"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "535ca2c9-840e-4dda-b8b3-4fb727c81c4b",
-          "name": "Transfer a workflow to another project",
-          "request": {
-            "name": "Transfer a workflow to another project",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "transfer"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d0a2cac6-5132-4992-9200-e883fc6ee79e",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "transfer"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "09c77631-32ed-44f5-8e64-c918dbbf70a1",
-          "name": "Get workflow tags",
-          "request": {
-            "name": "Get workflow tags",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f31b848f-c028-4331-8a78-5d5761c97dff",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fbd95864-afa3-4fe0-9dc0-d55e328a5b86",
-          "name": "Update tags of a workflow",
-          "request": {
-            "name": "Update tags of a workflow",
-            "description": {},
-            "url": {
-              "path": [
-                "workflows",
-                ":id",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "010d95fe-f7f1-48d3-9f57-0a6131fa862f",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "workflows",
-                    ":id",
-                    "tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:38.000Z",
+          "updatedAt": "2026-10-22T02:15:38.000Z",
+          "uid": "35240-e972aae4-72d7-4118-8c8e-304a65743247"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "150dc55c-33dd-4829-92b2-1f1adc480246",
+      "createdAt": "2026-10-22T02:15:37.000Z",
+      "updatedAt": "2026-10-22T02:15:37.000Z",
+      "uid": "35240-150dc55c-33dd-4829-92b2-1f1adc480246"
     }
   ],
   "auth": {
@@ -1174,25 +1113,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "54e5c9fd-151c-4954-88f9-8e8b9a91d19f",
-    "name": "n8n Public Audit Workflow API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

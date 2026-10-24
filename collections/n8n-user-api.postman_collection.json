@@ -1,64 +1,326 @@
 {
+  "info": {
+    "_postman_id": "49c4542b-ca61-4e05-aa21-0d751738ebc4",
+    "name": "n8n Public User API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:26.000Z",
+    "updatedAt": "2026-10-22T02:15:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-49c4542b-ca61-4e05-aa21-0d751738ebc4"
+  },
   "item": [
     {
-      "id": "9bbf5aa7-6706-4c09-88ce-47422b864feb",
-      "name": "User",
-      "description": {
-        "content": "Operations about users",
-        "type": "text/plain"
-      },
+      "name": "users",
       "item": [
         {
-          "id": "f016e666-08c2-4034-8ef6-f3acdf0366a3",
-          "name": "Retrieve all users",
-          "request": {
-            "name": "Retrieve all users",
-            "description": {},
-            "url": {
-              "path": [
-                "users"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "role",
+              "item": [
+                {
+                  "name": "Change a user's global role",
+                  "id": "f7a1cc2e-9d68-4f07-851b-3500d47d399a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:id/role",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":id",
+                        "role"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ce07aa1f-d522-4e29-8a6e-8ad7c2081305",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c95085b9-2262-43b0-930f-85199a27b72b",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:id/role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":id",
+                            "role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:26.000Z",
+                      "updatedAt": "2026-10-22T02:15:26.000Z",
+                      "uid": "35240-c95085b9-2262-43b0-930f-85199a27b72b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:26.000Z",
+                  "updatedAt": "2026-10-22T02:15:26.000Z",
+                  "uid": "35240-f7a1cc2e-9d68-4f07-851b-3500d47d399a"
+                }
               ],
+              "id": "a0c02517-fdb0-4053-aceb-7eddc72d9e36",
+              "createdAt": "2026-10-22T02:15:26.000Z",
+              "updatedAt": "2026-10-22T02:15:26.000Z",
+              "uid": "35240-a0c02517-fdb0-4053-aceb-7eddc72d9e36"
+            },
+            {
+              "name": "Get user by ID/Email",
+              "id": "1c7f0d81-2136-4393-8f5b-96a883b95964",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:id?includeRole=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRole",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0b20ded1-54da-4405-9f90-a4e64727f0ae",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2dd5f559-67cf-43d1-8172-4d38da5e7213",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:id?includeRole=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeRole",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:26.000Z",
+                  "updatedAt": "2026-10-22T02:15:26.000Z",
+                  "uid": "35240-2dd5f559-67cf-43d1-8172-4d38da5e7213"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:26.000Z",
+              "updatedAt": "2026-10-22T02:15:26.000Z",
+              "uid": "35240-1c7f0d81-2136-4393-8f5b-96a883b95964"
+            },
+            {
+              "name": "Delete a user",
+              "id": "6d50dcb6-e27c-46aa-ae2b-7c36afdde2ca",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5209a208-40e1-45ca-8e0f-8da332bf3c93",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "203f31f9-5763-4b32-aef3-8b7c3d95309e",
+                  "name": "User deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:26.000Z",
+                  "updatedAt": "2026-10-22T02:15:26.000Z",
+                  "uid": "35240-203f31f9-5763-4b32-aef3-8b7c3d95309e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:26.000Z",
+              "updatedAt": "2026-10-22T02:15:26.000Z",
+              "uid": "35240-6d50dcb6-e27c-46aa-ae2b-7c36afdde2ca"
+            }
+          ],
+          "id": "50fc0a89-e410-4c0e-ad24-6bef61b43d1a",
+          "createdAt": "2026-10-22T02:15:26.000Z",
+          "updatedAt": "2026-10-22T02:15:26.000Z",
+          "uid": "35240-50fc0a89-e410-4c0e-ad24-6bef61b43d1a"
+        },
+        {
+          "name": "Retrieve all users",
+          "id": "e52bf984-961c-43d1-9148-e71d0d83576e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users?limit=<number>&cursor=<string>&includeRole=<boolean>&projectId=<string>",
               "host": [
                 "{{baseUrl}}"
               ],
+              "path": [
+                "users"
+              ],
               "query": [
                 {
-                  "disabled": false,
                   "key": "limit",
                   "value": "<number>"
                 },
                 {
-                  "disabled": false,
                   "key": "cursor",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "includeRole",
                   "value": "<boolean>"
                 },
                 {
-                  "disabled": false,
                   "key": "projectId",
                   "value": "<string>"
                 }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "61e9a55a-2994-44f0-8c7c-1a42ac6133d5",
+              "id": "236a2fe8-04f5-4ede-88cb-1f4609f321d3",
               "name": "Operation successful.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-N8N-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "users"
-                  ],
+                  "raw": "{{baseUrl}}/users?limit=<number>&cursor=<string>&includeRole=<boolean>&projectId=<string>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
                   ],
                   "query": [
                     {
@@ -77,377 +339,88 @@
                       "key": "projectId",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:26.000Z",
+              "updatedAt": "2026-10-22T02:15:26.000Z",
+              "uid": "35240-236a2fe8-04f5-4ede-88cb-1f4609f321d3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:26.000Z",
+          "updatedAt": "2026-10-22T02:15:26.000Z",
+          "uid": "35240-e52bf984-961c-43d1-9148-e71d0d83576e"
         },
         {
-          "id": "65f4bf5f-e9f4-49ee-8847-2afca38e7706",
           "name": "Create multiple users",
+          "id": "61bce213-6ec1-4c08-9060-416fda09b067",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create multiple users",
-            "description": {},
+            "method": "POST",
+            "header": [],
             "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "b0878f35-0c92-4561-8fa0-c87596366419",
+              "id": "654c5566-c10a-405c-bbe9-339143d7e8a3",
               "name": "Operation successful.",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-N8N-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:26.000Z",
+              "updatedAt": "2026-10-22T02:15:26.000Z",
+              "uid": "35240-654c5566-c10a-405c-bbe9-339143d7e8a3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "28603f77-d7cf-4cf0-8bf9-c214ca9477b6",
-          "name": "Get user by ID/Email",
-          "request": {
-            "name": "Get user by ID/Email",
-            "description": {},
-            "url": {
-              "path": [
-                "users",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "includeRole",
-                  "value": "<boolean>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3ab10c1a-a9cf-4d4f-9f36-4a662649c3f0",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeRole",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "40de7736-3a8d-4f26-9bf9-74889ad68fb5",
-          "name": "Delete a user",
-          "request": {
-            "name": "Delete a user",
-            "description": {},
-            "url": {
-              "path": [
-                "users",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6b4dcf4d-0719-415b-9d74-62c4233175f6",
-              "name": "User deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c324ef09-829b-4a89-becb-da321ab9197c",
-          "name": "Change a user's global role",
-          "request": {
-            "name": "Change a user's global role",
-            "description": {},
-            "url": {
-              "path": [
-                "users",
-                ":id",
-                "role"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e9369ab8-a8ca-4321-ac37-b9c0eab8b358",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":id",
-                    "role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:26.000Z",
+          "updatedAt": "2026-10-22T02:15:26.000Z",
+          "uid": "35240-61bce213-6ec1-4c08-9060-416fda09b067"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "0659f07b-e5cc-40db-907e-04ab6af5d158",
+      "createdAt": "2026-10-22T02:15:26.000Z",
+      "updatedAt": "2026-10-22T02:15:26.000Z",
+      "uid": "35240-0659f07b-e5cc-40db-907e-04ab6af5d158"
     }
   ],
   "auth": {
@@ -455,25 +428,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "04549a33-386c-4dfa-93d5-680b42afd7c1",
-    "name": "n8n Public Audit User API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

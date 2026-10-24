@@ -1,77 +1,572 @@
 {
+  "info": {
+    "_postman_id": "9650c3db-8a70-457e-a8f0-c2cfb4573382",
+    "name": "n8n Public Execution API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:14:52.000Z",
+    "updatedAt": "2026-10-22T02:14:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9650c3db-8a70-457e-a8f0-c2cfb4573382"
+  },
   "item": [
     {
-      "id": "9c05f5e9-5cf9-4613-ab09-3e2666bd3aa8",
-      "name": "Execution",
-      "description": {
-        "content": "Operations about executions",
-        "type": "text/plain"
-      },
+      "name": "executions",
       "item": [
         {
-          "id": "23bc4de4-41bc-4bfc-b47e-64c755dc8849",
-          "name": "Retrieve all executions",
-          "request": {
-            "name": "Retrieve all executions",
-            "description": {
-              "content": "Retrieve all executions from your instance.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "executions"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "retry",
+              "item": [
+                {
+                  "name": "Retry an execution",
+                  "id": "1335f369-65a5-493a-867b-9c24f3185b17",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/executions/:id/retry",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "executions",
+                        ":id",
+                        "retry"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7463ca48-efce-42a0-b297-32ccc08cab87",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "52b6175a-656e-49b9-849c-ec754fcb306d",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/executions/:id/retry",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "executions",
+                            ":id",
+                            "retry"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:53.000Z",
+                      "updatedAt": "2026-10-22T02:14:53.000Z",
+                      "uid": "35240-52b6175a-656e-49b9-849c-ec754fcb306d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:53.000Z",
+                  "updatedAt": "2026-10-22T02:14:53.000Z",
+                  "uid": "35240-1335f369-65a5-493a-867b-9c24f3185b17"
+                }
               ],
+              "id": "21b5b266-38db-468c-a269-ae13de5d8a56",
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-21b5b266-38db-468c-a269-ae13de5d8a56"
+            },
+            {
+              "name": "stop",
+              "item": [
+                {
+                  "name": "Stop an execution",
+                  "id": "31bd4256-0ba9-48c2-903a-be8b5644c0f2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/executions/:id/stop",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "executions",
+                        ":id",
+                        "stop"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1909dc42-ef53-4086-b604-1ee9b36c1855",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b04bde30-9059-436e-9d1c-f46f761762c2",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/executions/:id/stop",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "executions",
+                            ":id",
+                            "stop"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:53.000Z",
+                      "updatedAt": "2026-10-22T02:14:53.000Z",
+                      "uid": "35240-b04bde30-9059-436e-9d1c-f46f761762c2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:53.000Z",
+                  "updatedAt": "2026-10-22T02:14:53.000Z",
+                  "uid": "35240-31bd4256-0ba9-48c2-903a-be8b5644c0f2"
+                }
+              ],
+              "id": "d63a5ddf-3e0e-4f4e-aeaf-5b7bb11a221f",
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-d63a5ddf-3e0e-4f4e-aeaf-5b7bb11a221f"
+            },
+            {
+              "name": "tags",
+              "item": [
+                {
+                  "name": "Update tags on an execution",
+                  "id": "43d261ce-cb8e-4bac-a7f7-9be449cb65be",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/executions/:id/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "executions",
+                        ":id",
+                        "tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7cef0e22-17d4-4ad1-a862-50a5ed613d3a",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "fcce432e-c3b9-49c3-9dec-fe32c16b5586",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/executions/:id/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "executions",
+                            ":id",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:53.000Z",
+                      "updatedAt": "2026-10-22T02:14:53.000Z",
+                      "uid": "35240-fcce432e-c3b9-49c3-9dec-fe32c16b5586"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:53.000Z",
+                  "updatedAt": "2026-10-22T02:14:53.000Z",
+                  "uid": "35240-43d261ce-cb8e-4bac-a7f7-9be449cb65be"
+                }
+              ],
+              "id": "817b50cc-218d-4487-af81-1d1f2220c439",
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-817b50cc-218d-4487-af81-1d1f2220c439"
+            },
+            {
+              "name": "Retrieve an execution",
+              "id": "c78accd3-0314-4aca-a5e7-1e02c0dd33f9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/executions/:id?includeData=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "executions",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "6425b907-7740-482f-bb8d-b40e1190abf1",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7c44d266-f98b-4d77-9c6e-462f1c135f12",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/executions/:id?includeData=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "executions",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "includeData",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:53.000Z",
+                  "updatedAt": "2026-10-22T02:14:53.000Z",
+                  "uid": "35240-7c44d266-f98b-4d77-9c6e-462f1c135f12"
+                }
+              ],
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-c78accd3-0314-4aca-a5e7-1e02c0dd33f9"
+            },
+            {
+              "name": "Delete an execution",
+              "id": "1b627bd1-adc1-4d46-88d4-164b8e8d121a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/executions/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "executions",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "75903ac0-3ad4-4119-ab3d-e4048d3683fe",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "001d3df5-368e-458a-9925-94e87ac008ec",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/executions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "executions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:53.000Z",
+                  "updatedAt": "2026-10-22T02:14:53.000Z",
+                  "uid": "35240-001d3df5-368e-458a-9925-94e87ac008ec"
+                }
+              ],
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-1b627bd1-adc1-4d46-88d4-164b8e8d121a"
+            }
+          ],
+          "id": "1d121292-680d-45b7-bb9d-09e8a42e590f",
+          "createdAt": "2026-10-22T02:14:53.000Z",
+          "updatedAt": "2026-10-22T02:14:53.000Z",
+          "uid": "35240-1d121292-680d-45b7-bb9d-09e8a42e590f"
+        },
+        {
+          "name": "stop",
+          "item": [
+            {
+              "name": "Stop multiple executions",
+              "id": "1ed28970-90e8-4c32-9caf-5b45cab1cc36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/executions/stop",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "executions",
+                    "stop"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d80ac276-4ade-4a14-82d5-eaf9fca57832",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/executions/stop",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "executions",
+                        "stop"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:53.000Z",
+                  "updatedAt": "2026-10-22T02:14:53.000Z",
+                  "uid": "35240-d80ac276-4ade-4a14-82d5-eaf9fca57832"
+                }
+              ],
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-1ed28970-90e8-4c32-9caf-5b45cab1cc36"
+            }
+          ],
+          "id": "8528d665-b518-4e04-8dfa-f6d00010a692",
+          "createdAt": "2026-10-22T02:14:53.000Z",
+          "updatedAt": "2026-10-22T02:14:53.000Z",
+          "uid": "35240-8528d665-b518-4e04-8dfa-f6d00010a692"
+        },
+        {
+          "name": "Retrieve all executions",
+          "id": "ca7a3cc5-5422-4c0c-914e-9062f87379cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/executions?includeData=<boolean>&status=success&workflowId=<string>&projectId=<string>&limit=100&cursor=<string>",
               "host": [
                 "{{baseUrl}}"
               ],
+              "path": [
+                "executions"
+              ],
               "query": [
                 {
-                  "disabled": false,
                   "key": "includeData",
                   "value": "<boolean>"
                 },
                 {
-                  "disabled": false,
                   "key": "status",
-                  "value": "<string>"
+                  "value": "success"
                 },
                 {
-                  "disabled": false,
                   "key": "workflowId",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "projectId",
                   "value": "<string>"
                 },
                 {
-                  "disabled": false,
                   "key": "limit",
                   "value": "100"
                 },
                 {
-                  "disabled": false,
                   "key": "cursor",
                   "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "method": "GET",
-            "auth": null
+            "description": "Retrieve all executions from your instance."
           },
           "response": [
             {
-              "id": "4f6a8b58-a0f4-425b-b923-62df33bf23c8",
+              "id": "ab55c638-fc91-4e38-935f-6b18c7466a6d",
               "name": "Operation successful.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-N8N-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "executions"
-                  ],
+                  "raw": "{{baseUrl}}/executions?includeData=<boolean>&status=success&workflowId=<string>&projectId=<string>&limit=100&cursor=<string>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "executions"
                   ],
                   "query": [
                     {
@@ -80,7 +575,7 @@
                     },
                     {
                       "key": "status",
-                      "value": "<string>"
+                      "value": "success"
                     },
                     {
                       "key": "workflowId",
@@ -98,549 +593,30 @@
                       "key": "cursor",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5f311155-cf3c-474a-9ebe-85367ba0a0c0",
-          "name": "Retrieve an execution",
-          "request": {
-            "name": "Retrieve an execution",
-            "description": {},
-            "url": {
-              "path": [
-                "executions",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "includeData",
-                  "value": "<boolean>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "691e7c13-0a47-4b54-adf6-d27a103dce7a",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "executions",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "includeData",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:53.000Z",
+              "updatedAt": "2026-10-22T02:14:53.000Z",
+              "uid": "35240-ab55c638-fc91-4e38-935f-6b18c7466a6d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0614fbbc-0886-4de5-9097-f9e9bf633e69",
-          "name": "Delete an execution",
-          "request": {
-            "name": "Delete an execution",
-            "description": {},
-            "url": {
-              "path": [
-                "executions",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "62851118-79d8-44fe-8385-947511a0de4d",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "executions",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "95ac9670-0a5b-4ad4-9218-00b40cd1984c",
-          "name": "Retry an execution",
-          "request": {
-            "name": "Retry an execution",
-            "description": {},
-            "url": {
-              "path": [
-                "executions",
-                ":id",
-                "retry"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "59fb0888-66b1-4798-9f1d-a53212d0098a",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "executions",
-                    ":id",
-                    "retry"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "faa198cf-d6f1-4fbb-aaa4-db3ebf8965d5",
-          "name": "Stop an execution",
-          "request": {
-            "name": "Stop an execution",
-            "description": {},
-            "url": {
-              "path": [
-                "executions",
-                ":id",
-                "stop"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a1bdc554-60fd-4f90-b668-5be7e1dcb980",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "executions",
-                    ":id",
-                    "stop"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "59285dda-c790-4bfa-a0eb-6e02ca1de8c5",
-          "name": "Stop multiple executions",
-          "request": {
-            "name": "Stop multiple executions",
-            "description": {},
-            "url": {
-              "path": [
-                "executions",
-                "stop"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "85e4a59c-e0aa-4654-becb-bafb5832fa40",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "executions",
-                    "stop"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "62535e04-aeea-42e1-b7bf-370d92ec036b",
-          "name": "Update tags on an execution",
-          "request": {
-            "name": "Update tags on an execution",
-            "description": {},
-            "url": {
-              "path": [
-                "executions",
-                ":id",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3528ce3f-535a-426b-8c96-3f65bed492a1",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "executions",
-                    ":id",
-                    "tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:53.000Z",
+          "updatedAt": "2026-10-22T02:14:53.000Z",
+          "uid": "35240-ca7a3cc5-5422-4c0c-914e-9062f87379cd"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "8164eaf0-b0fb-453c-a1ea-0ffb134a4eac",
+      "createdAt": "2026-10-22T02:14:53.000Z",
+      "updatedAt": "2026-10-22T02:14:53.000Z",
+      "uid": "35240-8164eaf0-b0fb-453c-a1ea-0ffb134a4eac"
     }
   ],
   "auth": {
@@ -648,25 +624,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d6c3a2d0-dc86-4cea-ba72-7d4bb867f78e",
-    "name": "n8n Public Audit Execution API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

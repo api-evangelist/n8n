@@ -1,119 +1,353 @@
 {
+  "info": {
+    "_postman_id": "4bd917c6-0481-43f0-b4e2-7d2ab566fe5a",
+    "name": "n8n Public Tags API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:21.000Z",
+    "updatedAt": "2026-10-22T02:15:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4bd917c6-0481-43f0-b4e2-7d2ab566fe5a"
+  },
   "item": [
     {
-      "id": "0646593c-4791-44be-a677-8c4357cf4d31",
-      "name": "Tags",
-      "description": {
-        "content": "Operations about tags",
-        "type": "text/plain"
-      },
+      "name": "tags",
       "item": [
         {
-          "id": "5b0bf030-c525-409c-99fc-6d9b205591a9",
-          "name": "Create a tag",
-          "request": {
-            "name": "Create a tag",
-            "description": {},
-            "url": {
-              "path": [
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "23d84c78-b418-4f4b-9ada-516684e815dc",
-              "name": "Created",
-              "originalRequest": {
+              "name": "Retrieves a tag",
+              "id": "10825e81-462d-40c8-9977-c30b62a60f3d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "tags"
-                  ],
+                  "raw": "{{baseUrl}}/tags/:id",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3594dbc2-dc34-45b3-ae50-066c099998bd",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "37a62fb0-12ff-4013-acf4-8d194b8f7ce1",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:22.000Z",
+                  "updatedAt": "2026-10-22T02:15:22.000Z",
+                  "uid": "35240-37a62fb0-12ff-4013-acf4-8d194b8f7ce1"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:22.000Z",
+              "updatedAt": "2026-10-22T02:15:22.000Z",
+              "uid": "35240-10825e81-462d-40c8-9977-c30b62a60f3d"
+            },
+            {
+              "name": "Delete a tag",
+              "id": "86a72174-51c6-4bd4-8cd5-08f7bde91235",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/tags/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c73fcc89-3f8d-45e8-9d4a-e5ef004602b6",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c62db0b9-0caa-42a2-98a7-d51d5189f32a",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:22.000Z",
+                  "updatedAt": "2026-10-22T02:15:22.000Z",
+                  "uid": "35240-c62db0b9-0caa-42a2-98a7-d51d5189f32a"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:22.000Z",
+              "updatedAt": "2026-10-22T02:15:22.000Z",
+              "uid": "35240-86a72174-51c6-4bd4-8cd5-08f7bde91235"
+            },
+            {
+              "name": "Update a tag",
+              "id": "280e1c30-9655-4e9d-94a5-86285d05d64a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/tags/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3894e074-ccb6-46c9-a01d-c620f0dbcee8",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "46ac4199-6725-4970-b7a3-b3c3a00f0bf6",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:22.000Z",
+                  "updatedAt": "2026-10-22T02:15:22.000Z",
+                  "uid": "35240-46ac4199-6725-4970-b7a3-b3c3a00f0bf6"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:22.000Z",
+              "updatedAt": "2026-10-22T02:15:22.000Z",
+              "uid": "35240-280e1c30-9655-4e9d-94a5-86285d05d64a"
+            }
+          ],
+          "id": "e3117af8-52f2-4edf-9a50-51c86f2d8ed9",
+          "createdAt": "2026-10-22T02:15:22.000Z",
+          "updatedAt": "2026-10-22T02:15:22.000Z",
+          "uid": "35240-e3117af8-52f2-4edf-9a50-51c86f2d8ed9"
+        },
+        {
+          "name": "Create a tag",
+          "id": "b3666de1-7d81-4bf9-8086-d48a41a81da2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tags",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tags"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b8be7de4-1546-4d67-85e0-87c58f41b2eb",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ]
+                }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:22.000Z",
+              "updatedAt": "2026-10-22T02:15:22.000Z",
+              "uid": "35240-b8be7de4-1546-4d67-85e0-87c58f41b2eb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:22.000Z",
+          "updatedAt": "2026-10-22T02:15:22.000Z",
+          "uid": "35240-b3666de1-7d81-4bf9-8086-d48a41a81da2"
         },
         {
-          "id": "3f6b9ac7-6d73-46ef-bbe8-fcf579db1d9d",
           "name": "Retrieve all tags",
+          "id": "e7247084-cc4e-4a22-aeaa-c1d2c0c348ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Retrieve all tags",
-            "description": {},
+            "method": "GET",
+            "header": [],
             "url": {
-              "path": [
-                "tags"
-              ],
+              "raw": "{{baseUrl}}/tags?limit=<number>&cursor=<string>",
               "host": [
                 "{{baseUrl}}"
               ],
+              "path": [
+                "tags"
+              ],
               "query": [
                 {
-                  "disabled": false,
                   "key": "limit",
                   "value": "<number>"
                 },
                 {
-                  "disabled": false,
                   "key": "cursor",
                   "value": "<string>"
                 }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "560c5c18-6b75-4d3c-acd9-25093fb284a6",
+              "id": "9cba56a7-5f08-404d-a1dc-0cbb08a96bf4",
               "name": "Operation successful.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-N8N-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "tags"
-                  ],
+                  "raw": "{{baseUrl}}/tags?limit=<number>&cursor=<string>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
                   ],
                   "query": [
                     {
@@ -124,299 +358,30 @@
                       "key": "cursor",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3f606ad4-ddbc-40b9-b8fc-4d8bdc362596",
-          "name": "Retrieves a tag",
-          "request": {
-            "name": "Retrieves a tag",
-            "description": {},
-            "url": {
-              "path": [
-                "tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "29c7432b-f1cf-4a2d-b136-8dc8d6a15d9b",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:22.000Z",
+              "updatedAt": "2026-10-22T02:15:22.000Z",
+              "uid": "35240-9cba56a7-5f08-404d-a1dc-0cbb08a96bf4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9a0cf838-20a6-44ed-87e6-2b19da74ca54",
-          "name": "Delete a tag",
-          "request": {
-            "name": "Delete a tag",
-            "description": {},
-            "url": {
-              "path": [
-                "tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "df6685f2-89ec-419f-aa55-fafa2e74b0fa",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1badb217-d05b-4a7a-81df-cb9cfd44f52a",
-          "name": "Update a tag",
-          "request": {
-            "name": "Update a tag",
-            "description": {},
-            "url": {
-              "path": [
-                "tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f8df68df-c295-407c-866a-502b13d897d7",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:22.000Z",
+          "updatedAt": "2026-10-22T02:15:22.000Z",
+          "uid": "35240-e7247084-cc4e-4a22-aeaa-c1d2c0c348ee"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "13cee223-ff9d-4e37-b27d-00aef2ba06f9",
+      "createdAt": "2026-10-22T02:15:22.000Z",
+      "updatedAt": "2026-10-22T02:15:22.000Z",
+      "uid": "35240-13cee223-ff9d-4e37-b27d-00aef2ba06f9"
     }
   ],
   "auth": {
@@ -424,25 +389,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f6e33e8c-caea-4ac2-9b4e-afe57ce65565",
-    "name": "n8n Public Audit Tags API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

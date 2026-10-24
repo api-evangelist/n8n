@@ -1,88 +1,81 @@
 {
+  "info": {
+    "_postman_id": "26240727-77b2-4a84-94f3-b9e131e9f3c3",
+    "name": "n8n Public Discover API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:14:47.000Z",
+    "updatedAt": "2026-10-22T02:14:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-26240727-77b2-4a84-94f3-b9e131e9f3c3"
+  },
   "item": [
     {
-      "id": "9cefbb9c-1581-4d81-9d17-e1f773b673cd",
-      "name": "Discover",
-      "description": {
-        "content": "API capability discovery",
-        "type": "text/plain"
-      },
+      "name": "discover",
       "item": [
         {
-          "id": "0db2ad7a-1aec-441e-989e-128dba8327f4",
           "name": "Discover API capabilities",
+          "id": "4960f0a3-6151-4056-aeeb-c1da23c81f70",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Discover API capabilities",
-            "description": {},
+            "method": "GET",
+            "header": [],
             "url": {
-              "path": [
-                "discover"
-              ],
+              "raw": "{{baseUrl}}/discover",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
+              "path": [
+                "discover"
+              ]
+            }
           },
           "response": [
             {
-              "id": "fb12ab51-4f62-4156-a7c6-ca227a48f234",
+              "id": "1cb6cc2c-66a3-4038-b0eb-174ecc37a55a",
               "name": "Operation successful.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "discover"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/discover",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "discover"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:48.000Z",
+              "updatedAt": "2026-10-22T02:14:48.000Z",
+              "uid": "35240-1cb6cc2c-66a3-4038-b0eb-174ecc37a55a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:48.000Z",
+          "updatedAt": "2026-10-22T02:14:48.000Z",
+          "uid": "35240-4960f0a3-6151-4056-aeeb-c1da23c81f70"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "49df010d-ea2e-409c-8e68-6b6ec27f2898",
+      "createdAt": "2026-10-22T02:14:48.000Z",
+      "updatedAt": "2026-10-22T02:14:48.000Z",
+      "uid": "35240-49df010d-ea2e-409c-8e68-6b6ec27f2898"
     }
   ],
   "auth": {
@@ -90,25 +83,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "371e7927-692a-42d8-ac69-4ed8e4f97f59",
-    "name": "n8n Public Audit Discover API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

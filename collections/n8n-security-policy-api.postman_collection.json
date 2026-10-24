@@ -1,0 +1,496 @@
+{
+  "info": {
+    "_postman_id": "ebe11521-c752-4fdf-a155-182d520b16f3",
+    "name": "n8n Public security policy API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:16:39.000Z",
+    "updatedAt": "2026-10-22T02:16:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ebe11521-c752-4fdf-a155-182d520b16f3"
+  },
+  "item": [
+    {
+      "name": "settings",
+      "item": [
+        {
+          "name": "security-policy",
+          "item": [
+            {
+              "name": "Retrieve the security policy",
+              "id": "30b10775-2944-4bb1-a81a-b551c4ad9651",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settings/security-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settings",
+                    "security-policy"
+                  ]
+                },
+                "description": "Retrieve the instance security policy: personal-space publishing and sharing, the execution-data redaction enforcement floor, and the read-only usage counts shown in the UI. Requires the `securitySettings:manage` scope and the Personal Space Policy feature to be licensed."
+              },
+              "response": [
+                {
+                  "id": "99d9288b-9e53-4265-b085-bd0a510f644f",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"production\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-99d9288b-9e53-4265-b085-bd0a510f644f"
+                },
+                {
+                  "id": "f561981f-819f-4930-b446-5001168479f7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-f561981f-819f-4930-b446-5001168479f7"
+                },
+                {
+                  "id": "e15575e1-16a3-4ed2-b694-99b95e6f0422",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-e15575e1-16a3-4ed2-b694-99b95e6f0422"
+                }
+              ],
+              "createdAt": "2026-10-22T02:16:39.000Z",
+              "updatedAt": "2026-10-22T02:16:39.000Z",
+              "uid": "35240-30b10775-2944-4bb1-a81a-b551c4ad9651"
+            },
+            {
+              "name": "Set the security policy",
+              "id": "eb0f302a-2c98-4e4f-aa7e-e554db25e993",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"false\"\n  },\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/settings/security-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settings",
+                    "security-policy"
+                  ]
+                },
+                "description": "Replace the instance security policy with the provided full object. Every writable field must be sent. Read-only usage counts from GET are ignored if included, so a GET response can be sent back as a PUT body. The update takes effect exactly as it would from the UI, using the same validation. Requires the `securitySettings:manage` scope and the Personal Space Policy feature to be licensed. When the group is managed via environment variables, the write is rejected with 409 and no changes are made; a read still returns the current values."
+              },
+              "response": [
+                {
+                  "id": "5b7fb75b-463a-4c22-888f-f9256f9fd41b",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"false\"\n  },\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"production\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-5b7fb75b-463a-4c22-888f-f9256f9fd41b"
+                },
+                {
+                  "id": "657b3df2-d338-45ef-af86-6ca10ff0e1b8",
+                  "name": "The request is invalid or provides malformed data.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"false\"\n  },\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-657b3df2-d338-45ef-af86-6ca10ff0e1b8"
+                },
+                {
+                  "id": "3f30457c-c3aa-428f-a3ef-7649ab1b31ef",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"false\"\n  },\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-3f30457c-c3aa-428f-a3ef-7649ab1b31ef"
+                },
+                {
+                  "id": "dbfd47b3-cb0d-4e0f-beb0-afbc31f4cda6",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"false\"\n  },\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-dbfd47b3-cb0d-4e0f-beb0-afbc31f4cda6"
+                },
+                {
+                  "id": "b47bd7af-28a4-4ff1-be63-869e18cb4caa",
+                  "name": "Conflict",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"personalSpacePublishing\": \"<boolean>\",\n  \"personalSpaceSharing\": \"<boolean>\",\n  \"redactionEnforcement\": {\n    \"floor\": \"false\"\n  },\n  \"publishedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalWorkflowsCount\": \"<integer>\",\n  \"sharedPersonalCredentialsCount\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/security-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "security-policy"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:39.000Z",
+                  "updatedAt": "2026-10-22T02:16:39.000Z",
+                  "uid": "35240-b47bd7af-28a4-4ff1-be63-869e18cb4caa"
+                }
+              ],
+              "createdAt": "2026-10-22T02:16:39.000Z",
+              "updatedAt": "2026-10-22T02:16:39.000Z",
+              "uid": "35240-eb0f302a-2c98-4e4f-aa7e-e554db25e993"
+            }
+          ],
+          "id": "98037795-68c5-4e87-8300-9ba996fca5aa",
+          "createdAt": "2026-10-22T02:16:39.000Z",
+          "updatedAt": "2026-10-22T02:16:39.000Z",
+          "uid": "35240-98037795-68c5-4e87-8300-9ba996fca5aa"
+        }
+      ],
+      "id": "501a0dcc-87a5-4d8b-afc6-e1f0edcf0278",
+      "createdAt": "2026-10-22T02:16:39.000Z",
+      "updatedAt": "2026-10-22T02:16:39.000Z",
+      "uid": "35240-501a0dcc-87a5-4d8b-afc6-e1f0edcf0278"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

@@ -1,0 +1,904 @@
+{
+  "info": {
+    "_postman_id": "60bd27c6-6ff1-4884-a067-86c0aeb5540f",
+    "name": "n8n Public Settings Ldap API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:16:05.000Z",
+    "updatedAt": "2026-10-22T02:16:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-60bd27c6-6ff1-4884-a067-86c0aeb5540f"
+  },
+  "item": [
+    {
+      "name": "settings",
+      "item": [
+        {
+          "name": "ldap",
+          "item": [
+            {
+              "name": "sync",
+              "item": [
+                {
+                  "name": "Retrieve LDAP synchronization history",
+                  "id": "0bc0d860-1802-4c94-ba4a-bb792d483158",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap/sync?limit=100&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap",
+                        "sync"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of items to return.",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the history of LDAP synchronizations, most recent first. Requires the `ldap:sync` scope and the LDAP feature to be licensed."
+                  },
+                  "response": [
+                    {
+                      "id": "e6fbbdf7-103e-4e2e-bc9f-9b37f4aa769b",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync?limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"runMode\": \"dry\",\n      \"status\": \"<string>\",\n      \"startedAt\": \"<dateTime>\",\n      \"endedAt\": \"<dateTime>\",\n      \"scanned\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"disabled\": \"<integer>\",\n      \"error\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"runMode\": \"live\",\n      \"status\": \"<string>\",\n      \"startedAt\": \"<dateTime>\",\n      \"endedAt\": \"<dateTime>\",\n      \"scanned\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"disabled\": \"<integer>\",\n      \"error\": \"<string>\"\n    }\n  ],\n  \"nextCursor\": \"<string,null>\"\n}",
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-e6fbbdf7-103e-4e2e-bc9f-9b37f4aa769b"
+                    },
+                    {
+                      "id": "0daa909e-99ac-45f6-be51-c7b17c65f66f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync?limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-0daa909e-99ac-45f6-be51-c7b17c65f66f"
+                    },
+                    {
+                      "id": "174c1d8f-967a-4a0b-a7e3-404d75732397",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync?limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-174c1d8f-967a-4a0b-a7e3-404d75732397"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-0bc0d860-1802-4c94-ba4a-bb792d483158"
+                },
+                {
+                  "name": "Trigger an LDAP synchronization",
+                  "id": "7c78ebc9-7c82-483d-82f1-c990e0dec4f9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"dry\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap/sync",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap",
+                        "sync"
+                      ]
+                    },
+                    "description": "Manually trigger an LDAP synchronization. The response returns the new sync history record. Requires the `ldap:sync` scope and the LDAP feature to be licensed."
+                  },
+                  "response": [
+                    {
+                      "id": "504f1448-4c0d-4dd2-a374-5c8e9f41c129",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"dry\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"runMode\": \"live\",\n  \"status\": \"<string>\",\n  \"startedAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\",\n  \"scanned\": \"<integer>\",\n  \"created\": \"<integer>\",\n  \"updated\": \"<integer>\",\n  \"disabled\": \"<integer>\",\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-504f1448-4c0d-4dd2-a374-5c8e9f41c129"
+                    },
+                    {
+                      "id": "8da5df2f-6061-4e49-9c8e-ecff0d38f8ea",
+                      "name": "The request is invalid or provides malformed data.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"dry\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-8da5df2f-6061-4e49-9c8e-ecff0d38f8ea"
+                    },
+                    {
+                      "id": "b723c2ca-5fb1-42ec-ae65-4d3f38f9b134",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"dry\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-b723c2ca-5fb1-42ec-ae65-4d3f38f9b134"
+                    },
+                    {
+                      "id": "95924b8c-ac15-497f-a8ad-16cc62259a29",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"dry\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/ldap/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "ldap",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:06.000Z",
+                      "updatedAt": "2026-10-22T02:16:06.000Z",
+                      "uid": "35240-95924b8c-ac15-497f-a8ad-16cc62259a29"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-7c78ebc9-7c82-483d-82f1-c990e0dec4f9"
+                }
+              ],
+              "id": "b8b099ab-63e5-4059-8f03-4f604278d718",
+              "createdAt": "2026-10-22T02:16:06.000Z",
+              "updatedAt": "2026-10-22T02:16:06.000Z",
+              "uid": "35240-b8b099ab-63e5-4059-8f03-4f604278d718"
+            },
+            {
+              "name": "Retrieve the LDAP configuration",
+              "id": "b071056c-6520-41ef-8c72-1e9d1be3e530",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settings/ldap",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settings",
+                    "ldap"
+                  ]
+                },
+                "description": "Retrieve the current LDAP configuration, including every field exposed in the UI. The binding admin password is redacted on read. Requires the `ldap:manage` scope and the LDAP feature to be licensed."
+              },
+              "response": [
+                {
+                  "id": "ab1dff46-d0d5-4bac-8c91-70f303cd2097",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"tls\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-ab1dff46-d0d5-4bac-8c91-70f303cd2097"
+                },
+                {
+                  "id": "790e9440-fc0c-4a42-8f26-ad34550db18b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-790e9440-fc0c-4a42-8f26-ad34550db18b"
+                },
+                {
+                  "id": "3970917d-364b-4ef0-b111-cde60a27c51e",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-3970917d-364b-4ef0-b111-cde60a27c51e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:16:06.000Z",
+              "updatedAt": "2026-10-22T02:16:06.000Z",
+              "uid": "35240-b071056c-6520-41ef-8c72-1e9d1be3e530"
+            },
+            {
+              "name": "Set the LDAP configuration",
+              "id": "42c6993b-8ee0-4feb-9fff-36e26b1ee3d3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"none\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/settings/ldap",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settings",
+                    "ldap"
+                  ]
+                },
+                "description": "Replace the LDAP configuration with the provided full object (partial updates are not supported). For bindingAdminPassword, submit the blanking placeholder from a prior GET to keep the stored password unchanged. Requires the `ldap:manage` scope and the LDAP feature to be licensed. Setting loginEnabled to false is destructive and it deletes all stored LDAP user identities and disables synchronization."
+              },
+              "response": [
+                {
+                  "id": "e76f4906-2de9-40cf-9e18-3726752ed8d6",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"none\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"tls\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-e76f4906-2de9-40cf-9e18-3726752ed8d6"
+                },
+                {
+                  "id": "6e4ca474-6eee-4836-9dcf-9fc63097400e",
+                  "name": "The request is invalid or provides malformed data.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"none\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-6e4ca474-6eee-4836-9dcf-9fc63097400e"
+                },
+                {
+                  "id": "2770b2dd-1740-4f20-8cde-cd140ed3ec05",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"none\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-2770b2dd-1740-4f20-8cde-cd140ed3ec05"
+                },
+                {
+                  "id": "318c885b-8470-45b9-bc18-dd9e6b5753c7",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"loginEnabled\": \"<boolean>\",\n  \"loginLabel\": \"<string>\",\n  \"connectionUrl\": \"<string>\",\n  \"allowUnauthorizedCerts\": \"<boolean>\",\n  \"connectionSecurity\": \"none\",\n  \"connectionPort\": \"<integer>\",\n  \"baseDn\": \"<string>\",\n  \"bindingAdminDn\": \"<string>\",\n  \"bindingAdminPassword\": \"<string>\",\n  \"firstNameAttribute\": \"<string>\",\n  \"lastNameAttribute\": \"<string>\",\n  \"emailAttribute\": \"<string>\",\n  \"loginIdAttribute\": \"<string>\",\n  \"ldapIdAttribute\": \"<string>\",\n  \"userFilter\": \"<string>\",\n  \"synchronizationEnabled\": \"<boolean>\",\n  \"synchronizationInterval\": \"<integer>\",\n  \"searchPageSize\": \"<integer>\",\n  \"searchTimeout\": \"<integer>\",\n  \"enforceEmailUniqueness\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/ldap",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "ldap"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:06.000Z",
+                  "updatedAt": "2026-10-22T02:16:06.000Z",
+                  "uid": "35240-318c885b-8470-45b9-bc18-dd9e6b5753c7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:16:06.000Z",
+              "updatedAt": "2026-10-22T02:16:06.000Z",
+              "uid": "35240-42c6993b-8ee0-4feb-9fff-36e26b1ee3d3"
+            }
+          ],
+          "id": "82c3d818-a729-46ac-98a5-1f05d5367a7c",
+          "createdAt": "2026-10-22T02:16:06.000Z",
+          "updatedAt": "2026-10-22T02:16:06.000Z",
+          "uid": "35240-82c3d818-a729-46ac-98a5-1f05d5367a7c"
+        }
+      ],
+      "id": "2577cfad-6012-4561-87f1-eecaa19cf078",
+      "createdAt": "2026-10-22T02:16:06.000Z",
+      "updatedAt": "2026-10-22T02:16:06.000Z",
+      "uid": "35240-2577cfad-6012-4561-87f1-eecaa19cf078"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

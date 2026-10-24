@@ -1,90 +1,92 @@
 {
+  "info": {
+    "_postman_id": "0c8c2657-dccd-4449-90d9-527b81ce4535",
+    "name": "n8n Public Insights API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:09.000Z",
+    "updatedAt": "2026-10-22T02:15:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0c8c2657-dccd-4449-90d9-527b81ce4535"
+  },
   "item": [
     {
-      "id": "3848112c-3122-4a6b-973f-68fc9e605f65",
-      "name": "Insights",
-      "description": {
-        "content": "Operations about insights",
-        "type": "text/plain"
-      },
+      "name": "insights",
       "item": [
         {
-          "id": "89778ac8-82ec-4d4a-824c-df05b3e7547c",
-          "name": "Get insights summary",
-          "request": {
-            "name": "Get insights summary",
-            "description": {},
-            "url": {
-              "path": [
-                "insights",
-                "summary"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "summary",
+          "item": [
             {
-              "id": "4e8c1a42-317f-4ebb-9b47-49859d399d67",
-              "name": "Operation successful.",
-              "originalRequest": {
+              "name": "Get insights summary",
+              "id": "3efdabb7-8c9e-479a-bd34-80a7207ea5ce",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "insights",
-                    "summary"
-                  ],
+                  "raw": "{{baseUrl}}/insights/summary",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  "path": [
+                    "insights",
+                    "summary"
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "acc81beb-8df4-4187-a3cd-7d791b659f3a",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insights/summary",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insights",
+                        "summary"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:09.000Z",
+                  "updatedAt": "2026-10-22T02:15:09.000Z",
+                  "uid": "35240-acc81beb-8df4-4187-a3cd-7d791b659f3a"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:15:09.000Z",
+              "updatedAt": "2026-10-22T02:15:09.000Z",
+              "uid": "35240-3efdabb7-8c9e-479a-bd34-80a7207ea5ce"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "79cd5230-c648-48d8-8ced-0a3ebedef547",
+          "createdAt": "2026-10-22T02:15:09.000Z",
+          "updatedAt": "2026-10-22T02:15:09.000Z",
+          "uid": "35240-79cd5230-c648-48d8-8ced-0a3ebedef547"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "6e419c0d-1054-4017-a1eb-0473a4524fff",
+      "createdAt": "2026-10-22T02:15:09.000Z",
+      "updatedAt": "2026-10-22T02:15:09.000Z",
+      "uid": "35240-6e419c0d-1054-4017-a1eb-0473a4524fff"
     }
   ],
   "auth": {
@@ -92,25 +94,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "df5742fd-da14-4ed5-8ccb-546965bb137d",
-    "name": "n8n Public Audit Insights API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

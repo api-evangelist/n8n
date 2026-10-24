@@ -1,0 +1,515 @@
+{
+  "info": {
+    "_postman_id": "1166b310-f3e5-408d-b23d-0cf681bb6563",
+    "name": "n8n Public Settings SSO Oidc API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:16:20.000Z",
+    "updatedAt": "2026-10-22T02:16:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1166b310-f3e5-408d-b23d-0cf681bb6563"
+  },
+  "item": [
+    {
+      "name": "settings",
+      "item": [
+        {
+          "name": "sso",
+          "item": [
+            {
+              "name": "oidc",
+              "item": [
+                {
+                  "name": "Retrieve the OIDC SSO configuration",
+                  "id": "298bf582-f60b-4e0e-95b4-a524fa85a401",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/sso/oidc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "sso",
+                        "oidc"
+                      ]
+                    },
+                    "description": "Retrieve the current OIDC SSO configuration, including every field exposed in the UI. The client secret is redacted on read and is never echoed back in plaintext. Requires the `oidc:manage` scope and the OIDC feature to be licensed."
+                  },
+                  "response": [
+                    {
+                      "id": "368c1e6a-678a-49e3-8134-380ed4e8f4a1",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"login\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-368c1e6a-678a-49e3-8134-380ed4e8f4a1"
+                    },
+                    {
+                      "id": "eac7f6b6-54b9-4ae1-a68f-d26568578f8b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-eac7f6b6-54b9-4ae1-a68f-d26568578f8b"
+                    },
+                    {
+                      "id": "68926841-6f9a-4f7b-8039-a41cd5947044",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-68926841-6f9a-4f7b-8039-a41cd5947044"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:21.000Z",
+                  "updatedAt": "2026-10-22T02:16:21.000Z",
+                  "uid": "35240-298bf582-f60b-4e0e-95b4-a524fa85a401"
+                },
+                {
+                  "name": "Set the OIDC SSO configuration",
+                  "id": "699d4577-9966-479c-956c-b279e3d483fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"consent\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/sso/oidc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "sso",
+                        "oidc"
+                      ]
+                    },
+                    "description": "Set the OIDC SSO configuration. The update takes effect exactly as it would from the UI, using the same validation. `clientId`, `clientSecret` and `discoveryEndpoint` are required; submit the redacted client secret sentinel to keep the stored secret unchanged. Requires the `oidc:manage` scope and the OIDC feature to be licensed. The client secret is redacted in the response. When the configuration is managed declaratively (via environment variables), the write is rejected with 409 and no changes are made."
+                  },
+                  "response": [
+                    {
+                      "id": "158a25a4-4387-4e74-8c99-2a052422e95d",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"consent\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"login\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-158a25a4-4387-4e74-8c99-2a052422e95d"
+                    },
+                    {
+                      "id": "baf7627a-95b4-4d3f-939e-2183ce527743",
+                      "name": "The request is invalid or provides malformed data.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"consent\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-baf7627a-95b4-4d3f-939e-2183ce527743"
+                    },
+                    {
+                      "id": "39e2c294-7da8-4663-8596-1b219893503b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"consent\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-39e2c294-7da8-4663-8596-1b219893503b"
+                    },
+                    {
+                      "id": "8bde638c-a850-4aba-9d43-c95fe56692a1",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"consent\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-8bde638c-a850-4aba-9d43-c95fe56692a1"
+                    },
+                    {
+                      "id": "199dfb17-e2ba-4242-a6fd-152b97bfb54f",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"discoveryEndpoint\": \"<uri>\",\n  \"loginEnabled\": \"<boolean>\",\n  \"prompt\": \"consent\",\n  \"authenticationContextClassReference\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"additionalScopes\": \"<string>\",\n  \"emailVerifiedRequired\": \"<boolean>\",\n  \"rpInitiatedLogoutEnabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/sso/oidc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "sso",
+                            "oidc"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:21.000Z",
+                      "updatedAt": "2026-10-22T02:16:21.000Z",
+                      "uid": "35240-199dfb17-e2ba-4242-a6fd-152b97bfb54f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:21.000Z",
+                  "updatedAt": "2026-10-22T02:16:21.000Z",
+                  "uid": "35240-699d4577-9966-479c-956c-b279e3d483fc"
+                }
+              ],
+              "id": "d2d00be9-a2d9-4915-8dda-7a7cf5527d4f",
+              "createdAt": "2026-10-22T02:16:21.000Z",
+              "updatedAt": "2026-10-22T02:16:21.000Z",
+              "uid": "35240-d2d00be9-a2d9-4915-8dda-7a7cf5527d4f"
+            }
+          ],
+          "id": "48f6a3bb-2ab8-49a0-826a-a59fd0d26a51",
+          "createdAt": "2026-10-22T02:16:21.000Z",
+          "updatedAt": "2026-10-22T02:16:21.000Z",
+          "uid": "35240-48f6a3bb-2ab8-49a0-826a-a59fd0d26a51"
+        }
+      ],
+      "id": "0098d92d-74d2-4977-850d-c0eb5c73836f",
+      "createdAt": "2026-10-22T02:16:21.000Z",
+      "updatedAt": "2026-10-22T02:16:21.000Z",
+      "uid": "35240-0098d92d-74d2-4977-850d-c0eb5c73836f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

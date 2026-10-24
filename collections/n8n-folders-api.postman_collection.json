@@ -1,496 +1,458 @@
 {
+  "info": {
+    "_postman_id": "5618413d-133a-412b-835d-f94739a60e4d",
+    "name": "n8n Public Folders API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:14:59.000Z",
+    "updatedAt": "2026-10-22T02:14:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5618413d-133a-412b-835d-f94739a60e4d"
+  },
   "item": [
     {
-      "id": "014e5a05-9ad4-4d72-9285-a96949c2f12a",
-      "name": "Folders",
-      "description": {
-        "content": "Operations about folders",
-        "type": "text/plain"
-      },
+      "name": "projects",
       "item": [
         {
-          "id": "e635e2d7-7a0c-4d23-b119-c8aa564cca58",
-          "name": "List folders in a project",
-          "request": {
-            "name": "List folders in a project",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":projectId",
-                "folders"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{projectId}",
+          "item": [
             {
-              "id": "334393b5-1989-4af7-a1cc-59f108010816",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":projectId",
-                    "folders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "folders",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "{folderId}",
+                  "item": [
+                    {
+                      "name": "Get a folder",
+                      "id": "b2d9562b-ead0-48df-8f58-23626e4dd965",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/folders/:folderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "folders",
+                            ":folderId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "85d0d05b-c43a-4c3f-8549-03a4df2f502d",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "ff664c0b-1092-4a12-8ad5-ec0dbec30d78",
+                              "key": "folderId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6ac766d6-7304-422c-814b-f3b2e5607149",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/folders/:folderId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "folders",
+                                ":folderId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "folderId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:59.000Z",
+                          "updatedAt": "2026-10-22T02:14:59.000Z",
+                          "uid": "35240-6ac766d6-7304-422c-814b-f3b2e5607149"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:59.000Z",
+                      "updatedAt": "2026-10-22T02:14:59.000Z",
+                      "uid": "35240-b2d9562b-ead0-48df-8f58-23626e4dd965"
+                    },
+                    {
+                      "name": "Delete a folder",
+                      "id": "20efe035-b537-493f-8ec9-78e8e7a73d32",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/folders/:folderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "folders",
+                            ":folderId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "965ea7cc-3a2c-483e-ba3f-28faa884bda0",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "617d2eb4-9545-4e2e-9849-bb96a7035d71",
+                              "key": "folderId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f2121284-dfca-44da-801f-6ad3f6828f7e",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/folders/:folderId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "folders",
+                                ":folderId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "folderId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:59.000Z",
+                          "updatedAt": "2026-10-22T02:14:59.000Z",
+                          "uid": "35240-f2121284-dfca-44da-801f-6ad3f6828f7e"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:59.000Z",
+                      "updatedAt": "2026-10-22T02:14:59.000Z",
+                      "uid": "35240-20efe035-b537-493f-8ec9-78e8e7a73d32"
+                    },
+                    {
+                      "name": "Update a folder",
+                      "id": "15f14f0e-9ac3-49e5-a4d6-932e955b1f38",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/folders/:folderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "folders",
+                            ":folderId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d2dd00b5-e0fa-4e41-a0cf-048001ab0363",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "024290d6-c5e2-4de1-8551-a3c70be09121",
+                              "key": "folderId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5593fd61-f8ad-4d06-8de8-5ee4fc0d94ad",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/folders/:folderId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "folders",
+                                ":folderId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "folderId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:14:59.000Z",
+                          "updatedAt": "2026-10-22T02:14:59.000Z",
+                          "uid": "35240-5593fd61-f8ad-4d06-8de8-5ee4fc0d94ad"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:14:59.000Z",
+                      "updatedAt": "2026-10-22T02:14:59.000Z",
+                      "uid": "35240-15f14f0e-9ac3-49e5-a4d6-932e955b1f38"
+                    }
+                  ],
+                  "id": "ce1429bb-85fb-481b-84be-0fad313ff11a",
+                  "createdAt": "2026-10-22T02:14:59.000Z",
+                  "updatedAt": "2026-10-22T02:14:59.000Z",
+                  "uid": "35240-ce1429bb-85fb-481b-84be-0fad313ff11a"
+                },
+                {
+                  "name": "List folders in a project",
+                  "id": "b8714c49-51b1-4692-93aa-dc2fb5310e38",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/folders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "folders"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3adda4cc-78d4-42ed-9bac-6fc2d3d12c6d",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f7ed6993-a57b-4c7d-840f-03f4007649b4",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/folders",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "folders"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:59.000Z",
+                      "updatedAt": "2026-10-22T02:14:59.000Z",
+                      "uid": "35240-f7ed6993-a57b-4c7d-840f-03f4007649b4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:59.000Z",
+                  "updatedAt": "2026-10-22T02:14:59.000Z",
+                  "uid": "35240-b8714c49-51b1-4692-93aa-dc2fb5310e38"
+                },
+                {
+                  "name": "Create a folder in a project",
+                  "id": "b940e9e8-a5e5-4ac1-b1ab-3092ac7f0192",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/folders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "folders"
+                      ],
+                      "variable": [
+                        {
+                          "id": "55d75cc1-d2b7-4ad6-bc86-05865486ac15",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "33170514-4885-485d-9431-d0c5944b600d",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/folders",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "folders"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:14:59.000Z",
+                      "updatedAt": "2026-10-22T02:14:59.000Z",
+                      "uid": "35240-33170514-4885-485d-9431-d0c5944b600d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:14:59.000Z",
+                  "updatedAt": "2026-10-22T02:14:59.000Z",
+                  "uid": "35240-b940e9e8-a5e5-4ac1-b1ab-3092ac7f0192"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "a0b68dd7-b670-4e18-a049-3b9f01515898",
+              "createdAt": "2026-10-22T02:14:59.000Z",
+              "updatedAt": "2026-10-22T02:14:59.000Z",
+              "uid": "35240-a0b68dd7-b670-4e18-a049-3b9f01515898"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fa797ec4-3e27-4299-8137-a7ff972f4b7f",
-          "name": "Create a folder in a project",
-          "request": {
-            "name": "Create a folder in a project",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":projectId",
-                "folders"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "77b4dfd9-928c-48c5-8ac5-b0f29dc5ea04",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":projectId",
-                    "folders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "954942f5-8b3d-4759-a091-af5253e66931",
-          "name": "Get a folder",
-          "request": {
-            "name": "Get a folder",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":projectId",
-                "folders",
-                ":folderId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "folderId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "64bfa57b-1627-45c0-abd8-b28fa38ab0aa",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":projectId",
-                    "folders",
-                    ":folderId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "folderId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1e6ebf95-d811-43f9-8bcb-44b3edc269e7",
-          "name": "Delete a folder",
-          "request": {
-            "name": "Delete a folder",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":projectId",
-                "folders",
-                ":folderId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "folderId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8f6241aa-6aa8-4584-bfb0-5cb684d3da02",
-              "name": "Deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":projectId",
-                    "folders",
-                    ":folderId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "folderId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ca5fb9c7-6599-4124-8c55-95e8ed9de525",
-          "name": "Update a folder",
-          "request": {
-            "name": "Update a folder",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":projectId",
-                "folders",
-                ":folderId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "projectId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "folderId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "37a4309e-d965-4ec7-a3ec-6516e5cf05e7",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":projectId",
-                    "folders",
-                    ":folderId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "projectId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "folderId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "74512cbc-5a1f-4a6e-84fd-c2ebe5b86274",
+          "createdAt": "2026-10-22T02:14:59.000Z",
+          "updatedAt": "2026-10-22T02:14:59.000Z",
+          "uid": "35240-74512cbc-5a1f-4a6e-84fd-c2ebe5b86274"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "3c0edb0d-bdea-4816-90df-efdd7ce9896d",
+      "createdAt": "2026-10-22T02:14:59.000Z",
+      "updatedAt": "2026-10-22T02:14:59.000Z",
+      "uid": "35240-3c0edb0d-bdea-4816-90df-efdd7ce9896d"
     }
   ],
   "auth": {
@@ -498,25 +460,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "08aa98dd-34df-4cef-99e3-3c618b97dac1",
-    "name": "n8n Public Audit Folders API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

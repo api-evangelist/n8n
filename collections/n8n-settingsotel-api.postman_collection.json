@@ -1,0 +1,757 @@
+{
+  "info": {
+    "_postman_id": "74e18880-98e7-4a72-a712-ad3bd7ae5ead",
+    "name": "n8n Public Settings Otel API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:16:13.000Z",
+    "updatedAt": "2026-10-22T02:16:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-74e18880-98e7-4a72-a712-ad3bd7ae5ead"
+  },
+  "item": [
+    {
+      "name": "settings",
+      "item": [
+        {
+          "name": "otel",
+          "item": [
+            {
+              "name": "test-trace",
+              "item": [
+                {
+                  "name": "Test the connection to an OTLP collector",
+                  "id": "17708a77-aff5-42cb-b9df-7ade122dc276",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel/test-trace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel",
+                        "test-trace"
+                      ]
+                    },
+                    "description": "Send a single test span to the given OTLP collector and report whether it was accepted. This tests the supplied connection details without changing the stored configuration. Fields managed declaratively via environment variables are overridden with their effective value before the test is sent. Requires the `otel:manage` scope."
+                  },
+                  "response": [
+                    {
+                      "id": "c4c1bf18-6a2f-4271-b0dd-5915185f2f38",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/otel/test-trace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "otel",
+                            "test-trace"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:16:13.000Z",
+                      "updatedAt": "2026-10-22T02:16:13.000Z",
+                      "uid": "35240-c4c1bf18-6a2f-4271-b0dd-5915185f2f38"
+                    },
+                    {
+                      "id": "a275d044-745d-4891-9272-6f06bd09d45b",
+                      "name": "The request is invalid or provides malformed data.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/otel/test-trace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "otel",
+                            "test-trace"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:13.000Z",
+                      "updatedAt": "2026-10-22T02:16:13.000Z",
+                      "uid": "35240-a275d044-745d-4891-9272-6f06bd09d45b"
+                    },
+                    {
+                      "id": "9e1e5720-0303-480c-9634-acd35e29c5d3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/otel/test-trace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "otel",
+                            "test-trace"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:13.000Z",
+                      "updatedAt": "2026-10-22T02:16:13.000Z",
+                      "uid": "35240-9e1e5720-0303-480c-9634-acd35e29c5d3"
+                    },
+                    {
+                      "id": "8be06c56-1c5c-4868-bbba-7c3c5249a942",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/otel/test-trace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "otel",
+                            "test-trace"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:16:13.000Z",
+                      "updatedAt": "2026-10-22T02:16:13.000Z",
+                      "uid": "35240-8be06c56-1c5c-4868-bbba-7c3c5249a942"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-17708a77-aff5-42cb-b9df-7ade122dc276"
+                }
+              ],
+              "id": "f7e55bf4-1188-411f-9f6c-9114026e5231",
+              "createdAt": "2026-10-22T02:16:13.000Z",
+              "updatedAt": "2026-10-22T02:16:13.000Z",
+              "uid": "35240-f7e55bf4-1188-411f-9f6c-9114026e5231"
+            },
+            {
+              "name": "Retrieve the OpenTelemetry configuration",
+              "id": "ea85bd49-15d0-4d6b-b1d1-d66724ab057d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settings/otel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settings",
+                    "otel"
+                  ]
+                },
+                "description": "Retrieve the current OpenTelemetry configuration, including every field exposed in the UI. Requires the `otel:manage` scope."
+              },
+              "response": [
+                {
+                  "id": "de72f5df-b264-4bf2-a410-7aa5e1b90478",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-de72f5df-b264-4bf2-a410-7aa5e1b90478"
+                },
+                {
+                  "id": "c29b8441-233d-4124-b766-41e2a83ab37f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-c29b8441-233d-4124-b766-41e2a83ab37f"
+                },
+                {
+                  "id": "33b77ef7-e614-4692-95df-1987895cab44",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-33b77ef7-e614-4692-95df-1987895cab44"
+                }
+              ],
+              "createdAt": "2026-10-22T02:16:13.000Z",
+              "updatedAt": "2026-10-22T02:16:13.000Z",
+              "uid": "35240-ea85bd49-15d0-4d6b-b1d1-d66724ab057d"
+            },
+            {
+              "name": "Set the OpenTelemetry configuration",
+              "id": "9eee9c2f-89f3-4be4-bbb5-a1c5e275c945",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/settings/otel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settings",
+                    "otel"
+                  ]
+                },
+                "description": "Set the OpenTelemetry configuration. This is a full replacement: every field must be provided, and a partial body is rejected. The update takes effect exactly as it would from the UI, using the same validation, and is applied to the running instance immediately. Fields managed declaratively via environment variables are read-only: attempting to change one is rejected with 409, while re-submitting its current value (as returned by GET) is accepted. Requires the `otel:manage` scope."
+              },
+              "response": [
+                {
+                  "id": "a6ef5135-56c4-4a82-8099-42142b20059a",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-a6ef5135-56c4-4a82-8099-42142b20059a"
+                },
+                {
+                  "id": "b011853a-ffb7-489d-83cc-cbf33475c96a",
+                  "name": "The request is invalid or provides malformed data.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-b011853a-ffb7-489d-83cc-cbf33475c96a"
+                },
+                {
+                  "id": "10626424-f0bd-49f1-ad35-2063beedda66",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-10626424-f0bd-49f1-ad35-2063beedda66"
+                },
+                {
+                  "id": "8f0ee8b4-fb6f-44de-8ca9-9faabbc5495e",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-8f0ee8b4-fb6f-44de-8ca9-9faabbc5495e"
+                },
+                {
+                  "id": "29b55059-491d-4bb7-b958-41acdb145d8c",
+                  "name": "Conflict",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"exporterEndpoint\": \"<uri>\",\n  \"exporterTracingPath\": \"<string>\",\n  \"exporterServiceName\": \"<string>\",\n  \"exporterHeaders\": \"<string>\",\n  \"tracesSampleRate\": \"<number>\",\n  \"startupConnectivityTimeoutMs\": \"<integer>\",\n  \"includeNodeSpans\": \"<boolean>\",\n  \"injectOutbound\": \"<boolean>\",\n  \"productionExecutionsOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/otel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "otel"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:16:13.000Z",
+                  "updatedAt": "2026-10-22T02:16:13.000Z",
+                  "uid": "35240-29b55059-491d-4bb7-b958-41acdb145d8c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:16:13.000Z",
+              "updatedAt": "2026-10-22T02:16:13.000Z",
+              "uid": "35240-9eee9c2f-89f3-4be4-bbb5-a1c5e275c945"
+            }
+          ],
+          "id": "417aee35-e231-4ee8-a1a4-4a2e81c46fdf",
+          "createdAt": "2026-10-22T02:16:13.000Z",
+          "updatedAt": "2026-10-22T02:16:13.000Z",
+          "uid": "35240-417aee35-e231-4ee8-a1a4-4a2e81c46fdf"
+        }
+      ],
+      "id": "277a8b1e-fbdd-4d85-9078-1fad1e93165d",
+      "createdAt": "2026-10-22T02:16:13.000Z",
+      "updatedAt": "2026-10-22T02:16:13.000Z",
+      "uid": "35240-277a8b1e-fbdd-4d85-9078-1fad1e93165d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

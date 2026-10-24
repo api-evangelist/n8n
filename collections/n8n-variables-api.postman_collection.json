@@ -1,119 +1,280 @@
 {
+  "info": {
+    "_postman_id": "968509c7-a15e-43ea-a20e-f6c73d5e2e81",
+    "name": "n8n Public Variables API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:33.000Z",
+    "updatedAt": "2026-10-22T02:15:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-968509c7-a15e-43ea-a20e-f6c73d5e2e81"
+  },
   "item": [
     {
-      "id": "fee8d3d4-e0dd-4c99-ac95-401359132439",
-      "name": "Variables",
-      "description": {
-        "content": "Operations about variables",
-        "type": "text/plain"
-      },
+      "name": "variables",
       "item": [
         {
-          "id": "a2876845-9e6b-42a4-b942-214901ebe21b",
-          "name": "Create a variable",
-          "request": {
-            "name": "Create a variable",
-            "description": {},
-            "url": {
-              "path": [
-                "variables"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "0ec37055-6088-4ff0-97bf-393e622f68d4",
-              "name": "Created",
-              "originalRequest": {
+              "name": "Delete a variable",
+              "id": "987190c6-ab14-4585-bb45-0ca79e994932",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
                 "url": {
-                  "path": [
-                    "variables"
-                  ],
+                  "raw": "{{baseUrl}}/variables/:id",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
+                  "path": [
+                    "variables",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "187bf4ce-656c-4033-9f6e-b07c911dc77a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7f2d8057-7b93-41c8-817b-1af0d855b1b6",
+                  "name": "Variable deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/variables/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "variables",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:33.000Z",
+                  "updatedAt": "2026-10-22T02:15:33.000Z",
+                  "uid": "35240-7f2d8057-7b93-41c8-817b-1af0d855b1b6"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:33.000Z",
+              "updatedAt": "2026-10-22T02:15:33.000Z",
+              "uid": "35240-987190c6-ab14-4585-bb45-0ca79e994932"
+            },
+            {
+              "name": "Update a variable",
+              "id": "7609f601-5af8-43ea-993b-e68d1821f7e6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/variables/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "variables",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "08ed41b8-aff5-4730-8286-d01032d6fe0b",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "770eba8e-74ee-4fe0-99f8-afbebbd9745d",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/variables/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "variables",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:15:33.000Z",
+                  "updatedAt": "2026-10-22T02:15:33.000Z",
+                  "uid": "35240-770eba8e-74ee-4fe0-99f8-afbebbd9745d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:15:33.000Z",
+              "updatedAt": "2026-10-22T02:15:33.000Z",
+              "uid": "35240-7609f601-5af8-43ea-993b-e68d1821f7e6"
+            }
+          ],
+          "id": "95dcea36-42f8-4982-a2d4-61d084cb3be5",
+          "createdAt": "2026-10-22T02:15:33.000Z",
+          "updatedAt": "2026-10-22T02:15:33.000Z",
+          "uid": "35240-95dcea36-42f8-4982-a2d4-61d084cb3be5"
+        },
+        {
+          "name": "Create a variable",
+          "id": "b5a491e6-0c70-4c04-ab6d-2b2a51a08d9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/variables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variables"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19f659ef-9d80-42c3-a559-b1931f71fb46",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/variables",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "variables"
+                  ]
+                }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:33.000Z",
+              "updatedAt": "2026-10-22T02:15:33.000Z",
+              "uid": "35240-19f659ef-9d80-42c3-a559-b1931f71fb46"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:33.000Z",
+          "updatedAt": "2026-10-22T02:15:33.000Z",
+          "uid": "35240-b5a491e6-0c70-4c04-ab6d-2b2a51a08d9e"
         },
         {
-          "id": "1f7c9c9a-2508-4a6b-8e12-807faed12c51",
           "name": "Retrieve variables",
+          "id": "de9531c4-3132-417a-ae71-c474dcaec6ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Retrieve variables",
-            "description": {},
+            "method": "GET",
+            "header": [],
             "url": {
-              "path": [
-                "variables"
-              ],
+              "raw": "{{baseUrl}}/variables?limit=<number>&cursor=<string>",
               "host": [
                 "{{baseUrl}}"
               ],
+              "path": [
+                "variables"
+              ],
               "query": [
                 {
-                  "disabled": false,
                   "key": "limit",
                   "value": "<number>"
                 },
                 {
-                  "disabled": false,
                   "key": "cursor",
                   "value": "<string>"
                 }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "dbe802a0-66fc-47b2-96f7-a6e8ae04f2e7",
+              "id": "273208b3-d4de-4ea5-8836-f1d7d3ce77b3",
               "name": "Operation successful.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-N8N-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "variables"
-                  ],
+                  "raw": "{{baseUrl}}/variables?limit=<number>&cursor=<string>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "variables"
                   ],
                   "query": [
                     {
@@ -124,216 +285,30 @@
                       "key": "cursor",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:15:33.000Z",
+              "updatedAt": "2026-10-22T02:15:33.000Z",
+              "uid": "35240-273208b3-d4de-4ea5-8836-f1d7d3ce77b3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "32bb27f4-acd7-49a6-8a99-89267a2f1c42",
-          "name": "Delete a variable",
-          "request": {
-            "name": "Delete a variable",
-            "description": {},
-            "url": {
-              "path": [
-                "variables",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "55d0a762-865d-4b28-bf89-1628dcbc5cb8",
-              "name": "Variable deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "variables",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e1582bf3-69c9-409e-8ce4-df662b971bb6",
-          "name": "Update a variable",
-          "request": {
-            "name": "Update a variable",
-            "description": {},
-            "url": {
-              "path": [
-                "variables",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7ad83fef-8447-4f2e-afe7-4461068ccbba",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "variables",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:15:33.000Z",
+          "updatedAt": "2026-10-22T02:15:33.000Z",
+          "uid": "35240-de9531c4-3132-417a-ae71-c474dcaec6ad"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "98869cd9-5b7d-42f2-9f00-0ad1c7b8f1f0",
+      "createdAt": "2026-10-22T02:15:33.000Z",
+      "updatedAt": "2026-10-22T02:15:33.000Z",
+      "uid": "35240-98869cd9-5b7d-42f2-9f00-0ad1c7b8f1f0"
     }
   ],
   "auth": {
@@ -341,25 +316,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "32c8df43-0e46-4740-9839-c71479f55c87",
-    "name": "n8n Public Audit Variables API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

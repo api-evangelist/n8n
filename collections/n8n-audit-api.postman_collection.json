@@ -1,169 +1,148 @@
 {
+  "info": {
+    "_postman_id": "13da5070-4c43-48af-8e8d-fb3263497f8d",
+    "name": "n8n Public Audit API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:14:15.000Z",
+    "updatedAt": "2026-10-22T02:14:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-13da5070-4c43-48af-8e8d-fb3263497f8d"
+  },
   "item": [
     {
-      "id": "1fcdb99b-c998-457a-859d-615bf40b677e",
-      "name": "Audit",
-      "description": {
-        "content": "Operations about security audit",
-        "type": "text/plain"
-      },
+      "name": "audit",
       "item": [
         {
-          "id": "4ff1f679-d4a1-4df7-a023-b79e538d4d7c",
           "name": "Generate an audit",
+          "id": "4d81bd58-1229-43af-a516-9084a1d38084",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Generate an audit",
-            "description": {
-              "content": "Generate a security audit for your n8n instance.",
-              "type": "text/plain"
-            },
+            "method": "POST",
+            "header": [],
             "url": {
-              "path": [
-                "audit"
-              ],
+              "raw": "{{baseUrl}}/audit",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": []
+              "path": [
+                "audit"
+              ]
             },
-            "method": "POST",
-            "auth": null
+            "description": "Generate a security audit for your n8n instance."
           },
           "response": [
             {
-              "id": "e48e9b12-2cb2-4eb1-94d3-5f4ddcb99add",
+              "id": "72f5a281-5bfd-4cbf-b607-eebe7a57940b",
               "name": "Operation successful.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "audit"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/audit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:16.000Z",
+              "updatedAt": "2026-10-22T02:14:16.000Z",
+              "uid": "35240-72f5a281-5bfd-4cbf-b607-eebe7a57940b"
             },
             {
-              "id": "d6fc4fb9-17d0-457b-9188-e04091a4cd68",
+              "id": "e8b5b914-d422-4b4c-a72f-76abe996247b",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "audit"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/audit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:16.000Z",
+              "updatedAt": "2026-10-22T02:14:16.000Z",
+              "uid": "35240-e8b5b914-d422-4b4c-a72f-76abe996247b"
             },
             {
-              "id": "ff0cf1bb-64d4-418a-a8ff-c141b0e860be",
+              "id": "a8f80069-a0ae-4f0c-965a-d453ba3533e6",
               "name": "Internal server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "audit"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/audit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit"
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:16.000Z",
+              "updatedAt": "2026-10-22T02:14:16.000Z",
+              "uid": "35240-a8f80069-a0ae-4f0c-965a-d453ba3533e6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:16.000Z",
+          "updatedAt": "2026-10-22T02:14:16.000Z",
+          "uid": "35240-4d81bd58-1229-43af-a516-9084a1d38084"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "462b7a2c-a628-42d4-a6f4-6f25633bd1fa",
+      "createdAt": "2026-10-22T02:14:16.000Z",
+      "updatedAt": "2026-10-22T02:14:16.000Z",
+      "uid": "35240-462b7a2c-a628-42d4-a6f4-6f25633bd1fa"
     }
   ],
   "auth": {
@@ -171,25 +150,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "bc3ec40f-d09e-42d1-9180-bbd3e8f8cb53",
-    "name": "n8n Public Audit API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }

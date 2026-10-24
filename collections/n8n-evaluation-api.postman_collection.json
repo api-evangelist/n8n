@@ -1,0 +1,1493 @@
+{
+  "info": {
+    "_postman_id": "921a572c-9c13-45bb-ad49-72b9a1e3c133",
+    "name": "n8n Public Evaluation API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:46.000Z",
+    "updatedAt": "2026-10-22T02:15:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-921a572c-9c13-45bb-ad49-72b9a1e3c133"
+  },
+  "item": [
+    {
+      "name": "workflows",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "test-runs",
+              "item": [
+                {
+                  "name": "{runId}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "Cancel a test run",
+                          "id": "7ed6ade0-0fbd-410e-959e-d82581ba51ec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workflows",
+                                ":id",
+                                "test-runs",
+                                ":runId",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7882a0d6-e251-4fb4-8ab4-74751ce5d8ef",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the workflow."
+                                },
+                                {
+                                  "id": "c8330ba9-45fe-42e1-9dd4-715e0159b68f",
+                                  "key": "runId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the test run."
+                                }
+                              ]
+                            },
+                            "description": "Cancel a running evaluation test run of a workflow. Requires the `workflow:execute` project scope in addition to the `testRun:cancel` API key scope."
+                          },
+                          "response": [
+                            {
+                              "id": "2161712b-0e17-4856-bf8f-d4ed93a09de4",
+                              "name": "Cancellation requested.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Accepted",
+                              "code": 202,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"cancelled\"\n}",
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-2161712b-0e17-4856-bf8f-d4ed93a09de4"
+                            },
+                            {
+                              "id": "709b517d-139a-482a-bbda-040c3cbc49e7",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-709b517d-139a-482a-bbda-040c3cbc49e7"
+                            },
+                            {
+                              "id": "88bac94a-dfc7-46c7-8588-aad2d6ab1095",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-88bac94a-dfc7-46c7-8588-aad2d6ab1095"
+                            },
+                            {
+                              "id": "feeef6c2-f478-469c-9ff9-8552fa03e595",
+                              "name": "The specified resource was not found.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-feeef6c2-f478-469c-9ff9-8552fa03e595"
+                            },
+                            {
+                              "id": "340dfe68-c993-4d60-a15d-2302c904d82f",
+                              "name": "Conflict",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-340dfe68-c993-4d60-a15d-2302c904d82f"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:15:46.000Z",
+                          "updatedAt": "2026-10-22T02:15:46.000Z",
+                          "uid": "35240-7ed6ade0-0fbd-410e-959e-d82581ba51ec"
+                        }
+                      ],
+                      "id": "22cdc417-d774-417a-b001-01179258e66b",
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-22cdc417-d774-417a-b001-01179258e66b"
+                    },
+                    {
+                      "name": "test-cases",
+                      "item": [
+                        {
+                          "name": "Retrieve test run cases",
+                          "id": "a03a01f8-5e36-4c4a-aad4-1676f3d754b2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/test-cases?limit=100&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workflows",
+                                ":id",
+                                "test-runs",
+                                ":runId",
+                                "test-cases"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The maximum number of items to return.",
+                                  "key": "limit",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7f082e94-be3c-4d86-a39c-dd5a178f0b71",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the workflow."
+                                },
+                                {
+                                  "id": "93290214-25fe-4aa8-867a-248bd9d24117",
+                                  "key": "runId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the test run."
+                                }
+                              ]
+                            },
+                            "description": "Retrieve the per-case results of an evaluation test run."
+                          },
+                          "response": [
+                            {
+                              "id": "a9dc9c4d-0d29-4eca-a9ac-cd748ca8b155",
+                              "name": "Operation successful.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/test-cases?limit=100&cursor=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "test-cases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of items to return.",
+                                      "key": "limit",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                                      "key": "cursor",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"warning\",\n      \"runAt\": \"<string,null-date-time>\",\n      \"completedAt\": \"<string,null-date-time>\",\n      \"metrics\": \"<object,null>\",\n      \"errorCode\": \"<string,null>\",\n      \"errorDetails\": \"<object,null>\",\n      \"inputs\": \"<object,null>\",\n      \"outputs\": \"<object,null>\",\n      \"executionId\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"evaluation_running\",\n      \"runAt\": \"<string,null-date-time>\",\n      \"completedAt\": \"<string,null-date-time>\",\n      \"metrics\": \"<object,null>\",\n      \"errorCode\": \"<string,null>\",\n      \"errorDetails\": \"<object,null>\",\n      \"inputs\": \"<object,null>\",\n      \"outputs\": \"<object,null>\",\n      \"executionId\": \"<string,null>\"\n    }\n  ],\n  \"nextCursor\": \"<string,null>\"\n}",
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-a9dc9c4d-0d29-4eca-a9ac-cd748ca8b155"
+                            },
+                            {
+                              "id": "8b303834-0e50-4d94-a71a-d159c602796c",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/test-cases?limit=100&cursor=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "test-cases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of items to return.",
+                                      "key": "limit",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                                      "key": "cursor",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-8b303834-0e50-4d94-a71a-d159c602796c"
+                            },
+                            {
+                              "id": "bbad158a-e0d0-43e6-a24f-b944a11aa636",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/test-cases?limit=100&cursor=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "test-cases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of items to return.",
+                                      "key": "limit",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                                      "key": "cursor",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-bbad158a-e0d0-43e6-a24f-b944a11aa636"
+                            },
+                            {
+                              "id": "bff61bb1-9d3b-413a-949d-2b86327f8179",
+                              "name": "The specified resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId/test-cases?limit=100&cursor=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workflows",
+                                    ":id",
+                                    "test-runs",
+                                    ":runId",
+                                    "test-cases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of items to return.",
+                                      "key": "limit",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                                      "key": "cursor",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:46.000Z",
+                              "updatedAt": "2026-10-22T02:15:46.000Z",
+                              "uid": "35240-bff61bb1-9d3b-413a-949d-2b86327f8179"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:15:46.000Z",
+                          "updatedAt": "2026-10-22T02:15:46.000Z",
+                          "uid": "35240-a03a01f8-5e36-4c4a-aad4-1676f3d754b2"
+                        }
+                      ],
+                      "id": "8d6c940c-66f5-411a-8b41-961bbb478434",
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-8d6c940c-66f5-411a-8b41-961bbb478434"
+                    },
+                    {
+                      "name": "Retrieve a test run",
+                      "id": "26a6c2af-8ee9-448c-a0fb-285552e7d8a6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs",
+                            ":runId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "af2e88ee-0168-4038-979e-2f545f9cb01e",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the workflow."
+                            },
+                            {
+                              "id": "dd753e51-5e7d-4fde-9fc6-38eeef0f8afb",
+                              "key": "runId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the test run."
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a single evaluation test run of a workflow, including its aggregated metrics and final result."
+                      },
+                      "response": [
+                        {
+                          "id": "8e2fc9cf-538b-462d-becc-dbc49aac33ca",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workflows",
+                                ":id",
+                                "test-runs",
+                                ":runId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"cancelled\",\n  \"runAt\": \"<string,null-date-time>\",\n  \"completedAt\": \"<string,null-date-time>\",\n  \"metrics\": \"<object,null>\",\n  \"errorCode\": \"<string,null>\",\n  \"errorDetails\": \"<object,null>\",\n  \"finalResult\": \"warning\",\n  \"testCaseCount\": \"<integer>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-22T02:15:46.000Z",
+                          "updatedAt": "2026-10-22T02:15:46.000Z",
+                          "uid": "35240-8e2fc9cf-538b-462d-becc-dbc49aac33ca"
+                        },
+                        {
+                          "id": "40092306-774b-49fa-a9a6-dbda2e7d0c1c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workflows",
+                                ":id",
+                                "test-runs",
+                                ":runId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:46.000Z",
+                          "updatedAt": "2026-10-22T02:15:46.000Z",
+                          "uid": "35240-40092306-774b-49fa-a9a6-dbda2e7d0c1c"
+                        },
+                        {
+                          "id": "f5d52ebc-6f51-420e-b99e-ef48da9c8cf0",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workflows",
+                                ":id",
+                                "test-runs",
+                                ":runId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:46.000Z",
+                          "updatedAt": "2026-10-22T02:15:46.000Z",
+                          "uid": "35240-f5d52ebc-6f51-420e-b99e-ef48da9c8cf0"
+                        },
+                        {
+                          "id": "86e20201-dbbb-47e1-9379-a0b7665fb1f2",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workflows/:id/test-runs/:runId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workflows",
+                                ":id",
+                                "test-runs",
+                                ":runId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:46.000Z",
+                          "updatedAt": "2026-10-22T02:15:46.000Z",
+                          "uid": "35240-86e20201-dbbb-47e1-9379-a0b7665fb1f2"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-26a6c2af-8ee9-448c-a0fb-285552e7d8a6"
+                    }
+                  ],
+                  "id": "30c9784e-ce4e-4a94-81c8-611563699b06",
+                  "createdAt": "2026-10-22T02:15:46.000Z",
+                  "updatedAt": "2026-10-22T02:15:46.000Z",
+                  "uid": "35240-30c9784e-ce4e-4a94-81c8-611563699b06"
+                },
+                {
+                  "name": "Retrieve test runs",
+                  "id": "b961995f-564b-437b-bf32-691b2b4f9fab",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/test-runs?status=completed&limit=100&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "test-runs"
+                      ],
+                      "query": [
+                        {
+                          "description": "Status to filter the test runs by.",
+                          "key": "status",
+                          "value": "completed"
+                        },
+                        {
+                          "description": "The maximum number of items to return.",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1753db1d-92d5-4d9b-a0d3-ea24d3fc4e7e",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the workflow."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the evaluation test runs of a workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "1cef64ee-f614-4988-99f3-84621e41924c",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs?status=completed&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Status to filter the test runs by.",
+                              "key": "status",
+                              "value": "completed"
+                            },
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"completed\",\n      \"runAt\": \"<string,null-date-time>\",\n      \"completedAt\": \"<string,null-date-time>\",\n      \"metrics\": \"<object,null>\",\n      \"errorCode\": \"<string,null>\",\n      \"errorDetails\": \"<object,null>\",\n      \"finalResult\": \"success\",\n      \"testCaseCount\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"completed\",\n      \"runAt\": \"<string,null-date-time>\",\n      \"completedAt\": \"<string,null-date-time>\",\n      \"metrics\": \"<object,null>\",\n      \"errorCode\": \"<string,null>\",\n      \"errorDetails\": \"<object,null>\",\n      \"finalResult\": \"error\",\n      \"testCaseCount\": \"<integer>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextCursor\": \"<string,null>\"\n}",
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-1cef64ee-f614-4988-99f3-84621e41924c"
+                    },
+                    {
+                      "id": "979746d7-f65b-4bbd-8e3d-9f795bd4a9de",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs?status=completed&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Status to filter the test runs by.",
+                              "key": "status",
+                              "value": "completed"
+                            },
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-979746d7-f65b-4bbd-8e3d-9f795bd4a9de"
+                    },
+                    {
+                      "id": "b3cf41b4-dbeb-4728-b1b2-47217e1f456d",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs?status=completed&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Status to filter the test runs by.",
+                              "key": "status",
+                              "value": "completed"
+                            },
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-b3cf41b4-dbeb-4728-b1b2-47217e1f456d"
+                    },
+                    {
+                      "id": "a7c57401-5727-474d-830a-7f4f63aea729",
+                      "name": "The specified resource was not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs?status=completed&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Status to filter the test runs by.",
+                              "key": "status",
+                              "value": "completed"
+                            },
+                            {
+                              "description": "The maximum number of items to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-a7c57401-5727-474d-830a-7f4f63aea729"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:46.000Z",
+                  "updatedAt": "2026-10-22T02:15:46.000Z",
+                  "uid": "35240-b961995f-564b-437b-bf32-691b2b4f9fab"
+                },
+                {
+                  "name": "Trigger a test run",
+                  "id": "e8c1acf0-474a-4ad3-be05-0ca3356ac42a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":id",
+                        "test-runs"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e536323a-ac84-46e9-b2bd-e49a53f37b5b",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the workflow."
+                        }
+                      ]
+                    },
+                    "description": "Start a new evaluation test run for a workflow. The workflow must contain a configured evaluation trigger. Requires the `workflow:execute` project scope in addition to the `testRun:create` API key scope."
+                  },
+                  "response": [
+                    {
+                      "id": "23502693-5636-4157-92b6-5c1847bfeebd",
+                      "name": "Test run triggered.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"new\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-23502693-5636-4157-92b6-5c1847bfeebd"
+                    },
+                    {
+                      "id": "b7ea49ac-81b0-4a34-95e0-e71a15158a5b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-b7ea49ac-81b0-4a34-95e0-e71a15158a5b"
+                    },
+                    {
+                      "id": "b116be98-2e98-490b-9f12-6250a450b937",
+                      "name": "Payment required",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Payment Required",
+                      "code": 402,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-b116be98-2e98-490b-9f12-6250a450b937"
+                    },
+                    {
+                      "id": "d2609b04-d3cf-4031-b078-dd82b960512a",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-d2609b04-d3cf-4031-b078-dd82b960512a"
+                    },
+                    {
+                      "id": "e3287738-3f2c-4da0-b235-83737e9b94d4",
+                      "name": "The specified resource was not found.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-e3287738-3f2c-4da0-b235-83737e9b94d4"
+                    },
+                    {
+                      "id": "c5d43283-a9d7-4ac5-94ae-a85cde710739",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:id/test-runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":id",
+                            "test-runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:46.000Z",
+                      "updatedAt": "2026-10-22T02:15:46.000Z",
+                      "uid": "35240-c5d43283-a9d7-4ac5-94ae-a85cde710739"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:46.000Z",
+                  "updatedAt": "2026-10-22T02:15:46.000Z",
+                  "uid": "35240-e8c1acf0-474a-4ad3-be05-0ca3356ac42a"
+                }
+              ],
+              "id": "a82bb2d7-2630-421b-8933-ad8adbd2f2d1",
+              "createdAt": "2026-10-22T02:15:46.000Z",
+              "updatedAt": "2026-10-22T02:15:46.000Z",
+              "uid": "35240-a82bb2d7-2630-421b-8933-ad8adbd2f2d1"
+            }
+          ],
+          "id": "ab0aca56-eb75-441d-8a30-8e5cce298fb6",
+          "createdAt": "2026-10-22T02:15:46.000Z",
+          "updatedAt": "2026-10-22T02:15:46.000Z",
+          "uid": "35240-ab0aca56-eb75-441d-8a30-8e5cce298fb6"
+        }
+      ],
+      "id": "ed100c15-cfe2-4e11-99b5-9b6dee8802a0",
+      "createdAt": "2026-10-22T02:15:46.000Z",
+      "updatedAt": "2026-10-22T02:15:46.000Z",
+      "uid": "35240-ed100c15-cfe2-4e11-99b5-9b6dee8802a0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

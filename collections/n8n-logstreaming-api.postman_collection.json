@@ -1,0 +1,1775 @@
+{
+  "info": {
+    "_postman_id": "a1d50ca0-8c57-4bf9-a386-730770a3a39c",
+    "name": "n8n Public Log Streaming API",
+    "description": "n8n Public API\n\nContact Support:\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:15:52.000Z",
+    "updatedAt": "2026-10-22T02:15:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a1d50ca0-8c57-4bf9-a386-730770a3a39c"
+  },
+  "item": [
+    {
+      "name": "settings",
+      "item": [
+        {
+          "name": "log-streaming",
+          "item": [
+            {
+              "name": "event-types",
+              "item": [
+                {
+                  "name": "List streamable event types",
+                  "id": "a6f69d71-24a3-4603-9950-ca2d1bb56bd5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/log-streaming/event-types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "log-streaming",
+                        "event-types"
+                      ]
+                    },
+                    "description": "List the event types that can be streamed to a log streaming destination. Requires the `eventBusDestination:list` scope and the Log Streaming feature to be licensed."
+                  },
+                  "response": [
+                    {
+                      "id": "bdbf15d2-fc1f-4c6c-a918-fe1510f9c834",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/event-types",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "event-types"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-bdbf15d2-fc1f-4c6c-a918-fe1510f9c834"
+                    },
+                    {
+                      "id": "9fbbf174-cdd5-4837-a9e6-ec6befb04141",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/event-types",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "event-types"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-9fbbf174-cdd5-4837-a9e6-ec6befb04141"
+                    },
+                    {
+                      "id": "9f84b96a-ea0a-4025-b63c-36112a64045d",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/event-types",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "event-types"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-9f84b96a-ea0a-4025-b63c-36112a64045d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:53.000Z",
+                  "updatedAt": "2026-10-22T02:15:53.000Z",
+                  "uid": "35240-a6f69d71-24a3-4603-9950-ca2d1bb56bd5"
+                }
+              ],
+              "id": "20aca59a-80dd-4b35-b5cd-d334bf2b4f8d",
+              "createdAt": "2026-10-22T02:15:53.000Z",
+              "updatedAt": "2026-10-22T02:15:53.000Z",
+              "uid": "35240-20aca59a-80dd-4b35-b5cd-d334bf2b4f8d"
+            },
+            {
+              "name": "destinations",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "test",
+                      "item": [
+                        {
+                          "name": "Send a test message to a log streaming destination",
+                          "id": "90fb312f-7448-45e4-91b5-710faa9dc084",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id/test",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id",
+                                "test"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "367e157f-9165-4bd0-a689-53e5dccc1fc4",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The id of the log streaming destination."
+                                }
+                              ]
+                            },
+                            "description": "Send a test message to the destination to verify it is reachable and configured correctly. Requires the `eventBusDestination:test` scope and the Log Streaming feature to be licensed."
+                          },
+                          "response": [
+                            {
+                              "id": "9e8a7e64-00ab-412f-bb8f-b8ed52d8c844",
+                              "name": "Operation successful.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id/test",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "settings",
+                                    "log-streaming",
+                                    "destinations",
+                                    ":id",
+                                    "test"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"success\": \"<boolean>\"\n}",
+                              "createdAt": "2026-10-22T02:15:53.000Z",
+                              "updatedAt": "2026-10-22T02:15:53.000Z",
+                              "uid": "35240-9e8a7e64-00ab-412f-bb8f-b8ed52d8c844"
+                            },
+                            {
+                              "id": "cfa2f2bf-63e5-4ca1-b7a9-a36ee4f59849",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id/test",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "settings",
+                                    "log-streaming",
+                                    "destinations",
+                                    ":id",
+                                    "test"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:53.000Z",
+                              "updatedAt": "2026-10-22T02:15:53.000Z",
+                              "uid": "35240-cfa2f2bf-63e5-4ca1-b7a9-a36ee4f59849"
+                            },
+                            {
+                              "id": "8217a0c0-a606-40b2-9968-15ecfd80d784",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id/test",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "settings",
+                                    "log-streaming",
+                                    "destinations",
+                                    ":id",
+                                    "test"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:53.000Z",
+                              "updatedAt": "2026-10-22T02:15:53.000Z",
+                              "uid": "35240-8217a0c0-a606-40b2-9968-15ecfd80d784"
+                            },
+                            {
+                              "id": "9aba93ba-ac5c-468b-9dfe-d501456d5d14",
+                              "name": "The specified resource was not found.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-N8N-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id/test",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "settings",
+                                    "log-streaming",
+                                    "destinations",
+                                    ":id",
+                                    "test"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T02:15:53.000Z",
+                              "updatedAt": "2026-10-22T02:15:53.000Z",
+                              "uid": "35240-9aba93ba-ac5c-468b-9dfe-d501456d5d14"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-90fb312f-7448-45e4-91b5-710faa9dc084"
+                        }
+                      ],
+                      "id": "448265f4-fd6c-4bd4-8998-2ee5d6948a34",
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-448265f4-fd6c-4bd4-8998-2ee5d6948a34"
+                    },
+                    {
+                      "name": "Retrieve a log streaming destination",
+                      "id": "fbc52fcb-66c1-42d1-a131-3e97ecfd5e72",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d24fa588-cd2d-4c21-82b7-a28842c01dd8",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The id of the log streaming destination."
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a single log streaming destination by id. Requires the `eventBusDestination:read` scope and the Log Streaming feature to be licensed."
+                      },
+                      "response": [
+                        {
+                          "id": "ff12f4d0-c5f4-4ef4-b0d1-d3e903067bbf",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-ff12f4d0-c5f4-4ef4-b0d1-d3e903067bbf"
+                        },
+                        {
+                          "id": "d53506df-6376-4a4a-b637-e531f103bfa3",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-d53506df-6376-4a4a-b637-e531f103bfa3"
+                        },
+                        {
+                          "id": "a6d46e2f-5956-445b-b57e-f208b85edaf1",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-a6d46e2f-5956-445b-b57e-f208b85edaf1"
+                        },
+                        {
+                          "id": "05c5e234-0c97-4673-aa91-b3f38756eeb1",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-05c5e234-0c97-4673-aa91-b3f38756eeb1"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-fbc52fcb-66c1-42d1-a131-3e97ecfd5e72"
+                    },
+                    {
+                      "name": "Update a log streaming destination",
+                      "id": "aae13b51-f189-49f3-ba33-dae596080b9c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4e183b55-3e09-4805-bace-7ca39156f484",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The id of the log streaming destination."
+                            }
+                          ]
+                        },
+                        "description": "Replace an existing log streaming destination. The update takes effect exactly as it would from the UI, using the same validation. Requires the `eventBusDestination:update` scope and the Log Streaming feature to be licensed. When destinations are managed via environment variables, the write is rejected with 409 and nothing is changed; reads still return the current values."
+                      },
+                      "response": [
+                        {
+                          "id": "9e96cd5f-f278-4994-9e82-93639725e1c9",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-9e96cd5f-f278-4994-9e82-93639725e1c9"
+                        },
+                        {
+                          "id": "97344c1b-864f-4699-a1c8-0afcdabc376b",
+                          "name": "The request is invalid or provides malformed data.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-97344c1b-864f-4699-a1c8-0afcdabc376b"
+                        },
+                        {
+                          "id": "566bc028-78ba-45de-8215-9daabb8b6c38",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-566bc028-78ba-45de-8215-9daabb8b6c38"
+                        },
+                        {
+                          "id": "ac7305b0-ba8e-4570-bcd0-108884bc9acb",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-ac7305b0-ba8e-4570-bcd0-108884bc9acb"
+                        },
+                        {
+                          "id": "59b0ef04-2709-43e1-aaf2-2f267d087e2d",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-59b0ef04-2709-43e1-aaf2-2f267d087e2d"
+                        },
+                        {
+                          "id": "4b883520-dbbf-490b-8bd7-9122b53de8ce",
+                          "name": "Conflict",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-4b883520-dbbf-490b-8bd7-9122b53de8ce"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-aae13b51-f189-49f3-ba33-dae596080b9c"
+                    },
+                    {
+                      "name": "Delete a log streaming destination",
+                      "id": "5823cc90-7f60-4f66-b30f-187b958db7db",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "beac5afd-acbf-4936-91a1-f3a628f7622f",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The id of the log streaming destination."
+                            }
+                          ]
+                        },
+                        "description": "Remove a log streaming destination. Requires the `eventBusDestination:delete` scope and the Log Streaming feature to be licensed. When destinations are managed via environment variables, the delete is rejected with 409 and nothing is removed; reads still return the current values."
+                      },
+                      "response": [
+                        {
+                          "id": "26016141-01d0-4cdf-9dd3-d35ed2bf3a38",
+                          "name": "Operation successful.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-26016141-01d0-4cdf-9dd3-d35ed2bf3a38"
+                        },
+                        {
+                          "id": "7e1d6738-9fa8-416b-a2de-771de4767736",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-7e1d6738-9fa8-416b-a2de-771de4767736"
+                        },
+                        {
+                          "id": "8f8aff36-f625-4fa8-94e0-2a70570a8f8d",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-8f8aff36-f625-4fa8-94e0-2a70570a8f8d"
+                        },
+                        {
+                          "id": "a00dc8b3-a8eb-4c89-9498-3d3ff46874bb",
+                          "name": "The specified resource was not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-a00dc8b3-a8eb-4c89-9498-3d3ff46874bb"
+                        },
+                        {
+                          "id": "447eab83-cbd0-4ddd-859a-085d5d16e9cd",
+                          "name": "Conflict",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-N8N-API-KEY",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/settings/log-streaming/destinations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "settings",
+                                "log-streaming",
+                                "destinations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:15:53.000Z",
+                          "updatedAt": "2026-10-22T02:15:53.000Z",
+                          "uid": "35240-447eab83-cbd0-4ddd-859a-085d5d16e9cd"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-5823cc90-7f60-4f66-b30f-187b958db7db"
+                    }
+                  ],
+                  "id": "b0a86465-1db4-42ef-8cdd-e545f4ee77f7",
+                  "createdAt": "2026-10-22T02:15:53.000Z",
+                  "updatedAt": "2026-10-22T02:15:53.000Z",
+                  "uid": "35240-b0a86465-1db4-42ef-8cdd-e545f4ee77f7"
+                },
+                {
+                  "name": "List log streaming destinations",
+                  "id": "52efa820-daf3-44ee-ab46-cb4dd77bda6f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "log-streaming",
+                        "destinations"
+                      ]
+                    },
+                    "description": "List the configured log streaming destinations. Requires the `eventBusDestination:list` scope and the Log Streaming feature to be licensed."
+                  },
+                  "response": [
+                    {
+                      "id": "a2f36f25-da81-4d9d-8083-9dc7d2ded560",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"webhook\",\n      \"url\": \"<uri>\",\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"subscribedEvents\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anonymizeAuditMessages\": \"<boolean>\",\n      \"circuitBreaker\": {\n        \"maxFailures\": \"<integer>\",\n        \"failureWindow\": \"<integer>\",\n        \"magna3\": true\n      },\n      \"method\": \"<string>\",\n      \"sendHeaders\": \"<boolean>\",\n      \"specifyHeaders\": \"<string>\",\n      \"headerParameters\": {\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          }\n        ]\n      },\n      \"jsonHeaders\": \"<string>\",\n      \"sendQuery\": \"<boolean>\",\n      \"specifyQuery\": \"<string>\",\n      \"queryParameters\": {\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          }\n        ],\n        \"dolorecdd\": 88873357.80245817\n      },\n      \"jsonQuery\": \"<string>\",\n      \"options\": {\n        \"timeout\": \"<integer>\",\n        \"allowUnauthorizedCerts\": \"<boolean>\",\n        \"queryParameterArrays\": \"brackets\",\n        \"redirect\": {\n          \"redirect\": {\n            \"followRedirects\": \"<boolean>\",\n            \"maxRedirects\": \"<integer>\"\n          }\n        },\n        \"proxy\": {\n          \"proxy\": {\n            \"protocol\": \"https\",\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\"\n          },\n          \"occaecat_6c7\": true\n        },\n        \"socket\": {\n          \"keepAlive\": \"<boolean>\",\n          \"maxSockets\": \"<integer>\",\n          \"maxFreeSockets\": \"<integer>\",\n          \"irure_f1\": \"incididunt mollit irure ullamco\"\n        }\n      }\n    },\n    {\n      \"type\": \"webhook\",\n      \"url\": \"<uri>\",\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"subscribedEvents\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"anonymizeAuditMessages\": \"<boolean>\",\n      \"circuitBreaker\": {\n        \"maxFailures\": \"<integer>\",\n        \"failureWindow\": \"<integer>\",\n        \"culpa__a\": 21281500,\n        \"labore_3\": \"deserunt enim\"\n      },\n      \"method\": \"<string>\",\n      \"sendHeaders\": \"<boolean>\",\n      \"specifyHeaders\": \"<string>\",\n      \"headerParameters\": {\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          }\n        ],\n        \"dolor_0_2\": false\n      },\n      \"jsonHeaders\": \"<string>\",\n      \"sendQuery\": \"<boolean>\",\n      \"specifyQuery\": \"<string>\",\n      \"queryParameters\": {\n        \"parameters\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": {\n              \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n              \"example\": \"Bearer <token>\"\n            }\n          }\n        ]\n      },\n      \"jsonQuery\": \"<string>\",\n      \"options\": {\n        \"timeout\": \"<integer>\",\n        \"allowUnauthorizedCerts\": \"<boolean>\",\n        \"queryParameterArrays\": \"indices\",\n        \"redirect\": {\n          \"redirect\": {\n            \"followRedirects\": \"<boolean>\",\n            \"maxRedirects\": \"<integer>\",\n            \"amet__7b\": true,\n            \"consectetur_da\": \"Lorem id\"\n          },\n          \"cupidatat__cd\": \"ad dolor in\"\n        },\n        \"proxy\": {\n          \"proxy\": {\n            \"protocol\": \"http\",\n            \"host\": \"<string>\",\n            \"port\": \"<integer>\"\n          }\n        },\n        \"socket\": {\n          \"keepAlive\": \"<boolean>\",\n          \"maxSockets\": \"<integer>\",\n          \"maxFreeSockets\": \"<integer>\"\n        },\n        \"non_2\": -114923.80003769696,\n        \"Excepteur_a\": \"consequat veniam irure Excepteur\",\n        \"esse4\": -1685519.5282483995,\n        \"magnac89\": true\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-a2f36f25-da81-4d9d-8083-9dc7d2ded560"
+                    },
+                    {
+                      "id": "f05eb15c-bcf0-4095-8bb8-efeb8ae79cb1",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-f05eb15c-bcf0-4095-8bb8-efeb8ae79cb1"
+                    },
+                    {
+                      "id": "cde6dbfd-b9db-45e5-89c0-484f60d6585e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-cde6dbfd-b9db-45e5-89c0-484f60d6585e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:53.000Z",
+                  "updatedAt": "2026-10-22T02:15:53.000Z",
+                  "uid": "35240-52efa820-daf3-44ee-ab46-cb4dd77bda6f"
+                },
+                {
+                  "name": "Create a log streaming destination",
+                  "id": "93a19074-f8b2-4069-9307-7456a3752f48",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "log-streaming",
+                        "destinations"
+                      ]
+                    },
+                    "description": "Create a log streaming destination. The destination takes effect exactly as it would from the UI, using the same validation. Requires the `eventBusDestination:create` scope and the Log Streaming feature to be licensed. When destinations are managed via environment variables, the write is rejected with 409 and nothing is created; reads still return the current values."
+                  },
+                  "response": [
+                    {
+                      "id": "a2dde6b2-598b-4714-a36a-ecc66ab61e00",
+                      "name": "Operation successful.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-a2dde6b2-598b-4714-a36a-ecc66ab61e00"
+                    },
+                    {
+                      "id": "a3e5a7c1-d5d4-433d-9b16-c979263b19fe",
+                      "name": "The request is invalid or provides malformed data.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-a3e5a7c1-d5d4-433d-9b16-c979263b19fe"
+                    },
+                    {
+                      "id": "0b5e6a64-2aa8-4e9e-84e7-f14d54cbe14b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-0b5e6a64-2aa8-4e9e-84e7-f14d54cbe14b"
+                    },
+                    {
+                      "id": "7b2bd161-005a-4b62-b297-2d6d6f6e8573",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-7b2bd161-005a-4b62-b297-2d6d6f6e8573"
+                    },
+                    {
+                      "id": "6994ca65-360b-4381-92fc-59f66d5e042f",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-N8N-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"webhook\",\n  \"url\": \"<uri>\",\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"subscribedEvents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"anonymizeAuditMessages\": \"<boolean>\",\n  \"circuitBreaker\": {\n    \"maxFailures\": \"<integer>\",\n    \"failureWindow\": \"<integer>\",\n    \"commodo_98d\": 52523225\n  },\n  \"method\": \"<string>\",\n  \"sendHeaders\": \"<boolean>\",\n  \"specifyHeaders\": \"<string>\",\n  \"headerParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"consequat_e18\": false\n  },\n  \"jsonHeaders\": \"<string>\",\n  \"sendQuery\": \"<boolean>\",\n  \"specifyQuery\": \"<string>\",\n  \"queryParameters\": {\n    \"parameters\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": {\n          \"description\": \"Parameter value. Usually a string; numbers, booleans and null are also accepted.\\n\",\n          \"example\": \"Bearer <token>\"\n        }\n      }\n    ],\n    \"anim_136\": 46633464\n  },\n  \"jsonQuery\": \"<string>\",\n  \"options\": {\n    \"timeout\": \"<integer>\",\n    \"allowUnauthorizedCerts\": \"<boolean>\",\n    \"queryParameterArrays\": \"repeat\",\n    \"redirect\": {\n      \"redirect\": {\n        \"followRedirects\": \"<boolean>\",\n        \"maxRedirects\": \"<integer>\"\n      }\n    },\n    \"proxy\": {\n      \"proxy\": {\n        \"protocol\": \"http\",\n        \"host\": \"<string>\",\n        \"port\": \"<integer>\",\n        \"id0d7\": 10034064.014042437,\n        \"voluptate035\": true,\n        \"elit_112\": 47566629\n      },\n      \"est_6a\": \"do nisi Lorem cupidatat m\",\n      \"incididunt_4\": true\n    },\n    \"socket\": {\n      \"keepAlive\": \"<boolean>\",\n      \"maxSockets\": \"<integer>\",\n      \"maxFreeSockets\": \"<integer>\"\n    },\n    \"Duis_3c\": true,\n    \"ea_26\": false,\n    \"voluptateb\": \"dolore mol\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/log-streaming/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "log-streaming",
+                            "destinations"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:15:53.000Z",
+                      "updatedAt": "2026-10-22T02:15:53.000Z",
+                      "uid": "35240-6994ca65-360b-4381-92fc-59f66d5e042f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:15:53.000Z",
+                  "updatedAt": "2026-10-22T02:15:53.000Z",
+                  "uid": "35240-93a19074-f8b2-4069-9307-7456a3752f48"
+                }
+              ],
+              "id": "6863d962-8f5b-4e36-82bf-e1fe22d1ddf3",
+              "createdAt": "2026-10-22T02:15:53.000Z",
+              "updatedAt": "2026-10-22T02:15:53.000Z",
+              "uid": "35240-6863d962-8f5b-4e36-82bf-e1fe22d1ddf3"
+            }
+          ],
+          "id": "ececd3d2-b714-470c-b686-d90c1cd1c5e3",
+          "createdAt": "2026-10-22T02:15:53.000Z",
+          "updatedAt": "2026-10-22T02:15:53.000Z",
+          "uid": "35240-ececd3d2-b714-470c-b686-d90c1cd1c5e3"
+        }
+      ],
+      "id": "0368ce39-b9ef-4e66-8697-30ee42c98b34",
+      "createdAt": "2026-10-22T02:15:53.000Z",
+      "updatedAt": "2026-10-22T02:15:53.000Z",
+      "uid": "35240-0368ce39-b9ef-4e66-8697-30ee42c98b34"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-N8N-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/api/v1"
+    }
+  ]
+}

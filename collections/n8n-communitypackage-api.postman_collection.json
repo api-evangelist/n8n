@@ -1,319 +1,294 @@
 {
+  "info": {
+    "_postman_id": "87b40cbb-34e4-4e88-a80e-1aae96c4b392",
+    "name": "n8n Public Community Package API",
+    "description": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:14:22.000Z",
+    "updatedAt": "2026-10-22T02:14:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-87b40cbb-34e4-4e88-a80e-1aae96c4b392"
+  },
   "item": [
     {
-      "id": "2e125d27-b075-4ab1-8ea3-e84388eba4c1",
-      "name": "CommunityPackage",
-      "description": {
-        "content": "Operations about community packages",
-        "type": "text/plain"
-      },
+      "name": "community-packages",
       "item": [
         {
-          "id": "7c783b03-f281-418b-959f-54d48e187a5b",
-          "name": "List installed community packages",
-          "request": {
-            "name": "List installed community packages",
-            "description": {},
-            "url": {
-              "path": [
-                "community-packages"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{name}",
+          "item": [
             {
-              "id": "4debbd30-67b0-403d-93fb-a83249d5af2f",
-              "name": "Operation successful.",
-              "originalRequest": {
+              "name": "Uninstall a community package",
+              "id": "7e26f1e5-21c2-4b5b-a029-e595dd69a82b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
                 "url": {
-                  "path": [
-                    "community-packages"
-                  ],
+                  "raw": "{{baseUrl}}/community-packages/:name",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
+                  "path": [
+                    "community-packages",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "aa26aebd-71cb-4999-8acd-3a3425924b75",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "fd6b5eac-6dcc-46dd-b232-218483aa3462",
+                  "name": "Uninstalled",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/community-packages/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "community-packages",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:22.000Z",
+                  "updatedAt": "2026-10-22T02:14:22.000Z",
+                  "uid": "35240-fd6b5eac-6dcc-46dd-b232-218483aa3462"
+                }
+              ],
+              "createdAt": "2026-10-22T02:14:22.000Z",
+              "updatedAt": "2026-10-22T02:14:22.000Z",
+              "uid": "35240-7e26f1e5-21c2-4b5b-a029-e595dd69a82b"
+            },
+            {
+              "name": "Update a community package",
+              "id": "e3b8429c-512b-4da3-b270-ae8aa524b448",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/community-packages/:name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "community-packages",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5be415b5-2f15-4fc8-932d-eacc3fafdf1f",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "057db9b9-4809-4725-8860-d1896e6745db",
+                  "name": "Operation successful.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-N8N-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/community-packages/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "community-packages",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:14:22.000Z",
+                  "updatedAt": "2026-10-22T02:14:22.000Z",
+                  "uid": "35240-057db9b9-4809-4725-8860-d1896e6745db"
+                }
+              ],
+              "createdAt": "2026-10-22T02:14:22.000Z",
+              "updatedAt": "2026-10-22T02:14:22.000Z",
+              "uid": "35240-e3b8429c-512b-4da3-b270-ae8aa524b448"
+            }
+          ],
+          "id": "669c2e08-d06c-499e-9f14-6276d0480c6b",
+          "createdAt": "2026-10-22T02:14:22.000Z",
+          "updatedAt": "2026-10-22T02:14:22.000Z",
+          "uid": "35240-669c2e08-d06c-499e-9f14-6276d0480c6b"
+        },
+        {
+          "name": "List installed community packages",
+          "id": "f9644f1d-5a98-45fa-8a77-8c244d704aa2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/community-packages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "community-packages"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b6210788-5a10-42c3-a66c-f930173ce891",
+              "name": "Operation successful.",
+              "originalRequest": {
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/community-packages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "community-packages"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:22.000Z",
+              "updatedAt": "2026-10-22T02:14:22.000Z",
+              "uid": "35240-b6210788-5a10-42c3-a66c-f930173ce891"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:22.000Z",
+          "updatedAt": "2026-10-22T02:14:22.000Z",
+          "uid": "35240-f9644f1d-5a98-45fa-8a77-8c244d704aa2"
         },
         {
-          "id": "a88e65ad-f2c5-45d8-9907-fafefd30fd61",
           "name": "Install a community package",
+          "id": "7f658b33-fb69-4f31-8e9b-4e35a8ffd400",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Install a community package",
-            "description": {},
+            "method": "POST",
+            "header": [],
             "url": {
-              "path": [
-                "community-packages"
-              ],
+              "raw": "{{baseUrl}}/community-packages",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": []
-            },
-            "method": "POST",
-            "auth": null
+              "path": [
+                "community-packages"
+              ]
+            }
           },
           "response": [
             {
-              "id": "7927790f-f1ac-4714-9c2d-e073711f8dd5",
+              "id": "c1a86648-5d03-499e-813e-76f55443ae96",
               "name": "Installed",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "community-packages"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "X-N8N-API-KEY",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/community-packages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "community-packages"
+                  ]
+                }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:14:22.000Z",
+              "updatedAt": "2026-10-22T02:14:22.000Z",
+              "uid": "35240-c1a86648-5d03-499e-813e-76f55443ae96"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ba8f99b3-acba-4f1a-820b-b4129bda0142",
-          "name": "Uninstall a community package",
-          "request": {
-            "name": "Uninstall a community package",
-            "description": {},
-            "url": {
-              "path": [
-                "community-packages",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ff32ee68-6ee2-4df8-b4b0-3de8439856a5",
-              "name": "Uninstalled",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "community-packages",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "487747e3-bcf6-4206-a6fb-886cc787211f",
-          "name": "Update a community package",
-          "request": {
-            "name": "Update a community package",
-            "description": {},
-            "url": {
-              "path": [
-                "community-packages",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "PATCH",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bf95312f-a718-4517-8fa2-a0be83337f4d",
-              "name": "Operation successful.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "community-packages",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-N8N-API-KEY",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:14:22.000Z",
+          "updatedAt": "2026-10-22T02:14:22.000Z",
+          "uid": "35240-7f658b33-fb69-4f31-8e9b-4e35a8ffd400"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.n8n.cloud/api/v1",
-      "key": "baseUrl"
+      "id": "4cc17589-282c-4f13-b611-6ea96a134aad",
+      "createdAt": "2026-10-22T02:14:22.000Z",
+      "updatedAt": "2026-10-22T02:14:22.000Z",
+      "uid": "35240-4cc17589-282c-4f13-b611-6ea96a134aad"
     }
   ],
   "auth": {
@@ -321,25 +296,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-N8N-API-KEY"
+        "value": "X-N8N-API-KEY",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7461af9b-cfa6-49b3-9b92-b725a7897153",
-    "name": "n8n Public Audit CommunityPackage API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, variables, projects, source control, audit, data tables, community packages, folders, and insights.\n\nContact Support:\n Name: n8n\n Email: hello@n8n.io",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.n8n.cloud/api/v1"
     }
-  }
+  ]
 }
