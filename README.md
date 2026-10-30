@@ -1,4 +1,4 @@
-# N8n (n8n)
+# n8n
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,89 +64,214 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
+n8n is a fair-code workflow automation and iPaaS platform with AI-agent tooling. It exposes an instance-scoped REST API (public OpenAPI 3.0 contract), MCP server/client capabilities via built-in nodes, and an llms.txt documentation index.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/apis.yml)
+**Areas:** Agents · Artificial Intelligence · Integration · Workflows · Automation · Low-Code · Workflow Automation
 
-## Scope
+## n8n on APIs.io
 
-- **Type:** Index
+Everything profiled for n8n is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/n8n/](https://apis.io/providers/n8n/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (22)
 
-- Agents
-- Artificial Intelligence
-- Integrations
+- [N8n Audit API](https://apis.io/apis/n8n/n8n-audit-api/) — Operations about security audit
+- [N8n CommunityPackage API](https://apis.io/apis/n8n/n8n-communitypackage-api/) — Operations about community packages
+- [N8n Credential API](https://apis.io/apis/n8n/n8n-credential-api/) — Operations about credentials
+- [N8n DataTable API](https://apis.io/apis/n8n/n8n-datatable-api/) — Operations about data tables and their rows
+- [N8n Discover API](https://apis.io/apis/n8n/n8n-discover-api/) — API capability discovery
+- [N8n Execution API](https://apis.io/apis/n8n/n8n-execution-api/) — Operations about executions
+- [N8n Folders API](https://apis.io/apis/n8n/n8n-folders-api/) — Operations about folders
+- [N8n Insights API](https://apis.io/apis/n8n/n8n-insights-api/) — Operations about insights
+- [N8n Projects API](https://apis.io/apis/n8n/n8n-projects-api/) — Operations about projects
+- [N8n Tags API](https://apis.io/apis/n8n/n8n-tags-api/) — Operations about tags
+- [N8n User API](https://apis.io/apis/n8n/n8n-user-api/) — Operations about users
+- [N8n Variables API](https://apis.io/apis/n8n/n8n-variables-api/) — Operations about variables
+- [N8n Workflow API](https://apis.io/apis/n8n/n8n-workflow-api/) — Operations about workflows
+- [n8n Evaluation API](https://apis.io/apis/n8n/n8n-evaluation-api/) — Operations about evaluation test runs
+- [n8n Log Streaming API](https://apis.io/apis/n8n/n8n-logstreaming-api/) — Operations about log streaming destinations
+- [n8n N8n Package API](https://apis.io/apis/n8n/n8n-n8npackage-api/) — Beta — breaking changes may still occur without major version bump.
+- [n8n Settings Ldap API](https://apis.io/apis/n8n/n8n-settingsldap-api/) — Operations about LDAP settings
+- [n8n Settings Otel API](https://apis.io/apis/n8n/n8n-settingsotel-api/) — Operations about OpenTelemetry settings
+- [n8n Settings SSO Oidc API](https://apis.io/apis/n8n/n8n-settingsssooidc-api/) — Operations about OIDC SSO settings
+- [n8n Settings SSO Saml API](https://apis.io/apis/n8n/n8n-settingsssosaml-api/) — Operations about SAML SSO settings
+- [n8n security policy API](https://apis.io/apis/n8n/n8n-security-policy-api/) — Operations about the instance security policy settings
+- [n8n Source Control API](https://apis.io/apis/n8n/n8n-source-control-api/) — Operations about source control
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-06-06
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### N8n
+GraphQL schemas.
 
-Build with the precision of code or the speed of drag-n-drop. Host with on-prem control or in-the-cloud convenience. n8n gives you more freedom to implement multi-step AI agents and integrate apps than any other tool.
+- [Moved to /providers/n8n/](https://apis.io/graphqls/n8n/n8n-graphql/)
 
-- **Human URL:** [https://n8n.io/](https://n8n.io/)
+#### MCP servers (1)
 
-#### Tags
+Model Context Protocol servers that expose the API to agents.
 
-- Agents
-- Artificial Intelligence
-- Integrations
+- [MCP Server](https://apis.io/servers/n8n/mcp-server/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://n8n.io/)
-- [Postman Collection](collections/n8n.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/n8n.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### N8n REST API
+- [N8N Agentic Access](https://apis.io/agentic-access/n8n/n8n-agentic-access/)
 
-The n8n public REST API provides programmatic access to n8n instance resources including workflows, executions, credentials, users, tags, and variables.
+#### JSON Structure (1)
 
-- **Human URL:** [https://docs.n8n.io/api/](https://docs.n8n.io/api/)
-- **Base URL:** `https://app.n8n.cloud/api/v1`
+Data models expressed in JSON Structure.
 
-#### Tags
+- [N8N Structure](https://apis.io/json-structure/n8n/n8n-structure/)
 
-- Automation
-- Credentials
-- Executions
-- Workflows
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.n8n.io/api/)
-- [Reference](https://docs.n8n.io/api/api-reference/)
-- [Authentication](https://docs.n8n.io/api/authentication/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/n8n/refs/heads/main/openapi/n8n-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/n8n.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/n8n.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [N8n Domain Vocabulary](https://apis.io/vocabularies/n8n/n8n-vocabulary/)
 
-## Common Properties
+#### Collections (15)
 
-- [LinkedIn](https://www.linkedin.com/company/n8n)
-- [Portal](https://n8n.io/)
+Postman and Open Collection request collections.
+
+- [n8n Public API](https://apis.io/collections/n8n/open-n8n/)
+- [n8n Public Audit API](https://apis.io/collections/n8n/open-n8n-audit-api/)
+- [n8n Public Audit CommunityPackage API](https://apis.io/collections/n8n/open-n8n-communitypackage-api/)
+- [n8n Public Audit Credential API](https://apis.io/collections/n8n/open-n8n-credential-api/)
+- [n8n Public Audit DataTable API](https://apis.io/collections/n8n/open-n8n-datatable-api/)
+- [n8n Public Audit Discover API](https://apis.io/collections/n8n/open-n8n-discover-api/)
+- [n8n Public Audit Execution API](https://apis.io/collections/n8n/open-n8n-execution-api/)
+- [n8n Public Audit Folders API](https://apis.io/collections/n8n/open-n8n-folders-api/)
+- [n8n Public Audit Insights API](https://apis.io/collections/n8n/open-n8n-insights-api/)
+- [n8n Public Audit Projects API](https://apis.io/collections/n8n/open-n8n-projects-api/)
+- [n8n Public Audit SourceControl API](https://apis.io/collections/n8n/open-n8n-sourcecontrol-api/)
+- [n8n Public Audit Tags API](https://apis.io/collections/n8n/open-n8n-tags-api/)
+- [n8n Public Audit User API](https://apis.io/collections/n8n/open-n8n-user-api/)
+- [n8n Public Audit Variables API](https://apis.io/collections/n8n/open-n8n-variables-api/)
+- [n8n Public Audit Workflow API](https://apis.io/collections/n8n/open-n8n-workflow-api/)
+
+#### Overlays (15)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [N8N Audit Overlay](https://apis.io/overlays/n8n/n8n-audit-overlay/)
+- [N8N Communitypackage Overlay](https://apis.io/overlays/n8n/n8n-communitypackage-overlay/)
+- [N8N Credential Overlay](https://apis.io/overlays/n8n/n8n-credential-overlay/)
+- [N8N Datatable Overlay](https://apis.io/overlays/n8n/n8n-datatable-overlay/)
+- [N8N Discover Overlay](https://apis.io/overlays/n8n/n8n-discover-overlay/)
+- [N8N Execution Overlay](https://apis.io/overlays/n8n/n8n-execution-overlay/)
+- [N8N Folders Overlay](https://apis.io/overlays/n8n/n8n-folders-overlay/)
+- [N8N Insights Overlay](https://apis.io/overlays/n8n/n8n-insights-overlay/)
+- [N8N Projects Overlay](https://apis.io/overlays/n8n/n8n-projects-overlay/)
+- [N8N Public Overlay](https://apis.io/overlays/n8n/n8n-public-overlay/)
+- [N8N Sourcecontrol Overlay](https://apis.io/overlays/n8n/n8n-sourcecontrol-overlay/)
+- [N8N Tags Overlay](https://apis.io/overlays/n8n/n8n-tags-overlay/)
+- [N8N User Overlay](https://apis.io/overlays/n8n/n8n-user-overlay/)
+- [N8N Variables Overlay](https://apis.io/overlays/n8n/n8n-variables-overlay/)
+- [N8N Workflow Overlay](https://apis.io/overlays/n8n/n8n-workflow-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [N8N Authentication](https://apis.io/security/n8n/n8n-authentication/)
+- [N8N Domain Security](https://apis.io/security/n8n/n8n-domain-security/)
+- [N8N Trust Center](https://apis.io/security/n8n/n8n-trust-center/)
+- [N8N Vulnerability Disclosure](https://apis.io/security/n8n/n8n-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [N8N Scopes](https://apis.io/scopes/n8n/n8n-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [N8N Plans Pricing](https://apis.io/plans/n8n/n8n-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [N8N Rate Limits](https://apis.io/rate-limits/n8n/n8n-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [N8N Finops](https://apis.io/finops/n8n/n8n-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://n8n.io)
 - [Documentation](https://docs.n8n.io/)
-- [Getting Started](https://docs.n8n.io/try-it-out/quickstart/)
-- [Login](https://app.n8n.cloud/login)
-- [Sign Up](https://app.n8n.cloud/magic-link)
+- [Getting started](https://docs.n8n.io/try-it-out/quickstart/)
+- [API reference](https://docs.n8n.io/connect/n8n-api/api-reference)
 - [Pricing](https://n8n.io/pricing/)
+- [Changelog](https://docs.n8n.io/changelog/release-notes)
 - [Blog](https://blog.n8n.io/)
-- [Changelog](https://docs.n8n.io/release-notes/)
-- [Community](https://community.n8n.io/)
-- [GitHub Organization](https://github.com/n8n-io)
-- [Privacy Policy](https://n8n.io/legal/privacy/)
-- [Terms of Service](https://n8n.io/legal/)
 - [Security](https://n8n.io/legal/security/)
-- [Features](undefined)
-- [Integrations](https://n8n.io/integrations)
-- [M C P Server](https://blog.n8n.io/n8n-mcp-server/)
+- [Terms of service](https://n8n.io/legal/)
+- [Privacy policy](https://n8n.io/legal/privacy/)
+- [GitHub](https://github.com/n8n-io)
+- [Status](https://status.n8n.cloud/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 68.1** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 49.9 |
+| Contract governance | 4.5 |
+| Operational transparency | 55.3 |
+| Developer ergonomics | 85.7 |
+| Access clarity | 92.1 |
+
+**Agent readiness 36.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | templated |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | yes |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 41.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/n8n/](https://apis.io/providers/n8n/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for n8n: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/n8n/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
