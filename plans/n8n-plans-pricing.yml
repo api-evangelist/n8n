@@ -1,0 +1,112 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://n8n.io/pricing/
+sources:
+- https://n8n.io/pricing/
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: open-core
+  method: page
+  read: '2026-10-07'
+  evidence: Community Edition A standard, self-hosted version of n8n is available on GitHub.
+  free_edition: Community Edition
+  managed_tier: Starter
+published: true
+note: Pricing based on monthly workflow executions; Business plan self-hosted only, Starter/Pro hosted
+  by n8n. Startup plan offers 50% off Business (no price shown).
+plan_count: 5
+currency: EUR
+plans:
+- name: Starter
+  price_text: 20€ /mo, billed annually
+  price: 20
+  currency: EUR
+  period: month
+  unit: workflow executions
+  included_quota: 2.5K workflow executions with unlimited steps; 1 shared project; 5 concurrent executions;
+    1,600 Assistant credits/month
+- name: Pro
+  price_text: 50€ /mo, billed annually
+  price: 50
+  currency: EUR
+  period: month
+  unit: workflow executions
+  included_quota: 10K workflow executions with unlimited steps; 3 shared projects; up to 50 concurrent
+    executions; up to 9,600 Assistant credits/month
+- name: Business
+  price_text: 667€ /mo, billed annually
+  price: 667
+  currency: EUR
+  period: month
+  unit: workflow executions
+  included_quota: 40K workflow executions with unlimited steps; self-hosted only; 6 shared projects; SSO
+    and LDAP
+  overage: For the Business plan, overage prices are 4,000 EUR for extra buckets of 300,000 executions.
+- name: Enterprise
+  price_text: Contact Sales
+  period: none
+  included_quota: Custom number of workflow executions; 200+ concurrent executions; dedicated support
+    with SLA
+- name: Community Edition
+  price_text: A standard, self-hosted version of n8n is available on GitHub.
+  period: none
+  included_quota: Self-hosted community edition
+rate_limit_statements:
+- 5 concurrent executions
+- Up to 50 concurrent executions
+- 200+ concurrent executions
+- Max execution duration 5 min 40 min 40 min
+- 'Trial limits: 1,000 executions, 5 concurrent executions, a 180-second execution timeout, and 1 team
+  project'
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units: []
+  plans:
+  - name: Starter
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Business
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Community Edition
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
