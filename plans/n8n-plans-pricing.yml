@@ -65,7 +65,7 @@ rate_limit_statements:
 - 'Trial limits: 1,000 executions, 5 concurrent executions, a 180-second execution timeout, and 1 team
   project'
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
